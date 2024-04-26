@@ -1,0 +1,38 @@
+
+body {
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+}
+.admin-header {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+.admin-container {
+  margin-top: 20px;
+  
+}
+.admin-sidebar {
+  color: white;
+  background-color: #343a40;
+  border-right: 1px solid #dee2e6;
+  min-height: 100vh;
+  width: 230px;
+  border-radius: 1rem;
+  margin-left: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.admin-main {
+  padding: 20px;
+}
+
+.list-group{
+  width: 180px;
+  
+}
+.btn{
+  margin-top: 10px;
+}
+

@@ -1,0 +1,12 @@
+body {
+  /* background-color: #f8f9fa; */
+  font-family: Arial, sans-serif;
+}
+.booking-form {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
