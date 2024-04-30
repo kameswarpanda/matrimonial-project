@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [formGroup] = "userForm">
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="signup-form" >
@@ -7,12 +7,17 @@
           <div class="mb-3">
             <label for="name" class="form-label">Enter your name</label>
             <input
+              formControlName="name"
               type="text"
               class="form-control"
               id="name"
-              placeholder="abc xyz"
+              placeholder=""
               required
             />
+            <div class="text-danger" *ngIf="userForm.controls['name'].invalid && (userForm.controls['name'].touched || userForm.controls['name'].dirty)">
+                <span *ngIf="userForm.controls['name'].errors?.['required']">Required</span>
+                <span *ngIf="userForm.controls['name'].errors?.['minlength']">Minmum two character</span>
+            </div>
           </div>
           <div class="mb-3">
             <label for="address" class="form-label">Enter your address</label>
@@ -20,9 +25,13 @@
               type="text"
               class="form-control"
               id="address"
-              placeholder="123 Main Street"
+              placeholder=""
               required
+              formControlName="address"
             />
+            <div class="text-danger" *ngIf="userForm.controls['address'].invalid && (userForm.controls['address'].touched || userForm.controls['address'].dirty)">
+              <span *ngIf="userForm.controls['address'].errors?.['required']">Required</span>
+          </div>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Enter your email</label>
@@ -32,7 +41,13 @@
               id="email"
               placeholder="abc@gmail.com"
               required
+              formControlName="mailId"
             />
+            <div class="text-danger" *ngIf="userForm.controls['mailId'].invalid && (userForm.controls['mailId'].touched || userForm.controls['mailId'].dirty)">
+              <span *ngIf="userForm.controls['mailId'].errors?.['required']">Required</span>
+              <span *ngIf="userForm.controls['mailId'].errors?.['email']">Enter with proper formate</span>
+          </div>
+
           </div>
           <div class="mb-3">
             <label for="mobile" class="form-label">Enter your mobile no</label>
@@ -40,9 +55,15 @@
               type="tel"
               class="form-control"
               id="mobile"
-              placeholder="8758938876"
+              placeholder=""
               required
+              formControlName="mobileNumber"
             />
+            <div class="text-danger" *ngIf="userForm.controls['mobileNumber'].invalid && (userForm.controls['mobileNumber'].touched || userForm.controls['mobileNumber'].dirty)">
+              <span *ngIf="userForm.controls['mobileNumber'].errors?.['required']">Required</span>
+              <span *ngIf="userForm.controls['mobileNumber'].errors?.['pattern']">Please Enter in 10 Digits</span>
+          </div>
+
           </div>
           <div class="mb-3">
             <label for="guests" class="form-label">Enter no of guests</label>
@@ -53,31 +74,30 @@
               min="1"
 							placeholder="Eg - 10, 20"
               required
+              formControlName="guestNo"
             />
           </div>
           <div class="mb-3">
             <label for="date" class="form-label">Enter date of function</label>
-            <input type="date" class="form-control" id="date" required />
+            <input type="date" class="form-control" id="date" required
+            formControlName="date"
+             />
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Create Password</label>
+            <label for="password" class="form-label">Password</label>
             <input
               type="password"
               class="form-control"
               id="password"
-              placeholder="xxxxxx"
+              placeholder=""
               required
+              formControlName="password"
             />
+            <div class="text-danger" *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].touched || userForm.controls['password'].dirty)">
+              <span *ngIf="userForm.controls['password'].errors?.['required']">Required</span>
+              <span *ngIf="userForm.controls['password'].errors?.['minlength']">Minimum 8 character</span>
           </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Confirm Password</label>
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              placeholder="xxxxxx"
-              required
-            />
+
           </div>
           <button type="submit" class="btn btn-primary btn-block">
             Sign Up
