@@ -37,10 +37,11 @@ body {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #ffc107;
-  color: #000;
+  background-color: #009970;
+  color: #ffffff;
   cursor: pointer;
+  font-weight: bold;
 }
 .form-group input[type="submit"]:hover {
-  background-color: #ffca28;
+  background-color: #02a378;
 }

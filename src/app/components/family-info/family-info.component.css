@@ -1,0 +1,50 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.container {
+  
+  max-width: 800px;
+  margin: 80px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.btn-option {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color: #495057; /* Button text color */
+  background-color: #fff; /* Button background color */
+  border: 1px solid #ced4da; /* Button border color */
+}
+
+.btn-option.active {
+  background-color: #e9ecef; /* Lighter background color when selected */
+}
+
+.btn-continue {
+  margin-left: 25%;
+  width: 50%;
+  padding: 12px;
+  border: none;
+  background-color: #28a745; /* Green color */
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-continue:hover {
+  background-color: #218838; /* Darker green color on hover */
+}

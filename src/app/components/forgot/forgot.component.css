@@ -13,3 +13,14 @@
  align-items: center;
  width: 350px;
 }
+
+.btn{
+  font-weight: bold;
+  background-color: #009970;
+ 
+  
+}
+
+.btn:hover {
+  background-color: #02a378;
+}

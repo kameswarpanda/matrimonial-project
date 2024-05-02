@@ -1,25 +1,48 @@
-<div class="container" [formGroup] = "userForm">
+<div class="container" [formGroup]="userForm">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <div class="signup-form" >
+      <div class="signup-form">
         <h2 class="text-center">Sign Up</h2>
         <form>
+          <div class="form-group mb-3">
+            <label for="profile-for" class="form-label">Profile For</label>
+            <select class="form-control" id="religion">
+              <option value="hinduism">Myself</option>
+              <option value="islam">Son</option>
+              <option value="christianity">Daughter</option>
+              <option value="buddhism">Sister</option>
+              <option value="others">Brother</option>
+              <option value="others">Relative</option>
+              <option value="others">Friend</option>
+            </select>
+          </div>
           <div class="mb-3">
-            <label for="name" class="form-label">Enter your name</label>
+            <label for="name" class="form-label">Enter Name</label>
             <input
               formControlName="name"
               type="text"
               class="form-control"
               id="name"
-              placeholder=""
+              placeholder="Full Name"
               required
             />
-            <div class="text-danger" *ngIf="userForm.controls['name'].invalid && (userForm.controls['name'].touched || userForm.controls['name'].dirty)">
-                <span *ngIf="userForm.controls['name'].errors?.['required']">Required</span>
-                <span *ngIf="userForm.controls['name'].errors?.['minlength']">Minmum two character</span>
+            <div
+              class="text-danger"
+              *ngIf="
+                userForm.controls['name'].invalid &&
+                (userForm.controls['name'].touched ||
+                  userForm.controls['name'].dirty)
+              "
+            >
+              <span *ngIf="userForm.controls['name'].errors?.['required']"
+                >Required</span
+              >
+              <span *ngIf="userForm.controls['name'].errors?.['minlength']"
+                >Minmum two character</span
+              >
             </div>
           </div>
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="address" class="form-label">Enter your address</label>
             <input
               type="text"
@@ -32,7 +55,7 @@
             <div class="text-danger" *ngIf="userForm.controls['address'].invalid && (userForm.controls['address'].touched || userForm.controls['address'].dirty)">
               <span *ngIf="userForm.controls['address'].errors?.['required']">Required</span>
           </div>
-          </div>
+          </div> -->
           <div class="mb-3">
             <label for="email" class="form-label">Enter your email</label>
             <input
@@ -43,11 +66,21 @@
               required
               formControlName="mailId"
             />
-            <div class="text-danger" *ngIf="userForm.controls['mailId'].invalid && (userForm.controls['mailId'].touched || userForm.controls['mailId'].dirty)">
-              <span *ngIf="userForm.controls['mailId'].errors?.['required']">Required</span>
-              <span *ngIf="userForm.controls['mailId'].errors?.['email']">Enter with proper formate</span>
-          </div>
-
+            <div
+              class="text-danger"
+              *ngIf="
+                userForm.controls['mailId'].invalid &&
+                (userForm.controls['mailId'].touched ||
+                  userForm.controls['mailId'].dirty)
+              "
+            >
+              <span *ngIf="userForm.controls['mailId'].errors?.['required']"
+                >Required</span
+              >
+              <span *ngIf="userForm.controls['mailId'].errors?.['email']"
+                >Enter with proper formate</span
+              >
+            </div>
           </div>
           <div class="mb-3">
             <label for="mobile" class="form-label">Enter your mobile no</label>
@@ -55,17 +88,29 @@
               type="tel"
               class="form-control"
               id="mobile"
-              placeholder=""
+              placeholder="Mobile Number"
               required
               formControlName="mobileNumber"
             />
-            <div class="text-danger" *ngIf="userForm.controls['mobileNumber'].invalid && (userForm.controls['mobileNumber'].touched || userForm.controls['mobileNumber'].dirty)">
-              <span *ngIf="userForm.controls['mobileNumber'].errors?.['required']">Required</span>
-              <span *ngIf="userForm.controls['mobileNumber'].errors?.['pattern']">Please Enter in 10 Digits</span>
+            <div
+              class="text-danger"
+              *ngIf="
+                userForm.controls['mobileNumber'].invalid &&
+                (userForm.controls['mobileNumber'].touched ||
+                  userForm.controls['mobileNumber'].dirty)
+              "
+            >
+              <span
+                *ngIf="userForm.controls['mobileNumber'].errors?.['required']"
+                >Required</span
+              >
+              <span
+                *ngIf="userForm.controls['mobileNumber'].errors?.['pattern']"
+                >Please Enter in 10 Digits</span
+              >
+            </div>
           </div>
-
-          </div>
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="guests" class="form-label">Enter no of guests</label>
             <input
               type="number"
@@ -76,42 +121,62 @@
               required
               formControlName="guestNo"
             />
-          </div>
-          <div class="mb-3">
+          </div> -->
+          <!-- <div class="mb-3">
             <label for="date" class="form-label">Enter date of function</label>
             <input type="date" class="form-control" id="date" required
             formControlName="date"
              />
-          </div>
+          </div> -->
           <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
+            <label for="password" class="form-label"
+              >Create your Password</label
+            >
             <input
               type="password"
               class="form-control"
               id="password"
-              placeholder=""
+              placeholder="Your Password"
               required
               formControlName="password"
             />
-            <div class="text-danger" *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].touched || userForm.controls['password'].dirty)">
-              <span *ngIf="userForm.controls['password'].errors?.['required']">Required</span>
-              <span *ngIf="userForm.controls['password'].errors?.['minlength']">Minimum 8 character</span>
+            <div
+              class="text-danger"
+              *ngIf="
+                userForm.controls['password'].invalid &&
+                (userForm.controls['password'].touched ||
+                  userForm.controls['password'].dirty)
+              "
+            >
+              <span *ngIf="userForm.controls['password'].errors?.['required']"
+                >Required</span
+              >
+              <span *ngIf="userForm.controls['password'].errors?.['minlength']"
+                >Minimum 8 character</span
+              >
+            </div>
           </div>
-
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">
-            Sign Up
+          <button
+            type="submit"
+            class="btn btn-success btn-block"
+            routerLink="/basicinfo"
+            routerLinkActive="active"
+          >
+            Continue to Sign Up
           </button>
+          <div class="mt-3 text-center">
+            <p>
+              Already have an Account?
+              <a routerLink="/login" routerLinkActive="active">Login</a>
+            </p>
+          </div>
         </form>
-        <hr />
+        <!-- <hr />
         <p class="text-center">Or sign up with:</p>
         <div class="text-center">
           <a href="#" class="btn btn-google me-2">G</a>
           <a href="#" class="btn btn-facebook ms-2">Facebook</a>
-        </div>
-        <div class="mt-3 text-center ">
-          <p>Already have an Account? <a routerLink="/login" routerLinkActive="active">Login</a></p>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

@@ -5,11 +5,13 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ForgotComponent } from './components/forgot/forgot.component';
+import { FamilyInfoComponent } from './components/family-info/family-info.component';
+import { MatchesComponent } from './components/matches/matches.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, LoginComponent, HomeComponent, FooterComponent, ForgotComponent],
+  imports: [RouterOutlet, NavbarComponent, LoginComponent, HomeComponent, FooterComponent, ForgotComponent, FamilyInfoComponent, MatchesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

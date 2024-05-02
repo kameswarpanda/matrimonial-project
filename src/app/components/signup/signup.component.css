@@ -1,12 +1,14 @@
 
 
 .container {
-  margin-top: 100px;
-  margin-bottom: 50px;
+  margin-top: 80px;
+  margin-bottom: 30px;
+  
 }
 
 .signup-form {
-  /* background-color: #ffffff; */
+  /* max-height: 85vh;
+  overflow-y: auto; */
   border-radius: 10px;
   background-color: white;
   padding: 30px;
@@ -32,13 +34,7 @@
   margin-top: 10px;
 }
 
-.btn-primary {
-  background-color: #ffc107;
-  border-color: #ffc107;
-  color: black;
-}
-
-.btn-google {
+/* .btn-google {
   background-color: #db4437;
   border-color: #db4437;
   color: #fff;
@@ -54,5 +50,5 @@
 .btn-facebook:hover,
 .btn-primary:hover {
   filter: brightness(90%);
-}
+} */
 

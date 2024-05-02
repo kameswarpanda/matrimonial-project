@@ -1,0 +1,51 @@
+
+
+.container {
+  max-width: 500px;
+  margin: 80px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.form-group .radio-inline {
+  margin-right: 20px;
+}
+
+.btn-continue {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background-color: #009970;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-continue:hover {
+  background-color: #02a378;
+}

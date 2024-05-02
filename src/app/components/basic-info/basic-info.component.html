@@ -1,0 +1,51 @@
+
+<div class="container">
+  <h5>Please Provide us with your Basic Details</h5>
+  <form>
+    <div class="form-group">
+      <label for="dob">Date of Birth:</label>
+      <input type="date" class="form-control" id="dob">
+    </div>
+    <div class="form-group">
+      <label for="religion">Religion:</label>
+      <select class="form-control" id="religion">
+        <option value="hinduism">Hinduism</option>
+        <option value="islam">Islam</option>
+        <option value="christianity">Christianity</option>
+        <option value="buddhism">Buddhism</option>
+        <option value="buddhism">Sikh</option>
+        <option value="buddhism">Jain</option>
+        <option value="others">Others</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="motherTongue">Mother Tongue:</label>
+      <select class="form-control" id="motherTongue">
+        <option value="hindi">Hindi</option>
+        <option value="spanish">Telugu</option>
+        <option value="chinese">Oriya</option>
+        <option value="arabic">Bengali</option>
+        <option value="arabic">Gujurati</option>
+        <option value="arabic">Marwari</option>
+        <option value="arabic">Panjabi</option>
+        <option value="arabic">Tamil</option>
+        <option value="arabic">Urdu</option>
+        <option value="arabic">Others</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Gender:</label>
+      <div class="form-check form-check-inline radio-inline">
+        <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+        <label class="form-check-label" for="male">Male</label>
+      </div>
+      <div class="form-check form-check-inline radio-inline">
+        <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+        <label class="form-check-label" for="female">Female</label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-continue" routerLink="/casteinfo" routerLinkActive="active">Continue</button>
+  </form>
+</div>
+
+
