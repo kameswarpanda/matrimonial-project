@@ -3,12 +3,12 @@ import { RouterLink } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
-  selector: 'app-admin',
+  selector: 'app-page',
   standalone: true,
-  imports: [RouterLink, NavbarComponent],
-  templateUrl: './admin.component.html',
-  styleUrl: './admin.component.css'
+  imports: [RouterLink, PageComponent, NavbarComponent],
+  templateUrl: './page.component.html',
+  styleUrl: './page.component.css'
 })
-export class AdminComponent {
+export class PageComponent {
 
 }

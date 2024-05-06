@@ -1,3 +1,47 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand me-auto" routerLink="/home" routerLinkActive="active"
+      >Jeevansathi</a
+    >
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Jeevansathi</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+      </div>
+    </div>
+    <a
+      href="#"
+      class="login-button"
+      routerLink="/login"
+      routerLinkActive="active"
+      >Login</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+
 <section class="hero-section">
   <div
     class="container d-flex align-items-center justify-content-center fs-1 text-black flex-column"
@@ -11,7 +55,7 @@
         routerLink="/login"
         routerLinkActive="active"
       >
-        Login
+        Sign in
       </button>
 
       <button
