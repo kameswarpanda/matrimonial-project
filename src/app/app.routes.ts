@@ -14,6 +14,7 @@ import { FamilyInfoComponent } from './components/family-info/family-info.compon
 import { ProfessionalInfoComponent } from './components/professional-info/professional-info.component';
 import { ReligionCasteInfoComponent } from './components/religion-caste-info/religion-caste-info.component';
 import { MatchesComponent } from './components/matches/matches.component';
+import { PersonalInfoComponent } from './personal-info/personal-info.component';
 
 
 export const routes: Routes = [
@@ -29,9 +30,10 @@ export const routes: Routes = [
     { path: 'forgot', component: ForgotComponent},
     { path: 'loctaionbooking', component: LocationBookingComponent },
     { path: 'basicinfo', component: BasicInfoComponent },
-    { path: 'familyinfo', component: FamilyInfoComponent },
+    { path: 'family-info', component: FamilyInfoComponent },
     { path: 'professionalinfo', component: ProfessionalInfoComponent },
     { path: 'casteinfo', component: ReligionCasteInfoComponent },
     { path: 'matches', component: MatchesComponent },
-    
+    { path: 'personal-info', component: PersonalInfoComponent},
+    { path: 'professional-info', component: ProfessionalInfoComponent},
 ];

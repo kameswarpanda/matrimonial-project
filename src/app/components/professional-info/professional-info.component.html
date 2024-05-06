@@ -1,66 +1,14 @@
-
 <div class="container">
-  <h5>Professional Details helps you to get relevent matches</h5>
-  <form>
+  <h5>Please Provide Your Personal Information</h5>
+  <form [formGroup]="personalInfoForm">
     <div class="form-group">
-      <label for="highestEducation">Highest Education:</label>
-      <select class="form-control" id="highestEducation">
-        <option value="highSchool">High School</option>
-        <option value="diploma">Diploma</option>
-        <option value="bachelors">Bachelor's Degree</option>
-        <option value="masters">Master's Degree</option>
-        <option value="doctorate">Doctorate</option>
-        <!-- Add more options as needed -->
-      </select>
+      <label for="educationLevel">Education Level:</label>
+      <input type="text" class="form-control" id="educationLevel" formControlName="educationLevel" required>
     </div>
     <div class="form-group">
-      <label for="employedIn">Employed In:</label><br>
-      <div class="btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-option">
-          <input type="radio" name="employedIn" id="government" value="government"> Government/PSU
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="employedIn" id="private" value="private"> Private
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="employedIn" id="business" value="business"> Business
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="employedIn" id="defence" value="defence"> Defence
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="employedIn" id="selfEmployed" value="selfEmployed"> Self Employed
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="employedIn" id="notWorking" value="notWorking"> Not Working
-        </label>
-      </div>
+      <label for="educationField">Education Field:</label>
+      <input type="text" class="form-control" id="educationField" formControlName="educationField" required>
     </div>
-    <div class="form-group">
-      <label for="occupation">Occupation:</label>
-      <select class="form-control" id="occupation">
-        <option value="teacher">Teacher</option>
-        <option value="engineer">Engineer</option>
-        <option value="doctor">Doctor</option>
-        <option value="lawyer">Lawyer</option>
-        <!-- Add more options as needed -->
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="annualIncome">Annual Income In Rs:</label>
-      <select class="form-control" id="annualIncome">
-        <option value="1L">1 Lakh+</option>
-        <option value="2L">2 Lakh+</option>
-        <option value="3L">3 Lakh+</option>
-        <option value="4L">4 Lakh+</option>
-        <option value="5L">5 Lakh+</option>
-        <option value="6L">6 Lakh+</option>
-        <option value="7L">7 Lakh+</option>
-        <option value="8L">8 Lakh+</option>
-        <option value="9L">9 Lakh+</option>
-        <option value="10L+">10 Lakhs+</option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-success btn-continue" routerLink="/home" routerLinkActive="active">Continue</button>
+    <button type="button" class="btn btn-primary btn-continue" routerLink="/family-info" (click)="onContinue()">Continue</button>
   </form>
 </div>

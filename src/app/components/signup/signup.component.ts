@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 
 @Component({
   selector: 'app-signup',
@@ -28,9 +29,22 @@ constructor(){
   })
 }
 
-  onSubmit(){
+  onSubmit(e: Event){
     const isFormValid = this.userForm.valid;
     debugger;
     this.isFormSubmitted = true;
+      emailjs
+        .sendForm('service_hksa34h', 'template_xt58p0e', e.target as HTMLFormElement , {
+          publicKey: 'yoF2P1NACJyTjTxOS',
+        })
+        .then(
+          () => {
+            console.log('SUCCESS!');
+            window.location.reload();
+          },
+          (error) => {
+            console.log('FAILED...', (error as EmailJSResponseStatus).text);
+          },
+        );
+    }
   }
-}
