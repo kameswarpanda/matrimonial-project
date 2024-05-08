@@ -1,97 +1,18 @@
-
 <div class="container">
-  <h5>Personal details get you the Right matches</h5>
-  <form>
+  <h5>Please Provide Your Family Information</h5>
+  <form [formGroup]="familyInfoForm">
     <div class="form-group">
-      <label for="maritalStatus">Marital Status:</label><br>
-      <div class="btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-option">
-          <input type="radio" name="maritalStatus" id="neverMarried" value="neverMarried"> Never married
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="maritalStatus" id="widowed" value="widowed"> Widowed
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="maritalStatus" id="divorced" value="divorced"> Divorced
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="maritalStatus" id="awaitingDivorce" value="awaitingDivorce"> Awaiting Divorce
-        </label>
-      </div>
+      <label for="familyStatus">Family Status:</label>
+      <input type="text" class="form-control" id="familyStatus" formControlName="familyStatus" required>
     </div>
     <div class="form-group">
-      <label for="height">Height:</label>
-      <select class="form-control" id="height">
-        <option value="">-- Select Height --</option>
-        <option value="4ft">4 ft</option>
-        <option value="4ft 6in">4 ft 6 in</option>
-        <option value="5ft">5 ft</option>
-        <option value="5ft 6in">5 ft 6 in</option>
-        <option value="6ft">6 ft</option>
-        <option value="6ft 6in">6 ft 6 in</option>
-        <option value="7ft">7 ft</option>
-        <option value="7ft 6in">7 ft 6 in</option>
-        <option value="8ft">8 ft</option>
-        <option value="8ft 6in">8 ft 6 in</option>
-        <option value="9ft">9 ft</option>
-      </select>
+      <label for="familyType">Family Type:</label>
+      <input type="text" class="form-control" id="familyType" formControlName="familyType" required>
     </div>
     <div class="form-group">
-      <label for="familyStatus">Family Status:</label><br>
-      <div class="btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-option">
-          <input type="radio" name="familyStatus" id="middleClass" value="middleClass"> Middle Class
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="familyStatus" id="upperMiddleClass" value="upperMiddleClass"> Upper Middle Class
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="familyStatus" id="highClass" value="highClass"> High Class
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="familyStatus" id="richAffluent" value="richAffluent"> Rich/Affluent
-        </label>
-      </div>
+      <label for="familyName">Family Name:</label>
+      <input type="text" class="form-control" id="familyName" formControlName="familyName" required>
     </div>
-    <div class="form-group">
-      <label for="familyType">Family Type:</label><br>
-      <div class="btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-option">
-          <input type="radio" name="familyType" id="joint" value="joint"> Joint
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="familyType" id="nuclear" value="nuclear"> Nuclear
-        </label>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="familyValues">Family Values:</label><br>
-      <div class="btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-option">
-          <input type="radio" name="familyValues" id="orthodox" value="orthodox"> Orthodox
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="familyValues" id="traditional" value="traditional"> Traditional
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="familyValues" id="moderate" value="moderate"> Moderate
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="familyValues" id="liberal" value="liberal"> Liberal
-        </label>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="disability">Any Disability:</label><br>
-      <div class="btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-option">
-          <input type="radio" name="disability" id="none" value="none"> None
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="disability" id="physicallyChallenged" value="physicallyChallenged"> Physically Challenged
-        </label>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-success btn-continue" routerLink="/professionalinfo" routerLinkActive="active">Continue</button>
+    <button type="submit" class="btn btn-success btn-continue" routerLink="/matches" routerLinkActive="active">Continue</button>
   </form>
 </div>
