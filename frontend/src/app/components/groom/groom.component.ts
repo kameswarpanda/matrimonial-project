@@ -4,12 +4,12 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { LoginNavbarComponent } from '../../login-navbar/login-navbar.component';
 
 @Component({
-  selector: 'app-matches',
+  selector: 'app-groom',
   standalone: true,
-  imports: [RouterLink, NavbarComponent, LoginNavbarComponent],
-  templateUrl: './matches.component.html',
-  styleUrl: './matches.component.css'
+  imports: [RouterLink, LoginNavbarComponent],
+  templateUrl: './groom.component.html',
+  styleUrl: './groom.component.css'
 })
-export class MatchesComponent {
+export class GroomComponent {
 
 }

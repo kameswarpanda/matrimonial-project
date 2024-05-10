@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [RouterLink,RouterLinkActive, ReactiveFormsModule, CommonModule],
+  imports: [RouterLink,RouterLinkActive, ReactiveFormsModule, CommonModule, NavbarComponent],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })

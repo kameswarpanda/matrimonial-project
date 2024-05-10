@@ -16,6 +16,8 @@ import { ReligionCasteInfoComponent } from './components/religion-caste-info/rel
 import { MatchesComponent } from './components/matches/matches.component';
 import { PageComponent } from './components/page/page.component';
 import { MatchesInfoComponent } from './components/matches-info/matches-info.component';
+import { GroomComponent } from './components/groom/groom.component';
+import { GroomInfoComponent } from './components/groom-info/groom-info.component';
 
 
 export const routes: Routes = [
@@ -37,5 +39,7 @@ export const routes: Routes = [
     { path: 'matches', component: MatchesComponent },
     { path: 'page', component: PageComponent },
     { path: 'matches/info', component: MatchesInfoComponent },
+    { path: 'groom', component: GroomComponent},
+    { path: 'groom/groom-info', component: GroomInfoComponent},
     
 ];

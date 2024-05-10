@@ -3,12 +3,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { LoginNavbarComponent } from '../../login-navbar/login-navbar.component';
 
 @Component({
-  selector: 'app-matches-info',
+  selector: 'app-groom-info',
   standalone: true,
   imports: [RouterLink, RouterLinkActive, LoginNavbarComponent],
-  templateUrl: './matches-info.component.html',
-  styleUrl: './matches-info.component.css'
+  templateUrl: './groom-info.component.html',
+  styleUrl: './groom-info.component.css'
 })
-export class MatchesInfoComponent {
+export class GroomInfoComponent {
 
 }
