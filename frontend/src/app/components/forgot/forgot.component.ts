@@ -16,8 +16,8 @@ export class ForgotComponent {
     e.preventDefault();
     console.log("submit");
     emailjs
-      .sendForm('service_hksa34h', 'template_4x9byr7', e.target as HTMLFormElement , {
-        publicKey: 'yoF2P1NACJyTjTxOS',
+      .sendForm('service_b33wh5w', 'template_fqinkyz', e.target as HTMLFormElement , {
+        publicKey: 'TiPMp9coe69l6TC0y',
       })
       .then(
         () => {

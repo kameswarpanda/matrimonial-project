@@ -10,9 +10,24 @@
       <input type="text" class="form-control" id="lastName" required>
     </div>
     <div class="form-group">
+      <label for="dob">Date of Birth:</label>
+      <input type="date" class="form-control" id="dob">
+    </div>
+    <div class="form-group">
       <label for="age">Age:</label>
       <input type="number" class="form-control" id="age" required>
     </div>
-    <button type="submit" class="btn btn-primary btn-continue" routerLink="/personal-info" routerLinkActive="active">Continue</button>
+    <div class="form-group">
+      <label>Gender:</label>
+      <div class="form-check form-check-inline radio-inline">
+        <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+        <label class="form-check-label" for="male">Male</label>
+      </div>
+      <div class="form-check form-check-inline radio-inline">
+        <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+        <label class="form-check-label" for="female">Female</label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-continue" routerLink="/professionalinfo" routerLinkActive="active">Continue</button>
   </form>
 </div>

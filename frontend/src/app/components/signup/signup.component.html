@@ -3,6 +3,7 @@
     <div class="col-md-6">
       <div class="signup-form">
         <h2 class="text-center">Sign Up</h2>
+        <!-- <form> -->
         <form (submit)="onSubmit($event)">
           <div class="mb-3">
             <label for="name" class="form-label">Enter Username</label>
@@ -72,7 +73,6 @@
               >
             </div>
           </div>
-
 
           <div class="mb-3">
             <label for="email" class="form-label">Enter your email</label>
@@ -146,12 +146,11 @@
             formControlName="date"
              />
           </div> -->
-         
+
           <button
             type="submit"
             class="btn btn-success btn-block"
-            routerLink="/basicinfo"
-            routerLinkActive="active"
+            
           >
             Continue to Sign Up
           </button>

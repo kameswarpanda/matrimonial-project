@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-matches-info',
   standalone: true,
   imports: [RouterLink, RouterLinkActive],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  templateUrl: './matches-info.component.html',
+  styleUrl: './matches-info.component.css'
 })
-export class LoginComponent {
-  
+export class MatchesInfoComponent {
+
 }

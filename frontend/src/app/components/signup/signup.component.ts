@@ -34,8 +34,8 @@ constructor(){
     debugger;
     this.isFormSubmitted = true;
       emailjs
-        .sendForm('service_hksa34h', 'template_xt58p0e', e.target as HTMLFormElement , {
-          publicKey: 'yoF2P1NACJyTjTxOS',
+        .sendForm('service_b33wh5w', 'template_rv04sb5', e.target as HTMLFormElement , {
+          publicKey: 'TiPMp9coe69l6TC0y',
         })
         .then(
           () => {

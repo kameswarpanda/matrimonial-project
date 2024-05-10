@@ -1,5 +1,5 @@
 <div class="container">
-  <h5>Please Provide Your Personal Information</h5>
+  <h5>Please Provide Your Educational Information</h5>
   <form [formGroup]="personalInfoForm">
     <div class="form-group">
       <label for="educationLevel">Education Level:</label>
@@ -9,6 +9,6 @@
       <label for="educationField">Education Field:</label>
       <input type="text" class="form-control" id="educationField" formControlName="educationField" required>
     </div>
-    <button type="button" class="btn btn-primary btn-continue" routerLink="/family-info" (click)="onContinue()">Continue</button>
+    <button type="button" class="btn btn-primary btn-continue" routerLink="/familyinfo" (click)="onContinue()">Continue</button>
   </form>
 </div>

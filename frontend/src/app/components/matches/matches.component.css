@@ -1,6 +1,7 @@
 .container{
 margin-top: 100px;
 margin-bottom: 50px;
+
 }
 img{
   height:300px;
@@ -9,14 +10,18 @@ img{
 
 .card{
   display: flex;
+  
 }
 
 .item{
   padding: 10px;
+  
 }
+
 .item-card{
   transition:0.5s;
   cursor:pointer;
+  
 }
 .card-block{
   padding: 3px;
