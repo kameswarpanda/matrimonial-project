@@ -1,23 +1,25 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/User Details/login/login.component';
+import { SignupComponent } from './components/User Details/signup/signup.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { AboutComponent } from './components/about/about.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { ServicesComponent } from './components/services/services.component';
-import { AdminComponent } from './components/admin/admin.component';
-import { LocationBookingComponent } from './components/location-booking/location-booking.component';
-import { HomeComponent } from './components/home/home.component';
-import { ForgotComponent } from './components/forgot/forgot.component';
-import { BasicInfoComponent } from './components/basic-info/basic-info.component';
-import { FamilyInfoComponent } from './components/family-info/family-info.component';
-import { ProfessionalInfoComponent } from './components/professional-info/professional-info.component';
-import { ReligionCasteInfoComponent } from './components/religion-caste-info/religion-caste-info.component';
-import { MatchesComponent } from './components/matches/matches.component';
-import { PageComponent } from './components/page/page.component';
-import { MatchesInfoComponent } from './components/matches-info/matches-info.component';
-import { GroomComponent } from './components/groom/groom.component';
-import { GroomInfoComponent } from './components/groom-info/groom-info.component';
+import { AboutComponent } from './components/navbar/nav-components/about/about.component';
+import { ContactComponent } from './components/navbar/nav-components/contact/contact.component';
+import { ServicesComponent } from './components/navbar/nav-components/services/services.component';
+import { AdminComponent } from './components/navbar/nav-components/admin/admin.component';
+import { LocationBookingComponent } from './components/navbar/nav-components/location-booking/location-booking.component';
+import { HomeComponent } from './components/navbar/nav-components/home/home.component';
+import { ForgotComponent } from './components/User Details/forgot/forgot.component';
+import { UserInfoComponent } from './components/User Details/user-info/user-info.component';
+import { FamilyInfoComponent } from './components/User Details/family-info/family-info.component';
+import { EducationalInfoComponent } from './components/User Details/educational-info/educational-info.component';
+import { CasteInfoComponent } from './components/User Details/caste-info/caste-info.component';
+import { PageComponent } from './components/navbar/nav-components/page/page.component';
+import { BridesInfoComponent } from './components/navbar/nav-components/Matches/brides-info/brides-info.component';
+import { GroomComponent } from './components/navbar/nav-components/Matches/groom/groom.component';
+import { GroomInfoComponent } from './components/navbar/nav-components/Matches/groom-info/groom-info.component';
+import { BridesComponent } from './components/navbar/nav-components/Matches/brides/brides.component';
+import { PersonalInfoComponent } from './components/User Details/personal-info/personal-info.component';
+import { ResetpasswordComponent } from './components/User Details/resetpassword/resetpassword.component';
 
 
 export const routes: Routes = [
@@ -31,15 +33,17 @@ export const routes: Routes = [
     { path: 'services', component: ServicesComponent },
     { path: 'admin', component: AdminComponent },
     { path: 'forgot', component: ForgotComponent},
+    { path: 'resetpassword', component: ResetpasswordComponent},
     { path: 'loctaionbooking', component: LocationBookingComponent },
-    { path: 'basicinfo', component: BasicInfoComponent },
+    { path: 'userinfo', component: UserInfoComponent },
     { path: 'familyinfo', component: FamilyInfoComponent },
-    { path: 'professionalinfo', component: ProfessionalInfoComponent },
-    { path: 'casteinfo', component: ReligionCasteInfoComponent },
-    { path: 'matches', component: MatchesComponent },
+    { path: 'educationalinfo', component: EducationalInfoComponent },
+    { path: 'casteinfo', component: CasteInfoComponent },
+    { path: 'personalinfo', component: PersonalInfoComponent },
     { path: 'page', component: PageComponent },
-    { path: 'matches/info', component: MatchesInfoComponent },
-    { path: 'groom', component: GroomComponent},
-    { path: 'groom/groom-info', component: GroomInfoComponent},
+    { path: 'matches/brides/bride-info', component: BridesInfoComponent },
+    { path: 'matches/grooms', component: GroomComponent},
+    { path: 'matches/brides', component: BridesComponent},
+    { path: 'matches/grooms/groom-info', component: GroomInfoComponent},
     
 ];

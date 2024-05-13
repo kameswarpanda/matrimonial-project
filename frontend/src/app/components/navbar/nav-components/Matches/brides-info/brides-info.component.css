@@ -1,0 +1,37 @@
+.profile-picture {
+  text-align: center;
+  padding: 1px 1px;
+}
+
+.profile-picture img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.profile-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.profile-details{
+  padding: 5px 5px;
+}
+
+.profile-details ul li {
+  margin-bottom: 10px;
+}
+
+.container{
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 2px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.text{
+  font-size: small;
+  margin-top: 10px;
+}

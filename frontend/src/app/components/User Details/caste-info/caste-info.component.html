@@ -1,0 +1,43 @@
+<div class="container">
+  <h5>Religion/Caste Details helps us find better matches</h5>
+  <form>
+    <div class="form-group">
+      <label for="caste">Caste:</label>
+      <select class="form-control" id="caste">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+        <!-- Add more options as needed -->
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="subcaste">Subcaste:</label>
+      <input type="text" class="form-control" id="subcaste">
+      
+    </div>
+    <div class="form-group">
+      <label for="gotharam">Gotharam:</label>
+      <select class="form-control" id="gotharam">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+        <!-- Add more options as needed -->
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="dosh">Dosh:</label>
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-option">
+          <input type="radio" name="familyType" id="joint" value="joint"> No
+        </label>
+        <label class="btn btn-option">
+          <input type="radio" name="familyType" id="nuclear" value="nuclear"> Yes
+        </label>
+        <label class="btn btn-option">
+          <input type="radio" name="familyType" id="nuclear" value="nuclear"> Don't Know
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success btn-continue" routerLink="/familyinfo" routerLinkActive="active">Continue</button>
+  </form>
+</div>
