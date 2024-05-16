@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.infosys.matrimony.entity.FamilyInfo;
 import com.infosys.matrimony.service.FamilyInfoService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/family-info")
 public class FamilyInfoController {

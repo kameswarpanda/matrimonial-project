@@ -1,5 +1,7 @@
 package com.infosys.matrimony.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,15 +36,19 @@ public class Registration {
 	@Column(name="email_id")
 	private String email;
 
+	@JsonIgnore
 	@OneToOne(mappedBy = "registration")
 	private User user;
 
+	@JsonIgnore
 	@OneToOne(mappedBy = "registration")
 	private EducationCareer educationCareer;
 
+	@JsonIgnore
 	@OneToOne(mappedBy = "registration")
 	private FamilyInfo family;
 
+	@JsonIgnore
 	@OneToOne(mappedBy = "registration")
 	private PersonalInfo personalInfo;
 }

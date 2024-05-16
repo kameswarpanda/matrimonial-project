@@ -10,6 +10,7 @@ import com.infosys.matrimony.service.PersonalInfoService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/personal-info")
 public class PersonalInfoController {

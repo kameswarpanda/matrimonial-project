@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import com.infosys.matrimony.entity.EducationCareer;
 import com.infosys.matrimony.service.EducationCareerService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/education-career")
 public class EducationCareerController {
