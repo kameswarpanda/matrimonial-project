@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import com.infosys.matrimony.entity.PersonalInfo;
 import com.infosys.matrimony.service.PersonalInfoService;
-
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")

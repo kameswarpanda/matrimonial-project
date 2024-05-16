@@ -34,6 +34,7 @@ export const routes: Routes = [
     { path: 'admin', component: AdminComponent },
     { path: 'forgot', component: ForgotComponent},
     { path: 'resetpassword', component: ResetpasswordComponent},
+    // { path: 'loctaionbooking', component: LocationBookingComponent },
     { path: 'userinfo', component: UserInfoComponent },
     { path: 'familyinfo', component: FamilyInfoComponent },
     { path: 'educationalinfo', component: EducationalInfoComponent },

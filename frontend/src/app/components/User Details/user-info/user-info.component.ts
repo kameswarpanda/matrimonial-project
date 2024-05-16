@@ -56,7 +56,7 @@ export class UserInfoComponent implements OnInit{
     this.userInfoService.saveUserInfo(this.userInfo)
       .subscribe(response => {
         console.log('User info saved successfully:', response);
-        this.router.navigate(['/personalinfo']);
+        this.router.navigate(['/educationalinfo']);
       }, error => {
         console.error('Failed to save user info:', error);
       });

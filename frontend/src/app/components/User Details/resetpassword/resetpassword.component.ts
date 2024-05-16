@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { NavbefloginComponent } from '../../navbar/nav-components/navbeflogin/navbeflogin.component';
 
 @Component({
   selector: 'app-resetpassword',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, NavbefloginComponent],
   templateUrl: './resetpassword.component.html',
   styleUrl: './resetpassword.component.css'
 })

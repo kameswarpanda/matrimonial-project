@@ -37,19 +37,20 @@ ngOnInit(): void {
   onSubmit(e: Event): void{
     const isFormValid = this.userForm.valid;
     this.isFormSubmitted = true;
-      // emailjs
-      //   .sendForm('service_hksa34h', 'template_xt58p0e', e.target as HTMLFormElement , {
-      //     publicKey: 'yoF2P1NACJyTjTxOS',
-      //   })
-      //   .then(
-      //     () => {
-      //       console.log('SUCCESS!');
-      //     },
-      //     (error) => {
-      //       console.log('FAILED...', (error as EmailJSResponseStatus).text);
-      //     },
-      //   );
-      //   alert('Check your email and verify your account, press OK to proceed. ')
+      emailjs
+        .sendForm('service_hksa34h', 'template_xt58p0e', e.target as HTMLFormElement , {
+          publicKey: 'yoF2P1NACJyTjTxOS',
+        })
+        .then(
+          () => {
+            console.log('SUCCESS!');
+            this.router.navigate(['/userinfo']);
+          },
+          (error) => {
+            console.log('FAILED...', (error as EmailJSResponseStatus).text);
+          },
+        );
+        // alert('Check your email and verify your account, press OK to proceed. ')
 
         if (this.userForm.valid) {
           const registrationData = this.userForm.value;

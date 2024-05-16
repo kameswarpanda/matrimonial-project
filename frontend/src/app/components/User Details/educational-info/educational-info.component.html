@@ -1,6 +1,7 @@
+<app-navbeflogin></app-navbeflogin>
 <div class="container">
   <h5>Please Provide Your Educational Information</h5>
-  <form [formGroup]="personalInfoForm">
+  <form [formGroup]="educationInfoForm" (submit) = "onSubmit()">
     <div class="form-group">
       <label for="educationLevel">Education Level:</label>
       <input type="text" class="form-control" id="educationLevel" formControlName="educationLevel" required>
@@ -9,6 +10,6 @@
       <label for="educationField">Education Field:</label>
       <input type="text" class="form-control" id="educationField" formControlName="educationField" required>
     </div>
-    <button type="button" class="btn btn-primary btn-continue" routerLink="/familyinfo" (click)="onContinue()">Continue</button>
+    <button type="submit" class="btn btn-primary btn-continue">Continue</button>
   </form>
 </div>

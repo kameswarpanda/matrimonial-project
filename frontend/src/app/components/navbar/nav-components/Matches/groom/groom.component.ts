@@ -6,7 +6,7 @@ import { NavbarComponent } from '../../../navbar.component';
 @Component({
   selector: 'app-groom',
   standalone: true,
-  imports: [RouterLink,],
+  imports: [RouterLink, NavbarComponent],
   templateUrl: './groom.component.html',
   styleUrl: './groom.component.css'
 })
