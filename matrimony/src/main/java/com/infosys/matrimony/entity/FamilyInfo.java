@@ -39,4 +39,46 @@ public class FamilyInfo {
     @Column(name = "father_name")
     private String fatherName;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Registration getRegistration() {
+		return registration;
+	}
+
+	public void setRegistration(Registration registration) {
+		this.registration = registration;
+	}
+
+	public String getFamilyStatus() {
+		return familyStatus;
+	}
+
+	public void setFamilyStatus(String familyStatus) {
+		this.familyStatus = familyStatus;
+	}
+
+	public String getFamilyType() {
+		return familyType;
+	}
+
+	public void setFamilyType(String familyType) {
+		this.familyType = familyType;
+	}
+
+	public String getFatherName() {
+		return fatherName;
+	}
+
+	public void setFatherName(String fatherName) {
+		this.fatherName = fatherName;
+	}
+    
+    
+
 }
