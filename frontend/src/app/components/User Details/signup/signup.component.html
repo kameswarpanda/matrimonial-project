@@ -1,3 +1,4 @@
+<app-navbeflogin></app-navbeflogin>
 <div class="container" [formGroup]="userForm">
   <div class="row justify-content-center">
     <div class="col-md-6">
@@ -8,43 +9,29 @@
           <div class="mb-3">
             <label for="name" class="form-label">Enter Username</label>
             <input
-              formControlName="username"
+              formControlName="userName"
               type="text"
               class="form-control"
-              id="username"
+              id="userName"
               placeholder="Username"
               required
             />
             <div
               class="text-danger"
               *ngIf="
-                userForm.controls['name'].invalid &&
-                (userForm.controls['name'].touched ||
-                  userForm.controls['name'].dirty)
+                userForm.controls['userName'].invalid &&
+                (userForm.controls['userName'].touched ||
+                  userForm.controls['userName'].dirty)
               "
             >
-              <span *ngIf="userForm.controls['username'].errors?.['required']"
+              <span *ngIf="userForm.controls['userName'].errors?.['required']"
                 >Required</span
               >
-              <span *ngIf="userForm.controls['username'].errors?.['minlength']"
+              <span *ngIf="userForm.controls['userName'].errors?.['minlength']"
                 >Minmum two character</span
               >
             </div>
           </div>
-          <!-- <div class="mb-3">
-            <label for="address" class="form-label">Enter your address</label>
-            <input
-              type="text"
-              class="form-control"
-              id="address"
-              placeholder=""
-              required
-              formControlName="address"
-            />
-            <div class="text-danger" *ngIf="userForm.controls['address'].invalid && (userForm.controls['address'].touched || userForm.controls['address'].dirty)">
-              <span *ngIf="userForm.controls['address'].errors?.['required']">Required</span>
-          </div>
-          </div> -->
           <div class="mb-3">
             <label for="password" class="form-label"
               >Create your Password</label
@@ -82,20 +69,20 @@
               id="email"
               placeholder="abc@gmail.com"
               required
-              formControlName="mailId"
+              formControlName="email"
             />
             <div
               class="text-danger"
               *ngIf="
-                userForm.controls['mailId'].invalid &&
-                (userForm.controls['mailId'].touched ||
-                  userForm.controls['mailId'].dirty)
+                userForm.controls['email'].invalid &&
+                (userForm.controls['email'].touched ||
+                  userForm.controls['email'].dirty)
               "
             >
-              <span *ngIf="userForm.controls['mailId'].errors?.['required']"
+              <span *ngIf="userForm.controls['email'].errors?.['required']"
                 >Required</span
               >
-              <span *ngIf="userForm.controls['mailId'].errors?.['email']"
+              <span *ngIf="userForm.controls['email'].errors?.['email']"
                 >Enter with proper formate</span
               >
             </div>

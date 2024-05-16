@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import { NavbefloginComponent } from '../../navbar/nav-components/navbeflogin/navbeflogin.component';
 
 @Component({
   selector: 'app-forgot',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, NavbefloginComponent],
   templateUrl: './forgot.component.html',
   styleUrl: './forgot.component.css'
 })
