@@ -35,4 +35,37 @@ public class PersonalInfo {
     @OneToOne
 	@JoinColumn(name="rid")
 	private Registration registration;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public byte[] getPhotograph() {
+		return photograph;
+	}
+
+	public void setPhotograph(byte[] photograph) {
+		this.photograph = photograph;
+	}
+
+	public String getBloodGroup() {
+		return bloodGroup;
+	}
+
+	public void setBloodGroup(String bloodGroup) {
+		this.bloodGroup = bloodGroup;
+	}
+
+	public Registration getRegistration() {
+		return registration;
+	}
+
+	public void setRegistration(Registration registration) {
+		this.registration = registration;
+	}
+    
 }
