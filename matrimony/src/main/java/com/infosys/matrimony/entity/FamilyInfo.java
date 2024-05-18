@@ -22,7 +22,7 @@ import lombok.Setter;
 public class FamilyInfo {
 
     @Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "family_info_id")
     private Long id;
 

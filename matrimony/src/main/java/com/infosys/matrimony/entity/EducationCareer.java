@@ -21,7 +21,7 @@ import lombok.Setter;
 @Table(name = "education_career")
 public class EducationCareer {
     @Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "education_id")
     private Long id;
 
