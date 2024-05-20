@@ -43,5 +43,10 @@ public class RegistrationServiceImpl implements RegistrationService {
     public void deleteRegistration(Long id) {
         registrationRepository.deleteById(id);
     }
+
+    @Override
+    public Registration findByUserName(String userName) {
+        return registrationRepository.findByUserName(userName).orElse(null);
+    }
     
 }

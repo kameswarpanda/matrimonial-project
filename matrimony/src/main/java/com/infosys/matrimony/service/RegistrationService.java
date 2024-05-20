@@ -10,4 +10,5 @@ public interface RegistrationService {
     List<Registration> getAllRegistrations();
     Registration updateRegistration(Long id, Registration updatedRegistration);
     void deleteRegistration(Long id);
+    Registration findByUserName(String userName);
 }

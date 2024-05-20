@@ -23,11 +23,11 @@ import lombok.Setter;
 public class Registration {
 
     @Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="r_id")
 	private Long rid;
 
-	@Column(name="username")
+	@Column(name="username", unique = true)
 	private String userName;
 
 	@Column(name="password")

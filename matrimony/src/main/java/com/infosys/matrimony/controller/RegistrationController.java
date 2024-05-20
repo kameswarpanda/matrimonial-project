@@ -55,5 +55,16 @@ public class RegistrationController {
         registrationService.deleteRegistration(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @PostMapping("/register")
+    public ResponseEntity<Registration> registerUser(@RequestBody Registration registration) {
+        Registration savedRegistration = registrationService.saveRegistration(registration);
+        return new ResponseEntity<>(savedRegistration, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "Please provide your username and password to login";
+    }
     
 }
