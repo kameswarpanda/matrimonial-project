@@ -1,7 +1,7 @@
 .navbar{
     background-color: #ffffff;
-    /* margin: 20px; */
-    /* border-radius: 15px; */
+    margin: 10px;
+    border-radius: 15px;
     padding: 0.5rem;  
     border: 1px solid black;
     
@@ -18,7 +18,7 @@
   
   
   .login-button{
-    background-color: #009970;
+    background: linear-gradient(45deg, #2bc4a8, #009970);
     color: white;
     font-size: 14px;
     font-weight: bold;
@@ -29,7 +29,7 @@
   }
   
   .login-button:hover{
-    background-color: #00b383;
+    background: linear-gradient(45deg, #009970, #2bc4a8);
   }
   
   .navbar-toggler{

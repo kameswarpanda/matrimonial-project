@@ -1,22 +1,62 @@
-<app-navbeflogin></app-navbeflogin>
+
 <div class="container">
   <h5>Please Provide us with your User Info</h5>
   <form [formGroup]="userForm" (submit)="onSubmit()">
     <div class="form-group">
-      <label for="firstName">First Name:</label>
-      <input type="text" class="form-control" id="firstName" formControlName="firstName" required>
+      <label for="firstName" class="mb-2"
+        ><i class="fas fa-user"></i> First Name</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter first name"
+        id="firstName"
+        formControlName="firstName"
+        required
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          userForm.controls['firstName'].invalid &&
+          (userForm.controls['firstName'].touched ||
+            userForm.controls['firstName'].dirty)
+        "
+      >
+        <span *ngIf="userForm.controls['firstName'].errors?.['firstName']"
+          >This is Required</span
+        >
+        <span *ngIf="userForm.controls['firstName'].errors?.['firstName']"
+          >Minmum 3 characters Required</span
+        >
+      </div>
     </div>
     <div class="form-group">
-      <label for="lastName">Last Name:</label>
-      <input type="text" class="form-control" id="lastName" formControlName="lastName" required>
+      <label for="lastName" class="mb-2"
+        ><i class="fas fa-user-tie"></i> Last Name</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter last name"
+        id="lastName"
+        formControlName="lastName"
+        required
+      />
     </div>
     <!-- <div class="form-group">
       <label for="dob">Date of Birth:</label>
       <input type="date" class="form-control" id="dob">
     </div> -->
     <div class="form-group">
-      <label for="age">Age:</label>
-      <input type="number" class="form-control" id="age" formControlName="age" required>
+      <label for="age" class="mb-2"><i class="fas fa-calendar"></i> Age</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter Age"
+        id="age"
+        formControlName="age"
+        required
+      />
     </div>
     <!-- <div class="form-group">
       <label>Gender:</label>
@@ -29,6 +69,8 @@
         <label class="form-check-label" for="female">Female</label>
       </div>
     </div> -->
-    <button type="submit" class="btn btn-primary btn-continue">Continue</button>
+    <button type="submit" class="btn btn-success btn-block mt-3">
+      Continue
+    </button>
   </form>
 </div>

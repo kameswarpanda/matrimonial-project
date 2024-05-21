@@ -5,9 +5,14 @@
       <div class="signup-form">
         <h2 class="text-center">Sign Up</h2>
         <!-- <form> -->
-        <form (submit)="onSubmit($event)">
+
+        <form (submit)="onSubmit($event)" class="needs-validation">
+
+          <!-- Username -->
           <div class="mb-3">
-            <label for="name" class="form-label">Enter Username</label>
+            <label for="name" class="form-label"
+              ><i class="fa-solid fa-user"></i> Enter Username</label
+            >
             <input
               formControlName="userName"
               type="text"
@@ -16,6 +21,7 @@
               placeholder="Username"
               required
             />
+            <!-- For username validation -->
             <div
               class="text-danger"
               *ngIf="
@@ -25,44 +31,19 @@
               "
             >
               <span *ngIf="userForm.controls['userName'].errors?.['required']"
-                >Required</span
+                >This is Required</span
               >
               <span *ngIf="userForm.controls['userName'].errors?.['minlength']"
-                >Minmum two character</span
-              >
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label"
-              >Create your Password</label
-            >
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              placeholder="Your Password"
-              required
-              formControlName="password"
-            />
-            <div
-              class="text-danger"
-              *ngIf="
-                userForm.controls['password'].invalid &&
-                (userForm.controls['password'].touched ||
-                  userForm.controls['password'].dirty)
-              "
-            >
-              <span *ngIf="userForm.controls['password'].errors?.['required']"
-                >Required</span
-              >
-              <span *ngIf="userForm.controls['password'].errors?.['minlength']"
-                >Minimum 8 character</span
+                >Minmum 3 characters Required</span
               >
             </div>
           </div>
 
+          <!-- for Email -->
           <div class="mb-3">
-            <label for="email" class="form-label">Enter your email</label>
+            <label for="email" class="form-label"
+              ><i class="fas fa-envelope"></i> Enter your email</label
+            >
             <input
               type="email"
               class="form-control"
@@ -71,6 +52,7 @@
               required
               formControlName="email"
             />
+            <!-- for email validation -->
             <div
               class="text-danger"
               *ngIf="
@@ -83,10 +65,42 @@
                 >Required</span
               >
               <span *ngIf="userForm.controls['email'].errors?.['email']"
-                >Enter with proper formate</span
+                >Enter a proper Email</span
               >
             </div>
           </div>
+
+          <!-- for password -->
+          <div class="mb-3">
+            <label for="password" class="form-label"
+              ><i class="fas fa-lock"></i> Create your Password</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Your Password"
+              required
+              formControlName="password"
+            />
+            <!-- for password validation -->
+            <div
+              class="text-danger"
+              *ngIf="
+                userForm.controls['password'].invalid &&
+                (userForm.controls['password'].touched ||
+                  userForm.controls['password'].dirty)
+              "
+            >
+              <span *ngIf="userForm.controls['password'].errors?.['required']"
+                >Required</span
+              >
+              <span *ngIf="userForm.controls['password'].errors?.['minlength']"
+                >Minimum 6 character</span
+              >
+            </div>
+          </div>
+
           <!-- <div class="mb-3">
             <label for="mobile" class="form-label">Enter your mobile no</label>
             <input
@@ -115,45 +129,23 @@
               >
             </div>
           </div> -->
-          <!-- <div class="mb-3">
-            <label for="guests" class="form-label">Enter no of guests</label>
-            <input
-              type="number"
-              class="form-control"
-              id="guests"
-              min="1"
-							placeholder="Eg - 10, 20"
-              required
-              formControlName="guestNo"
-            />
-          </div> -->
-          <!-- <div class="mb-3">
-            <label for="date" class="form-label">Enter date of function</label>
-            <input type="date" class="form-control" id="date" required
-            formControlName="date"
-             />
-          </div> -->
-
-          <button
-            type="submit"
-            class="btn btn-success btn-block"
-            
-          >
+               
+          <button type="submit" class="btn btn-success btn-block">
             Continue to Sign Up
           </button>
+          
           <div class="mt-3 text-center">
             <p>
               Already have an Account?
-              <a routerLink="/login" routerLinkActive="active">Login</a>
+              <a
+                routerLink="/login"
+                routerLinkActive="active"
+                style="text-decoration: none"
+                >Login</a
+              >
             </p>
           </div>
         </form>
-        <!-- <hr />
-        <p class="text-center">Or sign up with:</p>
-        <div class="text-center">
-          <a href="#" class="btn btn-google me-2">G</a>
-          <a href="#" class="btn btn-facebook ms-2">Facebook</a>
-        </div> -->
       </div>
     </div>
   </div>

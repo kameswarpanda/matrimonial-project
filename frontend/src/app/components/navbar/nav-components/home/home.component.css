@@ -140,3 +140,17 @@ position: relative;
   visibility: visible;
 }}
 
+.btn{
+  font-weight: bold;
+  background: linear-gradient(45deg, #2bc4a8, #009970);
+ 
+  
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #009970, #2bc4a8);
+}
+
+
+
+

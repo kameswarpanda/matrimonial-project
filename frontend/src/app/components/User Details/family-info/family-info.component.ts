@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import Swal from 'sweetalert2';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NavbarComponent } from '../../navbar/navbar.component';
-import { Registration } from '../../../models/registration/registration';
-import { FamilyInfoService } from '../../../services/family-info/family-info.service';
-import { RegistrationService } from '../../../services/registration/registration.service';
-import { FamilyInfo } from '../../../models/family-info/family-info';
-import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { NavbefloginComponent } from '../../navbar/nav-components/navbeflogin/navbeflogin.component';
 
 @Component({
@@ -14,94 +15,66 @@ import { NavbefloginComponent } from '../../navbar/nav-components/navbeflogin/na
   standalone: true,
   imports: [RouterLink, RouterLinkActive, ReactiveFormsModule, NavbarComponent, NavbefloginComponent],
   templateUrl: './family-info.component.html',
-  styleUrl: './family-info.component.css'
+  styleUrl: './family-info.component.css',
 })
-export class FamilyInfoComponent implements OnInit{
+export class FamilyInfoComponent {
 
-  // familyInfoForm: FormGroup;
+  familyInfoForm: FormGroup;
 
-  // constructor(private formBuilder: FormBuilder) {
-  //   this.familyInfoForm = this.formBuilder.group({
-  //     familyStatus: ['', Validators.required],
-  //     familyType: ['', Validators.required],
-  //     familyName: ['', Validators.required]
-  //   });
-  // }
-
-  // onSubmit() {
-  //   if (this.familyInfoForm.valid) {
-  //     console.log('submitted');
-  //   } else {
-  //     console.log('Please fill out all required fields.');
-  //   }
-  // }
-
-  familyInfoForm!: FormGroup;
-  registration!: Registration;
-  rid!: number;
-
-  constructor(private formBuilder: FormBuilder, 
-    private router: Router,
-    private familyInfoService: FamilyInfoService,
-    private registrationService: RegistrationService
-  ) {}
-
-  ngOnInit(): void {
+  constructor(private formBuilder: FormBuilder, private router: Router) {
     this.familyInfoForm = this.formBuilder.group({
       familyStatus: ['', Validators.required],
       familyType: ['', Validators.required],
-      fatherName: ['', Validators.required]
+      fatherName: ['', Validators.required],
     });
 
-    this.rid = this.registrationService.getrid();
-    this.loadRegistrationDetails();
+    // this.rid = this.registrationService.getrid();
+    // this.loadRegistrationDetails();
+    
   }
 
-  onSubmit(e: Event) {
-    const familyInfo: FamilyInfo = {
-      registration: this.registration,
-      familyStatus: this.familyInfoForm.value.familyStatus,
-      familyType: this.familyInfoForm.value.familyType,
-      fatherName: this.familyInfoForm.value.fatherName
-    };
-
-    this.familyInfoService.addFamilyInfo(familyInfo)
-      .subscribe(
-        (response) => {
-          console.log('Successfully submitted:', response);
-          // this.router.navigate(['/next-route']);
-        },
-        (error) => {
-          console.error('Error:', error);
-          // Handle error response
-        }
-      );
-
+  onSubmit() {
+    
+    
+    if (this.familyInfoForm.valid) {
       
-      emailjs
-      .sendForm('service_hksa34h', 'template_xt58p0e', e.target as HTMLFormElement , {
-        publicKey: 'yoF2P1NACJyTjTxOS',
-      })
-      .then(
-        () => {
-          console.log('SUCCESS!');
-        },
-        (error) => {
-          console.log('FAILED...', (error as EmailJSResponseStatus).text);
-        },
-      );
-      alert('Check your email and verify your account, press OK to proceed. ')
-  }
-
-  loadRegistrationDetails(): void {
-    this.registrationService.getRegistrationById(this.rid)
-      .subscribe(
-        (data: Registration) => {
-          this.registration = data;
-        },
-        error => {
-          console.log('Error fetching registration details:', error);
+      // sweet alert
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
         }
-      );
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Registration Successful"
+      });
+
+      this.router.navigate(['/login']);
+
+    } else {
+      // alert('Please fill out all required fields.');
+      // sweet alert
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "center-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Please fill out all required fields."
+      });
+    }
   }
 }

@@ -2,7 +2,7 @@
 
 .container {
     max-width: 500px;
-    margin: 80px auto;
+    margin: 120px auto;
     background-color: #fff;
     padding: 30px;
     border-radius: 10px;
@@ -36,16 +36,20 @@
     margin-right: 20px;
   }
   
-  .btn-continue {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background-color: #009970;
-    color: #fff;
+  .btn {
     border-radius: 5px;
-    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    background: linear-gradient(45deg, #2bc4a8, #009970);
   }
   
-  .btn-continue:hover {
-    background-color: #02a378;
+  h5{
+    text-align: center;
+    font-weight: bold;
+    color: #007254;
+    margin-bottom: 30px;
+  }
+  
+  .btn:hover {
+    background: linear-gradient(45deg, #009970, #2bc4a8);
   }

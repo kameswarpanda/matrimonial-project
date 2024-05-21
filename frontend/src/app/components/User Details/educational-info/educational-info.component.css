@@ -3,8 +3,8 @@ body {
 }
 
 .container {
-  max-width: 700px;
-  margin: 80px auto;
+  max-width: 500px;
+  margin: 120px auto;
   background-color: #fff;
   padding: 30px;
   border-radius: 10px;
@@ -19,28 +19,21 @@ body {
   font-weight: bold;
 }
 
-.btn-option {
-  margin-right: 10px;
-  margin-bottom: 10px;
-  color: #495057; /* Button text color */
-  background-color: #fff; /* Button background color */
-  border: 1px solid #ced4da; /* Button border color */
+h5{
+  text-align: center;
+  font-weight: bold;
+  color: #007254;
+  margin-bottom: 30px;
 }
 
-.btn-option.active {
-  background-color: #e9ecef; /* Lighter background color when selected */
-}
-
-.btn-continue {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  background-color: #28a745; /* Green color */
-  color: #fff;
+.btn {
   border-radius: 5px;
-  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  background: linear-gradient(45deg, #2bc4a8, #009970);
 }
 
-.btn-continue:hover {
-  background-color: #218838; /* Darker green color on hover */
+
+.btn:hover {
+  background: linear-gradient(45deg, #009970, #2bc4a8);
 }

@@ -1,6 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { NavbarComponent } from '../../navbar/navbar.component';
@@ -10,68 +17,123 @@ import { RegistrationService } from '../../../services/registration/registration
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [RouterLink,RouterLinkActive, ReactiveFormsModule, CommonModule, NavbarComponent, NavbefloginComponent],
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    ReactiveFormsModule,
+    CommonModule,
+    NavbarComponent,
+    NavbefloginComponent,
+  ],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css'
+  styleUrl: './signup.component.css',
 })
-export class SignupComponent implements OnInit{
+export class SignupComponent implements OnInit {
+  userForm!: FormGroup;
+  isFormSubmitted: boolean = false;
+  rid: number = 1;
 
-userForm!: FormGroup;
-isFormSubmitted: boolean = false;
-rid: number = 1;
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private registrationService: RegistrationService
+  ) {}
 
-constructor(
-  private formBuilder: FormBuilder,
-  private router: Router,
-  private registrationService: RegistrationService,
-) { }
+  ngOnInit(): void {
+    this.userForm = this.formBuilder.group({
+      userName: ['', Validators.minLength(3)],
+      password: ['', Validators.minLength(6)],
+      email: ['', Validators.email],
+    });
+  }
 
-ngOnInit(): void {
-  this.userForm = this.formBuilder.group({
-    userName: ['', Validators.required],
-    password: ['', Validators.required],
-    email: ['', Validators.required]
-  });
-}
-
-  onSubmit(e: Event): void{
+  onSubmit(e: Event): void {
     const isFormValid = this.userForm.valid;
     this.isFormSubmitted = true;
-      emailjs
-        .sendForm('service_hksa34h', 'template_xt58p0e', e.target as HTMLFormElement , {
-          publicKey: 'yoF2P1NACJyTjTxOS',
-        })
-        .then(
-          () => {
-            console.log('SUCCESS!');
-            this.router.navigate(['/userinfo']);
-          },
-          (error) => {
-            console.log('FAILED...', (error as EmailJSResponseStatus).text);
-          },
-        );
+
+      // emailjs
+      //   .sendForm('service_hksa34h', 'template_xt58p0e', e.target as HTMLFormElement , {
+      //     publicKey: 'yoF2P1NACJyTjTxOS',
+      //   })
+      //   .then(
+      //     () => {
+      //       console.log('SUCCESS!');
+      //       this.router.navigate(['/userinfo']);
+      //     },
+      //     (error) => {
+      //       console.log('FAILED...', (error as EmailJSResponseStatus).text);
+      //     },
+      //   );
         // alert('Check your email and verify your account, press OK to proceed. ')
 
-        if (this.userForm.valid) {
-          const registrationData = this.userForm.value;
-    
-          this.registrationService.saveRegistration(registrationData)
-            .subscribe(response => {
-              this.rid = +response.rid.toString(); 
-              this.registrationService.setrid(this.rid);
-              console.log('signup comp:', this.registrationService.getrid())
-              console.log('Registration successful signup comp:', response);
-              // if (typeof localStorage !== 'undefined') {
-              //   localStorage.setItem('registrationId', response.rid.toString());
-              // }
-              this.router.navigate(['/userinfo']);
-            }, error => {
-              console.error('Registration failed:', error);
-              // Handle error, show error message, etc.
-            });
-      }
+    if (this.userForm.valid) {
+      const registrationData = this.userForm.value;
 
+      this.registrationService.saveRegistration(registrationData).subscribe(
+        (response) => {
+          this.rid = +response.rid.toString();
+          this.registrationService.setrid(this.rid);
+          console.log('signup comp:', this.registrationService.getrid());
+          console.log('Registration successful signup comp:', response);
+
+          //sweet alert
+          Swal.fire({
+            title: 'Verify your Email !',
+            text: 'Check your email and verify your Account ',
+            icon: 'success',
+          });
+
+          //Email verification
+          emailjs
+            .sendForm(
+              'service_b33wh5w',
+              'template_rv04sb5',
+              e.target as HTMLFormElement,
+              {
+                publicKey: 'TiPMp9coe69l6TC0y',
+              }
+            )
+            .then(
+              () => {
+                console.log('SUCCESS!');
+              },
+              (error) => {
+                console.log('FAILED...', (error as EmailJSResponseStatus).text);
+              }
+            );
+
+          this.router.navigate(['/home']);
+        },
+        (error) => {
+          console.error('Registration failed:', error);
+          // sweet alert
+          Swal.fire({
+            title: 'Something went Wrong !',
+            text: 'Server may busy, Try again after sometime ',
+            icon: 'error',
+          });
+          // Handle error, show error message, etc.
+        }
+      );
     }
 
-
+    if (!this.userForm.valid) {
+      // sweet alert message
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'center-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Please fill out all required fields',
+      });
+    }
+  }
 }

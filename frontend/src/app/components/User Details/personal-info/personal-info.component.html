@@ -1,16 +1,44 @@
 <app-navbeflogin></app-navbeflogin>
 <div class="container">
-    <h5>Please Provide Your Photograph and Blood Group</h5>
-    <form [formGroup]="photographBloodGroupForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="photograph">Photograph:</label>
-        <input type="file" class="form-control" id="photograph" formControlName="photograph" accept="image/*" required>
-      </div>
-      <div class="form-group">
-        <label for="bloodGroup">Blood Group:</label>
-        <input type="text" class="form-control" id="bloodGroup" formControlName="bloodGroup" required>
-      </div>
-      <button type="button" class="btn btn-primary btn-continue" routerLink="/educationalinfo">Continue</button>
-    </form>
-  </div>
-  
+  <h5>Please Provide Your Personal Details</h5>
+
+  <form [formGroup]="photographBloodGroupForm" (submit)="onSubmit()">
+    <div class="form-group">
+      <label for="photograph" class="mb-2"
+        ><i class="fas fa-image"></i> Photograph</label
+      >
+      <input
+        type="file"
+        class="form-control"
+        id="photograph"
+        formControlName="photograph"
+        accept="image/*"
+        required
+      />
+
+      <div id="imagePreview"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="bloodGroup" class="mb-2"
+        ><i class="fas fa-tint"></i> Blood Group</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="bloodGroup"
+        placeholder="Enter your blood group name"
+        formControlName="bloodGroup"
+        required
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary btn-block"
+      routerLinkActive="active"
+    >
+      Continue
+    </button>
+  </form>
+</div>

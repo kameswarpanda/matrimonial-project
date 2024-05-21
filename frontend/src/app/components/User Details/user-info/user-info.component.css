@@ -2,7 +2,7 @@
 
 .container {
   max-width: 500px;
-  margin: 80px auto;
+  margin: 120px auto;
   background-color: #fff;
   padding: 30px;
   border-radius: 10px;
@@ -36,16 +36,18 @@
   margin-right: 20px;
 }
 
-.btn-continue {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  background-color: #009970;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
+.heading{
+  color: #009970;
+  font-weight: bold;
 }
 
-.btn-continue:hover {
-  background-color: #02a378;
+.btn {
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+  background: linear-gradient(45deg, #2bc4a8, #009970);
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #009970, #2bc4a8);
 }

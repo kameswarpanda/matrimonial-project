@@ -1,27 +1,93 @@
 <app-navbeflogin></app-navbeflogin>
-  <div class="container">
-    <div class="login-container">
-      <h2>Login</h2>
-      <form>
-        <div class="form-group">
-          <input type="text" placeholder="Username" required />
-        </div>
-        <div class="form-group">
-          <input type="password" placeholder="Password" required />
-        </div>
-        <div class="form-group text">
-          <input type="submit" value="Login" routerLink="/page" routerLinkActive="active" />
-        </div>
-        <div class="from-group mb-2">
-          <a routerLink="/forgot" routerLinkActive="active">forgot password?</a>
-        </div>
-        <div class="from-group">
-          <p>
-            Need an Account?
-            <a routerLink="/signup" routerLinkActive="active">Sign up</a>
-          </p>
-        </div>
-      </form>
-    </div>
-  </div>
+<div class="container" [formGroup]="userForm">
+  <div class="login-container">
+    <h2>Login</h2>
+    <form class="needs-validation" (submit)="onSubmit()">
+      <!-- Username -->
+      <div class="form-group">
+        <label for="username" class="form-level mb-2"
+          ><i class="fa-solid fa-user"></i> Username</label
+        >
+        <input
+          formControlName="userName"
+          type="text"
+          placeholder="Username"
+          class="form-control"
+          id="userName"
+          required
+        />
 
+        <!-- For username validation -->
+        <div
+          class="text-danger"
+          *ngIf="
+            userForm.controls['userName'].invalid &&
+            (userForm.controls['userName'].touched ||
+              userForm.controls['userName'].dirty)
+          "
+        >
+          <span *ngIf="userForm.controls['userName'].errors?.['required']"
+            >This is Required</span
+          >
+          <span *ngIf="userForm.controls['userName'].errors?.['minlength']"
+            >Minmum 3 characters Required</span
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-level mb-2"
+          ><i class="fa-solid fa-lock"></i> Password</label
+        >
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="Password"
+          class="form-control"
+          id="password"
+          required
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            userForm.controls['password'].invalid &&
+            (userForm.controls['password'].touched ||
+              userForm.controls['password'].dirty)
+          "
+        >
+          <span *ngIf="userForm.controls['password'].errors?.['required']"
+            >Required</span
+          >
+          <span *ngIf="userForm.controls['password'].errors?.['minlength']"
+            >Minimum 6 character</span
+          >
+        </div>
+      </div>
+
+      <div class="from-group mb-2">
+        <a
+          routerLink="/forgot"
+          routerLinkActive="active"
+          style="text-decoration: none"
+          >forgot password?</a
+        >
+      </div>
+
+      <div class="form-group text">
+        <input type="submit" value="Login" routerLinkActive="active" />
+      </div>
+
+      <div class="from-group">
+        <p class="text-center">
+          Need an Account?
+          <a
+            routerLink="/signup"
+            routerLinkActive="active"
+            style="text-decoration: none"
+            >Sign up</a
+          >
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

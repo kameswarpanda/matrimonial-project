@@ -1,21 +1,33 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { NavbefloginComponent } from '../../navbar/nav-components/navbeflogin/navbeflogin.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-forgot',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, NavbefloginComponent],
+  imports: [RouterLink, RouterLinkActive, NavbefloginComponent, ReactiveFormsModule, CommonModule],
   templateUrl: './forgot.component.html',
   styleUrl: './forgot.component.css'
 })
 export class ForgotComponent {
-  public onSubmit(e: Event) {
+
+  forgotForm: FormGroup;
+
+  constructor(private fb:FormBuilder){
+    this.forgotForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+    })
+  }
+   
+  onSubmit(e: Event) {
     e.preventDefault();
     console.log("submit");
+
+    if(this.forgotForm.valid){
     emailjs
       .sendForm('service_b33wh5w', 'template_fqinkyz', e.target as HTMLFormElement , {
         publicKey: 'TiPMp9coe69l6TC0y',
@@ -23,12 +35,23 @@ export class ForgotComponent {
       .then(
         () => {
           console.log('SUCCESS!');
-          window.location.reload();
+          // window.location.reload();
         },
         (error) => {
           console.log('FAILED...', (error as EmailJSResponseStatus).text);
         },
       );
-      alert('A Reset password link has been sent to your Email, check and verify. Press OK to Proceed')
+
+      //sweet alert
+      Swal.fire({
+        title: "A reset link sent to your Email !",
+        text: "Check your email and Reset your Password ",
+        icon: "info"
+      });
+    }else{
+      Swal.fire("Please enter a valid email");
+    }
+
+      
   }
 }

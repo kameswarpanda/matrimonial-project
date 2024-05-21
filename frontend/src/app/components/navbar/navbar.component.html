@@ -5,7 +5,7 @@
         class="navbar-brand me-auto"
         routerLink="/home"
         routerLinkActive="active"
-        >Jeevansathi</a
+        >Jeevan Jyoti</a
       >
       <div
         class="offcanvas offcanvas-end"
@@ -14,7 +14,7 @@
         aria-labelledby="offcanvasNavbarLabel"
       >
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Jeevansathi</h5>
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Jeevan Jyoti</h5>
           <button
             type="button"
             class="btn-close"
@@ -60,14 +60,32 @@
               </div>
             </li>
             
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <a
                 class="nav-link mx-lg-2"
                 routerLink="/contact"
                 routerLinkActive="active"
                 >Contact</a
               >
-            </li> -->
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link mx-lg-2"
+                routerLink="/admin"
+                routerLinkActive="active"
+                >Admin</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link mx-lg-2"
+                routerLink="/locationbooking"
+                routerLinkActive="active"
+                >Location Booking</a
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -76,6 +94,7 @@
         class="login-button"
         routerLink="/home"
         routerLinkActive="active"
+        (click)="showAlert()"
         >Logout</a
       >
       <button

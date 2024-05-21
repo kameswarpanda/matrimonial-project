@@ -1,95 +1,71 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink, Router, RouterLinkActive } from '@angular/router';
 import { NavbarComponent } from '../../navbar/navbar.component';
-import { EducationCareerService } from '../../../services/education-level/education-level.service';
-import { RegistrationService } from '../../../services/registration/registration.service';
-import { Registration } from '../../../models/registration/registration';
+import Swal from 'sweetalert2';
 import { NavbefloginComponent } from '../../navbar/nav-components/navbeflogin/navbeflogin.component';
 
 @Component({
   selector: 'app-educational-info',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, NavbarComponent, NavbefloginComponent],
+  imports: [RouterLink, ReactiveFormsModule, NavbarComponent, RouterLinkActive, NavbefloginComponent],
   templateUrl: './educational-info.component.html',
   styleUrl: './educational-info.component.css'
 })
-export class EducationalInfoComponent implements OnInit{
-  educationInfoForm!: FormGroup;
-  registration: any;
-  rid!:number;
-  educationInfo!:any;
+export class EducationalInfoComponent {
+  educationInfoForm: FormGroup;
+  
 
-  constructor(private formBuilder: FormBuilder, 
-    private router: Router,
-    private educationCareerService: EducationCareerService,
-    private registrationService: RegistrationService
-  ) {}
-
-  ngOnInit(): void {
+  constructor(private formBuilder: FormBuilder, private router: Router) {
     this.educationInfoForm = this.formBuilder.group({
       educationLevel: ['', Validators.required],
       educationField: ['', Validators.required]
     });
-
-  // Log the value of rid when BasicInfoComponent is initialized
-  console.log('RID in BasicInfoComponent ngOnInit:', this.rid);
-
-  // Retrieve the rid from RegistrationService
-  this.rid = this.registrationService.getrid();
-  console.log('RID retrieved from RegistrationService:', this.rid, typeof this.rid);
-    this.loadRegistrationDetails();
   }
-  // onContinue() {
-  //   if (this.personalInfoForm.valid) {
-  //     const formData = this.personalInfoForm.value;
-  //     console.log('Form submitted with data:', formData);
-  //   } else {
-  //     alert('Please fill out all required fields.');
-  //   }
-  // }
-
-
 
   onSubmit() {
-    this.educationInfo = {
-      educationLevel: this.educationInfoForm.value.educationalLevel,
-      educationField: this.educationInfoForm.value.educationalField,
-      registration: this.registration
+    if (this.educationInfoForm.valid) {
+      const formData = this.educationInfoForm.value;
+      console.log('Form submitted with data:', formData);
+      this.router.navigate(['/familyinfo']);
+      // alert('educational info recived Successfully ');
+      // sweet alert
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Educational-info recived successfully"
+      });
+
+    } else {
+      // alert('Please fill out all required fields.');
+      // sweet alert
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "center-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Please fill out all required fields."
+      });
     }
 
-    this.educationCareerService.addEducationCareer(this.educationInfo)
-      .subscribe(
-        (response) => {
-          // console.log('Successfully submitted:', response);
-          console.log("Education Data successfully filled");
-          
-        },
-        (error) => {
-          console.error('Error:', error);
-          // Handle error response
-        }
-      );
-
-      this.router.navigate(['/familyinfo']);
-  }
-
-  loadRegistrationDetails(): void {
-    this.registrationService.getRegistrationById(this.rid)
-      .subscribe(
-        (data: Registration) => {
-          console.log(data);
-          this.registration = data;
-          this.registration = {
-            rid: data.rid,
-            userName: data.userName,
-            password: data.password,
-            email: data.email
-          };
-        },
-        error => {
-          console.log('Error fetching registration details:', error);
-        }
-      );
+    
   }
 }

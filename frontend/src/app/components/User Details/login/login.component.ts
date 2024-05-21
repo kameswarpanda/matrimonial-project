@@ -1,165 +1,84 @@
-import { Component } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { NavbefloginComponent } from '../../navbar/nav-components/navbeflogin/navbeflogin.component';
-import { Registration } from '../../../models/registration/registration';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EducationCareerService } from '../../../services/education-level/education-level.service';
-import { RegistrationService } from '../../../services/registration/registration.service';
+import Swal from 'sweetalert2';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, NavbefloginComponent],
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    NavbefloginComponent,
+    ReactiveFormsModule,
+    CommonModule,
+  ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
-export class LoginComponent {
-  loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+export class LoginComponent implements OnInit {
+  userForm: FormGroup;
+  isFormSubmitted: boolean = false;
+
+  constructor(private router: Router, private formBuilder: FormBuilder) {
+    this.userForm = this.formBuilder.group({
+      userName: ['', Validators.minLength(3)],
+      password: ['', Validators.minLength(6)],
     });
   }
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      const username = this.loginForm.value.username;
-      const password = this.loginForm.value.password;
+const isFormValid = this.userForm.valid;
 
-      // console.log('Username:', username);
-      // console.log('Password:', password);
+    //sweet alert
 
-      // Clear the form after successful submission
-      this.loginForm.reset();
+    if (!isFormValid) 
+      {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'center-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Please fill out both Username and Password',
+      });
     } else {
-      // Mark form fields as touched to display validation errors
-      this.loginForm.markAllAsTouched();
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'center-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: 'success',
+        title: 'Signed in successfully',
+      });
+
+      //routing
+      this.router.navigate(['/page']);
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  //validation
+  ngOnInit(): void {}
 }

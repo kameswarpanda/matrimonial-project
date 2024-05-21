@@ -30,6 +30,7 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'about', component: AboutComponent },
     { path: 'contact', component: ContactComponent },
+    { path: 'locationbooking', component: LocationBookingComponent},
     { path: 'services', component: ServicesComponent },
     { path: 'admin', component: AdminComponent },
     { path: 'forgot', component: ForgotComponent},
@@ -44,5 +45,4 @@ export const routes: Routes = [
     { path: 'matches/grooms', component: GroomComponent},
     { path: 'matches/brides', component: BridesComponent},
     { path: 'matches/grooms/groom-info', component: GroomInfoComponent},
-    
 ];

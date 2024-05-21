@@ -1,52 +1,112 @@
 <app-navbeflogin></app-navbeflogin>
 <div class="container">
   <h5>Please Provide Your Family Information</h5>
-  <form [formGroup]="familyInfoForm" (submit)="onSubmit($event)">
-    <!-- <div class="form-group" > -->
-      <!-- <label for="familyStatus">Family Status:</label><br>
-      <div class="btn-group-toggle" data-toggle="buttons">
-
-        <label class="btn btn-option">
-          <input type="text" name="familyStatus" id="middleClass" value="middleClass" formControlName="familyStatus">
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="familyStatus" id="upperMiddleClass" value="upperMiddleClass" formControlName="familyStatus"> Upper Middle Class
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="familyStatus" id="highClass" value="highClass" formControlName="familyStatus"> High Class
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="familyStatus" id="richAffluent" value="richAffluent" formControlName="familyStatus"> Rich/Affluent
-        </label>
-      </div>
-    </div> -->
-    <!-- <div class="form-group">
-      <label for="familyType">Family Type:</label><br>
-      <div class="btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-option">
-          <input type="radio" name="familyType" id="joint" value="joint"> Joint
-        </label>
-        <label class="btn btn-option">
-          <input type="radio" name="familyType" id="nuclear" value="nuclear"> Nuclear
-        </label>
-      </div>
-    </div> -->
+  <form [formGroup]="familyInfoForm" (submit)="onSubmit()">
     <div class="form-group">
+      <label for="familyStatus" class="mb-2">Family Status</label><br />
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <i class="fa-solid fa-signal me-3"></i>
+        <label class="btn btn-option">
+          <input
+            formControlName="familyStatus"
+            type="radio"
+            name="familyStatus"
+            id="middleClass"
+            value="middleClass"
+          />
+          Middle Class
+        </label>
+        <label class="btn btn-option">
+          <input
+            formControlName="familyStatus"
+            type="radio"
+            name="familyStatus"
+            id="upperMiddleClass"
+            value="upperMiddleClass"
+          />
+          Upper Middle Class
+        </label>
+        <label class="btn btn-option">
+          <input
+            formControlName="familyStatus"
+            type="radio"
+            name="familyStatus"
+            id="highClass"
+            value="highClass"
+          />
+          High Class
+        </label>
+        <label class="btn btn-option">
+          <input
+            formControlName="familyStatus"
+            type="radio"
+            name="familyStatus"
+            id="richAffluent"
+            value="richAffluent"
+          />
+          Rich/Affluent
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="familyType" class="mb-2">Family Type</label><br />
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <i class="fa-solid fa-users  me-3"></i>
+        <label class="btn btn-option">
+          <input
+            type="radio"
+            name="familyType"
+            id="joint"
+            value="joint"
+            formControlName="familyType"
+          />
+          Joint
+        </label>
+        <label class="btn btn-option">
+          <input
+            type="radio"
+            name="familyType"
+            id="nuclear"
+            value="nuclear"
+            formControlName="familyType"
+          />
+          Nuclear
+        </label>
+      </div>
+    </div>
+
+    <!-- <div class="form-group">
       <label for="fatherName">Father Name:</label>
       <input type="text" class="form-control" id="fatherName" formControlName="fatherName" required>
     </div>
     <div class="form-group">
       <label for="familyStatus">Family Status</label>
       <input type="text" class="form-control" id="familyStatus" formControlName="familyStatus" required>
-    </div>
+    </div> -->
+    
     <div class="form-group">
-      <label for="familyType">Family Type:</label>
-      <input type="text" class="form-control" id="familyType" formControlName="familyType" required>
+      <label for="fatherName" class="mb-2">Father Name</label>
+      <div class="input-with-icon">
+        <i class="fa-solid fa-user input-icon me-3 input-icon"></i>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter your father name"
+          id="fatherName"
+          formControlName="fatherName"
+          required
+        />
+      </div>
     </div>
-    <button type="submit" class="btn btn-success btn-continue" >Continue</button>
+    <button
+      type="submit"
+      class="btn btn-success btn-continue mt-3"
+      routerLinkActive="active"
+    >
+      Continue
+    </button>
   </form>
 </div>
-
 
 <!-- <div class="container">
   <h5>Personal details get you the Right matches</h5>

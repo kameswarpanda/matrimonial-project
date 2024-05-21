@@ -4,9 +4,13 @@ body {
   font-family: Arial, sans-serif;
 }
 .admin-header {
+  margin-top: 80px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 15px;
   background-color: #343a40;
   color: #fff;
-  padding: 20px;
+  padding: 5px;
   text-align: center;
 }
 .admin-container {
