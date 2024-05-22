@@ -51,21 +51,6 @@ export class SignupComponent implements OnInit {
     const isFormValid = this.userForm.valid;
     this.isFormSubmitted = true;
 
-      // emailjs
-      //   .sendForm('service_hksa34h', 'template_xt58p0e', e.target as HTMLFormElement , {
-      //     publicKey: 'yoF2P1NACJyTjTxOS',
-      //   })
-      //   .then(
-      //     () => {
-      //       console.log('SUCCESS!');
-      //       this.router.navigate(['/userinfo']);
-      //     },
-      //     (error) => {
-      //       console.log('FAILED...', (error as EmailJSResponseStatus).text);
-      //     },
-      //   );
-        // alert('Check your email and verify your account, press OK to proceed. ')
-
     if (this.userForm.valid) {
       const registrationData = this.userForm.value;
 
@@ -115,9 +100,7 @@ export class SignupComponent implements OnInit {
           // Handle error, show error message, etc.
         }
       );
-    }
-
-    if (!this.userForm.valid) {
+    } else {
       // sweet alert message
       const Toast = Swal.mixin({
         toast: true,
