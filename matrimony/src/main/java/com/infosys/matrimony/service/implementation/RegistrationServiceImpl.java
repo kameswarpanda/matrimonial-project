@@ -20,6 +20,8 @@ public class RegistrationServiceImpl implements RegistrationService {
         return registrationRepository.save(registration);
     }
 
+    
+
     @Override
     public Registration getRegistrationById(Long id) {
         return registrationRepository.findById(id).orElse(null);

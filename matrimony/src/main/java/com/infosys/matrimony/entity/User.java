@@ -35,6 +35,9 @@ public class User {
 	@Column(name = "age")
     private Integer age;
 
+	
+	// private String gender;
+
 	public Long getUserId() {
 		return userId;
 	}
@@ -80,7 +83,7 @@ public class User {
 
 	// private String address;
 	// private int noOfGuests;
-	// private String gender;
+	
 	// private String  dateOfFunction;
 	// private String mobileNum;
 }

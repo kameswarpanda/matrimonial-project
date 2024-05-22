@@ -1,16 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import {
-  ActivatedRoute,
-  Router,
-  RouterLink,
-  RouterLinkActive,
-} from '@angular/router';
+import {FormBuilder,FormGroup,ReactiveFormsModule,Validators,} from '@angular/forms';
+import {ActivatedRoute,Router,RouterLink,RouterLinkActive,} from '@angular/router';
 import { NavbefloginComponent } from '../../navbar/nav-components/navbeflogin/navbeflogin.component';
 import { UserInfoService } from '../../../services/userinfo/userinfo.service';
 import { RegistrationService } from '../../../services/registration/registration.service';
@@ -36,6 +26,7 @@ export class UserInfoComponent implements OnInit {
   userForm: FormGroup;
   rid: number = 2;
   registration: any;
+  userName! : string ;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -53,15 +44,18 @@ export class UserInfoComponent implements OnInit {
 
   ngOnInit(): void {
     // Log the value of rid when BasicInfoComponent is initialized
-    console.log('RID in BasicInfoComponent ngOnInit:', this.rid);
+    // console.log('RID in BasicInfoComponent ngOnInit:', this.rid);
 
     // Retrieve the rid from RegistrationService
-    this.rid = this.registrationService.getrid();
-    console.log(
-      'RID retrieved from RegistrationService:',
-      this.rid,
-      typeof this.rid
-    );
+    // this.rid = this.registrationService.getrid();
+    // console.log(
+    //   'RID retrieved from RegistrationService:',
+    //   this.rid,
+    //   typeof this.rid
+    // );
+
+    this.userName = this.route.snapshot.paramMap.get('userName') ?? "";
+
     this.loadRegistrationDetails();
   }
 
@@ -76,7 +70,7 @@ export class UserInfoComponent implements OnInit {
     this.userInfoService.saveUserInfo(this.userInfo).subscribe(
       (response) => {
         console.log('User info saved successfully:', response);
-        this.router.navigate(['/personalinfo']);
+        this.router.navigate(['/personalinfo', this.userName]);
       }, error => {
         console.error('Failed to save user info:', error);
       }
@@ -144,7 +138,7 @@ export class UserInfoComponent implements OnInit {
         title: 'Enter your Age',
       });
     } else {
-      this.router.navigate(['/personalinfo']);
+      this.router.navigate(['/personalinfo', this.userName]);
       
       // sweet alert
       const Toast = Swal.mixin({
@@ -166,7 +160,7 @@ export class UserInfoComponent implements OnInit {
   }
 
   loadRegistrationDetails(): void {
-    this.registrationService.getRegistrationById(this.rid).subscribe(
+    this.registrationService.findByUserName(this.userName).subscribe(
       (data: Registration) => {
         console.log(data);
         this.registration = data;
@@ -179,13 +173,6 @@ export class UserInfoComponent implements OnInit {
       },
       (error) => {
         console.log('Error fetching registration details:', error);
-
-        //sweet alert
-        // Swal.fire({
-        //   title: "Something went Wrong !",
-        //   text: "Server may busy, try again after sometime ",
-        //   icon: "error"
-        // });
       }
     );
   }

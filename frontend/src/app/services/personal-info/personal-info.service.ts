@@ -7,33 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class PersonalInfoService {
 
+  private apiUrl = 'http://localhost:8080/api/personal-info';
+
   constructor(private http: HttpClient) { }
 
-  submitPersonalInfo(photo: File, bloodGroup: string): Observable<any> {
-    const reader = new FileReader();
+  savePersonalInfo(formData: FormData): Observable<any> {
+    return this.http.post<any>(this.apiUrl, formData);
+  }
 
-    return new Observable((observer) => {
-      reader.onload = (event) => {
-        const byteArray = new Uint8Array((event.target as FileReader).result as ArrayBuffer);
-        const payload = {
-          photo: Array.from(byteArray),
-          bloodGroup: bloodGroup
-        };
-        this.http.post('http://localhost:8080/api/personal-info', payload)
-          .subscribe(
-            (response) => {
-              observer.next(response);
-              observer.complete();
-            },
-            (error) => {
-              observer.error(error);
-            }
-          );
-      };
-      reader.onerror = (error) => {
-        observer.error(error);
-      };
-      reader.readAsArrayBuffer(photo);
-    });
+  getPhoto(personalInfoId: number): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/${personalInfoId}/photo`, { responseType: 'blob' });
   }
 }

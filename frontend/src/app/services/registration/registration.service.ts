@@ -10,6 +10,8 @@ export class RegistrationService {
   private baseUrl = 'http://localhost:8080/api/registrations'; 
 
   private rid!:number;
+  private userName!:string | null;
+
   private rData: any;
   constructor(private http: HttpClient) { }
 
@@ -28,5 +30,9 @@ export class RegistrationService {
   getRegistrationById(id: number): Observable<Registration> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<Registration>(url);
+  }
+
+  findByUserName(username: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/username/${username}`);
   }
 }

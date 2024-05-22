@@ -115,6 +115,5 @@ public class Registration {
 	public void setPersonalInfo(PersonalInfo personalInfo) {
 		this.personalInfo = personalInfo;
 	}
-	
-	
+
 }

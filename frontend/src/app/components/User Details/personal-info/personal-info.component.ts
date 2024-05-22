@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import {
   FormBuilder,
@@ -10,9 +10,13 @@ import {
   RouterLink,
   RouterLinkActive,
   Router,
+  ActivatedRoute,
   
 } from '@angular/router';
 import { NavbefloginComponent } from '../../navbar/nav-components/navbeflogin/navbeflogin.component';
+import { RegistrationService } from '../../../services/registration/registration.service';
+import { Registration } from '../../../models/registration/registration';
+import { PersonalInfoService } from '../../../services/personal-info/personal-info.service';
 
 @Component({
   selector: 'app-personal-info',
@@ -26,12 +30,19 @@ import { NavbefloginComponent } from '../../navbar/nav-components/navbeflogin/na
   templateUrl: './personal-info.component.html',
   styleUrl: './personal-info.component.css',
 })
-export class PersonalInfoComponent {
+export class PersonalInfoComponent implements OnInit{
   photographBloodGroupForm: FormGroup;
+  userName! : string ;
+  registration!: Registration
+  personalInfo!: any;
+  selectedFile: File | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private registrationService: RegistrationService,
+    private personalInfoService: PersonalInfoService,
+    private route: ActivatedRoute
     
   ) {
     this.photographBloodGroupForm = this.formBuilder.group({
@@ -40,31 +51,37 @@ export class PersonalInfoComponent {
     });
   }
 
-  //image preview
-  // const fileInput = document.getElementById('photograph');
-  //   const imagePreview = document.getElementById('imagePreview');
+  ngOnInit(): void {
 
-  //   photograph.addEventListener('change', function(event) {
-  //     const file = this.files[0];
-  //     if (file) {
-  //       const reader = new FileReader();
-  //       reader.onload = function(event) {
-  //         const img = new Image();
-  //         img.src = event.target.result;
-  //         img.style.maxWidth = '100%'; // Adjust as needed
-  //         img.style.height = 'auto'; // Maintain aspect ratio
-  //         imagePreview.innerHTML = ''; // Clear previous previews
-  //         imagePreview.appendChild(img);
-  //       };
-  //       reader.readAsDataURL(file);
-  //     }
-  //   });
+    this.userName = this.route.snapshot.paramMap.get('userName') ?? "";
+
+    this.loadRegistrationDetails();
+  }
+
+  onFileSelected(event: any): void {
+    this.selectedFile = event.target.files[0];
+  }
 
   onSubmit() {
+    this.personalInfo = {
+      photograph: this.selectedFile as Blob,
+      bloodGroup: this.photographBloodGroupForm.value.bloodGroup,
+      registration: this.registration,
+    };
+
     if (this.photographBloodGroupForm.valid) {
-      const formData = this.photographBloodGroupForm.value;
-      console.log('Form submitted with data:', formData);
-      this.router.navigate(['/educationalinfo']);
+      
+      // this.router.navigate(['/educationalinfo', this.userName]);
+      this.personalInfoService.savePersonalInfo(this.personalInfo).subscribe(
+        (response) => {
+          console.log('Personal-info received successfully');
+          this.router.navigate(['/educationalinfo', this.userName]);
+        },
+        (error) => {
+          console.error('Failed to save personal info:', error);
+          console.log('Failed to save personal info.');
+        }
+      );
       
       // sweet alert
       const Toast = Swal.mixin({
@@ -103,8 +120,24 @@ export class PersonalInfoComponent {
       });
     }
 
-    // if(this.photographBloodGroupForm.value == ''){
-    //   alert("Please provide your profile photo and Age");
-    // }
+    
+  }
+
+  loadRegistrationDetails(): void {
+    this.registrationService.findByUserName(this.userName).subscribe(
+      (data: Registration) => {
+        console.log(data);
+        this.registration = data;
+        this.registration = {
+          rid: data.rid,
+          userName: data.userName,
+          password: data.password,
+          email: data.email,
+        };
+      },
+      (error) => {
+        console.log('Error fetching registration details:', error);
+      }
+    );
   }
 }

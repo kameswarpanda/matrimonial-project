@@ -8,7 +8,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { NavbarComponent } from '../../navbar/navbar.component';
 import { NavbefloginComponent } from '../../navbar/nav-components/navbeflogin/navbeflogin.component';
@@ -33,10 +33,12 @@ export class SignupComponent implements OnInit {
   isFormSubmitted: boolean = false;
   rid: number = 1;
 
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private registrationService: RegistrationService
+    private registrationService: RegistrationService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -45,6 +47,8 @@ export class SignupComponent implements OnInit {
       password: ['', Validators.minLength(6)],
       email: ['', Validators.email],
     });
+
+    
   }
 
   onSubmit(e: Event): void {
@@ -67,15 +71,11 @@ export class SignupComponent implements OnInit {
             text: 'Check your email and verify your Account ',
             icon: 'success',
           });
-
+          
           //Email verification
           emailjs
-            .sendForm(
-              'service_b33wh5w',
-              'template_rv04sb5',
-              e.target as HTMLFormElement,
-              {
-                publicKey: 'TiPMp9coe69l6TC0y',
+          .sendForm('service_hksa34h', 'template_xt58p0e', e.target as HTMLFormElement , {
+            publicKey: 'yoF2P1NACJyTjTxOS',
               }
             )
             .then(
@@ -94,7 +94,7 @@ export class SignupComponent implements OnInit {
           // sweet alert
           Swal.fire({
             title: 'Something went Wrong !',
-            text: 'Server may busy, Try again after sometime ',
+            text: 'Put valid details',
             icon: 'error',
           });
           // Handle error, show error message, etc.

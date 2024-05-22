@@ -24,9 +24,9 @@ public class RegistrationController {
         return new ResponseEntity<>(savedRegistration, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Registration> getRegistrationById(@PathVariable Long id) {
-        Registration registration = registrationService.getRegistrationById(id);
+    @GetMapping("/username/{username}")
+    public ResponseEntity<Registration> findByUserName(@PathVariable String username) {
+        Registration registration = registrationService.findByUserName(username);
         if (registration != null) {
             return new ResponseEntity<>(registration, HttpStatus.OK);
         } else {
@@ -39,6 +39,7 @@ public class RegistrationController {
         List<Registration> registrations = registrationService.getAllRegistrations();
         return new ResponseEntity<>(registrations, HttpStatus.OK);
     }
+    
 
     @PutMapping("/{id}")
     public ResponseEntity<Registration> updateRegistration(@PathVariable Long id, @RequestBody Registration updatedRegistration) {
@@ -56,15 +57,15 @@ public class RegistrationController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<Registration> registerUser(@RequestBody Registration registration) {
-        Registration savedRegistration = registrationService.saveRegistration(registration);
-        return new ResponseEntity<>(savedRegistration, HttpStatus.CREATED);
-    }
+    // @PostMapping("/register")
+    // public ResponseEntity<Registration> registerUser(@RequestBody Registration registration) {
+    //     Registration savedRegistration = registrationService.saveRegistration(registration);
+    //     return new ResponseEntity<>(savedRegistration, HttpStatus.CREATED);
+    // }
 
-    @GetMapping("/login")
-    public String login() {
-        return "Please provide your username and password to login";
-    }
+    // @GetMapping("/login")
+    // public String login() {
+    //     return "Please provide your username and password to login";
+    // }
     
 }

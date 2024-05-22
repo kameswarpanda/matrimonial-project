@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.infosys.matrimony.entity.PersonalInfo;
+import com.infosys.matrimony.entity.Registration;
 import com.infosys.matrimony.service.PersonalInfoService;
 import java.util.List;
 
@@ -18,10 +20,22 @@ public class PersonalInfoController {
     private PersonalInfoService personalInfoService;
 
     @PostMapping
-    public ResponseEntity<PersonalInfo> savePersonalInfo(@RequestBody PersonalInfo personalInfo) {
-        PersonalInfo savedPersonalInfo = personalInfoService.savePersonalInfo(personalInfo);
-        return new ResponseEntity<>(savedPersonalInfo, HttpStatus.CREATED);
+    public ResponseEntity<?> createPersonalInfo(@RequestParam("file") MultipartFile file,
+                                                @RequestParam("bloodGroup") String bloodGroup,
+                                                @RequestParam("registration") Registration registration) {
+        try {
+            PersonalInfo personalInfo = personalInfoService.savePersonalInfo(file, bloodGroup, registration);
+            return new ResponseEntity<>(personalInfo, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Failed to upload file: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
+
+    // @PostMapping
+    // public ResponseEntity<PersonalInfo> savePersonalInfo(@RequestBody PersonalInfo personalInfo) {
+    //     PersonalInfo savedPersonalInfo = personalInfoService.savePersonalInfo(personalInfo);
+    //     return new ResponseEntity<>(savedPersonalInfo, HttpStatus.CREATED);
+    // }
 
     @GetMapping("/{id}")
     public ResponseEntity<PersonalInfo> getPersonalInfoById(@PathVariable Long id) {
