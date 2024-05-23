@@ -9,6 +9,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Registration } from '../../../models/registration/registration';
+import { RegistrationService } from '../../../services/registration/registration.service';
 
 @Component({
   selector: 'app-login',
@@ -24,11 +26,19 @@ import { CommonModule } from '@angular/common';
   styleUrl: './login.component.css',
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   userForm: FormGroup;
   isFormSubmitted: boolean = false;
+  registration: any;
+  loginInfo: any;
 
-  constructor(private router: Router, private formBuilder: FormBuilder) {
+  
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private registrationService: RegistrationService,
+    // private route: ActivatedRoute
+  ) {
     this.userForm = this.formBuilder.group({
       userName: ['', Validators.minLength(3)],
       password: ['', Validators.minLength(6)],
@@ -36,49 +46,47 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-const isFormValid = this.userForm.valid;
-
-    //sweet alert
-
-    if (!isFormValid) 
-      {
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'center-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        },
-      });
-      Toast.fire({
-        icon: 'error',
-        title: 'Please fill out both Username and Password',
-      });
-    } else {
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'center-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        },
-      });
-      Toast.fire({
-        icon: 'success',
-        title: 'Signed in successfully',
-      });
-
-      //routing
-      this.router.navigate(['/page']);
+    if (this.userForm.invalid) {
+      this.showToast('error', 'Please fill out both Username and Password');
+      return;
     }
+
+    const loginInfo = {
+      userName: this.userForm.value.userName,
+      password: this.userForm.value.password,
+    };
+
+    this.registrationService.findByUserName(loginInfo.userName).subscribe(
+      (data) => {
+        if (data && data.password === loginInfo.password) {
+          this.showToast('success', 'Signed in successfully');
+          this.router.navigate(['/page']);
+        } else {
+          this.showToast('error', 'Incorrect username or password');
+        }
+      },
+      (error) => {
+        console.log('Error fetching registration details:', error);
+        this.showToast('error', 'User not found');
+      }
+    );
   }
 
-  //validation
-  ngOnInit(): void {}
+  private showToast(icon: 'success' | 'error', title: string) {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'center-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: icon,
+      title: title,
+    });
+  }
 }

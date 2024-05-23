@@ -26,7 +26,7 @@ export class UserInfoComponent implements OnInit {
   userForm: FormGroup;
   rid: number = 2;
   registration: any;
-  userName! : string ;
+  userName! : string;
 
   constructor(
     private formBuilder: FormBuilder,
