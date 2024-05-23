@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { BridesInfoComponent } from '../brides-info/brides-info.component';
 import { NavbarComponent } from '../../../navbar.component';
 import { UserInfoService } from '../../../../../services/userinfo/userinfo.service';
@@ -31,7 +31,9 @@ export class BridesComponent implements OnInit{
     private userService: UserInfoService,
     private educationCareerService: EducationCareerService,
     private familyInfoService: FamilyInfoService,
-    private personalInfoService: PersonalInfoService
+    private personalInfoService: PersonalInfoService,
+    private router : Router,
+    private route: ActivatedRoute
   ) {}
 
 
@@ -45,7 +47,7 @@ export class BridesComponent implements OnInit{
       familyInfos: this.familyInfoService.getAllFamilyInfo(),
       personalInfos: this.personalInfoService.getAllPersonalInfo()
     }).subscribe(({ userInfo, educationCareers, familyInfos, personalInfos }) => {
-      this.users = userInfo.filter(userInfo => userInfo.gender === 'Female').map(user => {
+      this.users = userInfo.filter(userInfo => userInfo.gender === 'female').map(user => {
         const educationCareer = educationCareers.find(ec => ec.registration.rid === user.registration.rid);
         const familyInfo = familyInfos.find(fi => fi.registration.rid === user.registration.rid);
         const personalInfo = personalInfos.find(pi => pi.registration.rid === user.registration.rid);
@@ -67,23 +69,11 @@ export class BridesComponent implements OnInit{
         };
       });
     });
-  
-    // ngOnInit(): void {
-      // this.personalInfoService.getAllPersonalInfo().subscribe((data: any) => {
-      //   this.personalInfo= data;
-      // });
-
-      // this.userService.getAllUserInfo().subscribe((data: any) => {
-      //   this.userInfos= data;
-      // });
-
-      // this.educationCareerService.getAllEducationInfo().subscribe((data: any) => {
-      //   this.educationInfo= data;
-      // });
-
-      // this.familyInfoService.getAllFamilyInfo().subscribe((data: any) => {
-      //   this.familyInfo= data;
-      // });
-    // }
   }
+
+  viewDetails(user: any): void {
+    this.router.navigate(['/matches/brides/bride-info'], {
+      state: { user }
+    });
+}
 }

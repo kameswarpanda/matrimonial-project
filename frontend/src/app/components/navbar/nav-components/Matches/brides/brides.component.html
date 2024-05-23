@@ -116,7 +116,7 @@
 <div class="container">
   <div class="row">
     <div *ngFor="let user of users" class="col-md-3 col-sm-6 item">
-      <a [routerLink]="['/matches/brides/bride-info', user.id]">
+      <a [routerLink]="['/matches/brides/bride-info', user.id]" (click)="viewDetails(user)">
         <div class="card item-card card-block">
           <img
             *ngIf="user.personalInfo?.photograph"
