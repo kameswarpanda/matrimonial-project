@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Personalinfo } from '../../models/personalinfo/personalinfo';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,10 @@ export class PersonalInfoService {
 
   getPhoto(personalInfoId: number): Observable<Blob> {
     return this.http.get(`${this.apiUrl}/${personalInfoId}/photo`, { responseType: 'blob' });
+  }
+
+  // Method to get all personal information
+  getAllPersonalInfo(): Observable<Personalinfo[]> {
+    return this.http.get<Personalinfo[]>(this.apiUrl);
   }
 }

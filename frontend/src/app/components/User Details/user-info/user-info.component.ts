@@ -38,6 +38,7 @@ export class UserInfoComponent implements OnInit {
     this.userForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
+      gender: ['', Validators.required],
       age: ['', Validators.required],
     });
   }
@@ -64,6 +65,7 @@ export class UserInfoComponent implements OnInit {
       firstName: this.userForm.value.firstName,
       lastName: this.userForm.value.lastName,
       age: this.userForm.value.age,
+      gender: this.userForm.value.gender,
       registration: this.registration,
     };
 

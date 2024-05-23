@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar>
 <div class="container">
   <div class="row">
     <div class="col-md-3  col-sm-6 item">
@@ -86,17 +86,71 @@
         </div>
       </a>
     </div>
-    <div class="col-md-3 col-sm-6 item">
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+    
+    <div class="col-md-3 col-sm-6 item" *ngFor="let info of personalInfo">
       <a routerLink="/matches/brides/bride-info">
-        <div class="card item-card card-block">
-          <img
-            src="../../../assets/b3b23599209f2eb624a2714ec29b32ae.jpg"
-            alt="Photo of sunset"
-          />
-          <h5 class="card-title mt-3 mb-3">Anjali Verma</h5>
+        <div class="card item-card card-block" >
+          <img [src]="'data:image/jpeg;base64,' + info.photograph" alt="Profile Picture" />
+          <h5 class="card-title mt-3 mb-3"> {{ info.bloodGroup }} </h5>
           <p class="card-text">24 years, Not working</p>
         </div>
       </a>
     </div>
   </div>
+</div> -->
+
+<!-- <app-navbar></app-navbar> -->
+<p>Hello</p>
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let user of users" class="col-md-3 col-sm-6 item">
+      <a [routerLink]="['/matches/brides/bride-info', user.id]">
+        <div class="card item-card card-block">
+          <img
+            *ngIf="user.personalInfo?.photograph"
+            [src]="'data:image/jpeg;base64,' + user.personalInfo.photograph"
+            alt="Unable to load photo"
+          />
+          <h5 class="card-title mt-3 mb-3">
+            {{ user.firstName }} {{ user.lastName }}
+          </h5>
+          <p class="card-text">{{ user.age }} years, {{ user.educationCareer?.educationField || 'Not working' }}</p>
+        </div>
+      </a>
+    </div>
+  </div>
 </div>
+<!-- <div *ngFor="let info of users">
+  <div>{{ info.name }}</div>
+  <img [src]="'data:image/jpeg;base64,' + info.photograph" alt="Profile Picture">
+  <div>{{ info.bloodGroup }}</div>
+</div> -->
+
+<!-- <div *ngFor="let user of userInfos">
+  <div *ngFor="let personal of personalInfo">
+    <div *ngFor="let education of educationInfo">
+      <div *ngFor="let family of familyInfo">
+        <div class="col-md-3 col-sm-6 item">
+          <div class="card item-card card-block">
+            <img [src]="'data:image/jpeg;base64,' + personal.photograph" alt="Profile Picture" />
+            <h5 class="card-title mt-3 mb-3">{{ user.firstName }} {{ user.lastName }}</h5>
+            <p class="card-text">{{ user.age }} years, {{ education.educationField || 'Not working' }}</p>
+            <p class="card-text">{{ family.familyStatus }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

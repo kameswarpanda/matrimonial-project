@@ -67,7 +67,7 @@ export class FamilyInfoComponent implements OnInit{
             position: 'top-end',
             toast: true
           });
-          // this.router.navigate(['/login', this.userName]);
+          this.router.navigate(['/login']);
         },
         (error) => {
           console.error('Failed to save family info:', error);

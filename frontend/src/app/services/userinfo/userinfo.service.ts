@@ -30,4 +30,9 @@ export class UserInfoService {
   deleteUserInfo(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
+
+  // Method to get all user info
+  getAllUserInfo(): Observable<UserInfo[]> {
+    return this.http.get<UserInfo[]>(this.baseUrl);
+  }
 }
