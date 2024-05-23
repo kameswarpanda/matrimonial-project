@@ -12,6 +12,7 @@ import com.infosys.matrimony.entity.Registration;
 import com.infosys.matrimony.service.PersonalInfoService;
 import java.util.List;
 
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/personal-info")
@@ -57,6 +58,14 @@ public class PersonalInfoController {
         List<PersonalInfo> personalInfos = personalInfoService.getAllPersonalInfo();
         return new ResponseEntity<>(personalInfos, HttpStatus.OK);
     }
+
+    // @GetMapping
+    // public List<PersonalInfo> getAllImages() {
+    //     List<PersonalInfo> allImages = imageRepository.findAll();
+    //     return allImages.stream()
+    //             .map(img -> new ImageModel( img.getId(),img.getName(), img.getType(), img.getPicByte()))
+    //             .collect(Collectors.toList());
+    // }
 
     @PutMapping("/{id}")
     public ResponseEntity<PersonalInfo> updatePersonalInfo(@PathVariable Long id, @RequestBody PersonalInfo updatedPersonalInfo) {

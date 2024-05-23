@@ -35,8 +35,8 @@ public class User {
 	@Column(name = "age")
     private Integer age;
 
-	
-	// private String gender;
+	@Column(name = "gender")
+	private String gender;
 
 	public Long getUserId() {
 		return userId;

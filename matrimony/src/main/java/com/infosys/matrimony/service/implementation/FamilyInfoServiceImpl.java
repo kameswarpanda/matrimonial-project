@@ -1,5 +1,7 @@
 package com.infosys.matrimony.service.implementation;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,5 +36,9 @@ public class FamilyInfoServiceImpl implements FamilyInfoService{
     @Override
     public void deleteFamilyInfo(Long id) {
         familyInfoRepo.deleteById(id);
+    }
+
+    public List<FamilyInfo> getAllFamilyInfo() {
+        return familyInfoRepo.findAll();
     }
 }

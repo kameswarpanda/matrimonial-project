@@ -17,6 +17,7 @@ import com.infosys.matrimony.service.PersonalInfoService;
 // import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 
@@ -49,8 +50,14 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
 
     @Override
     public List<PersonalInfo> getAllPersonalInfo() {
-        return personalInfoRepository.findAll();
+        List<PersonalInfo> allImages = personalInfoRepository.findAll();
+        return allImages.stream()
+        .map(info -> new PersonalInfo(info.getId(), info.getPhotograph(), info.getBloodGroup(), info.getRegistration()))
+                .collect(Collectors.toList());
+        // return personalInfoRepository.findAll();
     }
+ 
+
 
     @Override
     public PersonalInfo updatePersonalInfo(Long id, PersonalInfo updatedPersonalInfo) {

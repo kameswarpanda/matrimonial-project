@@ -1,5 +1,7 @@
 package com.infosys.matrimony.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,5 +50,14 @@ public class FamilyInfoController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     
+    @GetMapping
+    public ResponseEntity<List<FamilyInfo>> getAllFamilyInfo() {
+    List<FamilyInfo> familyInfoList = familyInfoService.getAllFamilyInfo();
+    if (!familyInfoList.isEmpty()) {
+        return new ResponseEntity<>(familyInfoList, HttpStatus.OK);
+    } else {
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+}
 }
 
