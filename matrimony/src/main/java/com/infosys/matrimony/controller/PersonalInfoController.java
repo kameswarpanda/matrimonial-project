@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.infosys.matrimony.entity.PersonalInfo;
 import com.infosys.matrimony.entity.Registration;
 import com.infosys.matrimony.service.PersonalInfoService;
@@ -19,18 +20,22 @@ public class PersonalInfoController {
     @Autowired
     private PersonalInfoService personalInfoService;
 
-    @PostMapping
-    public ResponseEntity<?> createPersonalInfo(@RequestParam("file") MultipartFile file,
-                                                @RequestParam("bloodGroup") String bloodGroup,
-                                                @RequestParam("registration") Registration registration) {
+    @PostMapping(consumes = {"multipart/form-data"})
+    public ResponseEntity<?> createPersonalInfo(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("bloodGroup") String bloodGroup,
+            @RequestParam("registration") String registrationJson) {
         try {
-            PersonalInfo personalInfo = personalInfoService.savePersonalInfo(file, bloodGroup, registration);
+            // Convert the registration JSON string to Registration object
+            ObjectMapper objectMapper = new ObjectMapper();
+            Registration registration = objectMapper.readValue(registrationJson, Registration.class);
+
+            PersonalInfo personalInfo = personalInfoService.createPersonalInfo(file, bloodGroup, registration);
             return new ResponseEntity<>(personalInfo, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>("Failed to upload file: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
     // @PostMapping
     // public ResponseEntity<PersonalInfo> savePersonalInfo(@RequestBody PersonalInfo personalInfo) {
     //     PersonalInfo savedPersonalInfo = personalInfoService.savePersonalInfo(personalInfo);

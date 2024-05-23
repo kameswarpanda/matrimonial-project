@@ -28,7 +28,7 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
     private PersonalInfoRepository personalInfoRepository;
 
     @Override
-    public PersonalInfo savePersonalInfo(MultipartFile file, String bloodGroup, Registration registration) throws IOException {
+    public PersonalInfo createPersonalInfo(MultipartFile file, String bloodGroup, Registration registration) throws IOException {
 
         PersonalInfo personalInfo = new PersonalInfo();
         personalInfo.setBloodGroup(bloodGroup);
@@ -40,6 +40,7 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
 
         return personalInfoRepository.save(personalInfo);
     }
+
     
     @Override
     public PersonalInfo getPersonalInfoById(Long id) {

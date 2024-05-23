@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Registration } from '../../models/registration/registration';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EducationalInfoService {
+export class EducationCareerService {
 
-  constructor() {}
-
-  private baseUrl = 'http://localhost:8080/api/educational-info';
-
+  
 }

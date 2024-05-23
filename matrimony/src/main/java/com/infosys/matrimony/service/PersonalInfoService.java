@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 public interface PersonalInfoService {
     
     PersonalInfo savePersonalInfo(PersonalInfo personalInfo);
-    PersonalInfo savePersonalInfo(MultipartFile file, String bloodGroup, Registration registration) throws IOException;
+    PersonalInfo createPersonalInfo(MultipartFile file, String bloodGroup, Registration registration) throws IOException;
     PersonalInfo getPersonalInfoById(Long id);
     List<PersonalInfo> getAllPersonalInfo();
     PersonalInfo updatePersonalInfo(Long id, PersonalInfo updatedPersonalInfo);

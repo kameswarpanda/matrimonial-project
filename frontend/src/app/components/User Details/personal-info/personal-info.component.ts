@@ -32,9 +32,8 @@ import { PersonalInfoService } from '../../../services/personal-info/personal-in
 })
 export class PersonalInfoComponent implements OnInit{
   photographBloodGroupForm: FormGroup;
-  userName! : string ;
-  registration!: Registration
-  personalInfo!: any;
+  userName!: string;
+  registration!: Registration;
   selectedFile: File | null = null;
 
   constructor(
@@ -43,7 +42,6 @@ export class PersonalInfoComponent implements OnInit{
     private registrationService: RegistrationService,
     private personalInfoService: PersonalInfoService,
     private route: ActivatedRoute
-    
   ) {
     this.photographBloodGroupForm = this.formBuilder.group({
       photograph: [null, Validators.required],
@@ -52,9 +50,7 @@ export class PersonalInfoComponent implements OnInit{
   }
 
   ngOnInit(): void {
-
-    this.userName = this.route.snapshot.paramMap.get('userName') ?? "";
-
+    this.userName = this.route.snapshot.paramMap.get('userName') ?? '';
     this.loadRegistrationDetails();
   }
 
@@ -62,78 +58,43 @@ export class PersonalInfoComponent implements OnInit{
     this.selectedFile = event.target.files[0];
   }
 
-  onSubmit() {
-    this.personalInfo = {
-      photograph: this.selectedFile as Blob,
-      bloodGroup: this.photographBloodGroupForm.value.bloodGroup,
-      registration: this.registration,
-    };
+  onSubmit(): void {
+    if (this.photographBloodGroupForm.valid && this.selectedFile) {
+      const formData = new FormData();
+      formData.append('file', this.selectedFile);
+      formData.append('bloodGroup', this.photographBloodGroupForm.get('bloodGroup')!.value);
+      formData.append('registration', JSON.stringify(this.registration));
 
-    if (this.photographBloodGroupForm.valid) {
-      
-      // this.router.navigate(['/educationalinfo', this.userName]);
-      this.personalInfoService.savePersonalInfo(this.personalInfo).subscribe(
+      this.personalInfoService.savePersonalInfo(formData).subscribe(
         (response) => {
           console.log('Personal-info received successfully');
           this.router.navigate(['/educationalinfo', this.userName]);
         },
         (error) => {
           console.error('Failed to save personal info:', error);
-          console.log('Failed to save personal info.');
         }
       );
-      
-      // sweet alert
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        }
-      });
-      Toast.fire({
-        icon: "success",
-        title: "Personal-info recived successfully"
-      });
 
-    } else {
-      // alert('Please fill out all required fields.');
-      // sweet alert
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "center-end",
+      Swal.fire({
+        icon: 'success',
+        title: 'Personal-info received successfully',
         showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        }
+        timer: 1500,
       });
-      Toast.fire({
-        icon: "error",
-        title: "Please fill out all required fields."
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Please fill out all required fields.',
+        showConfirmButton: false,
+        timer: 1500,
       });
     }
-
-    
   }
 
   loadRegistrationDetails(): void {
     this.registrationService.findByUserName(this.userName).subscribe(
       (data: Registration) => {
-        console.log(data);
         this.registration = data;
-        this.registration = {
-          rid: data.rid,
-          userName: data.userName,
-          password: data.password,
-          email: data.email,
-        };
       },
       (error) => {
         console.log('Error fetching registration details:', error);

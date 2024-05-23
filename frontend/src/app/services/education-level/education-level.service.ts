@@ -8,9 +8,27 @@ import { EducationCareer } from '../../models/education-career';
 })
 export class EducationCareerService {
 
+  private apiUrl = 'http://localhost:8080/api/education-info';
+
   constructor(private http: HttpClient) { }
 
-  addEducationCareer(educationCareer: EducationCareer): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/api/education-career', educationCareer);
+  saveEducationInfo(educationInfo: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, educationInfo);
+  }
+
+  getEducationInfoById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+
+  getAllEducationInfo(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+
+  updateEducationInfo(id: number, educationInfo: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, educationInfo);
+  }
+
+  deleteEducationInfo(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

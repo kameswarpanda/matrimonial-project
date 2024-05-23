@@ -12,7 +12,7 @@ import com.infosys.matrimony.service.EducationCareerService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api/education-career")
+@RequestMapping("/api/education-info")
 public class EducationCareerController {
 
     @Autowired

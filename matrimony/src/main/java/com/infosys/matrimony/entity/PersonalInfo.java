@@ -31,7 +31,7 @@ public class PersonalInfo {
 
 	@Lob
     @Basic(fetch = FetchType.LAZY)
-    @Column(name = "photograph")
+    @Column(name = "photograph", columnDefinition="LONGBLOB")
     private byte[] photograph;
     
     @Column(name = "blood_group")
