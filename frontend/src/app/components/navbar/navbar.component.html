@@ -5,7 +5,7 @@
         class="navbar-brand me-auto"
         routerLink="/home"
         routerLinkActive="active"
-        >Jeevan Jyoti</a
+        >Jeevan <span class="text-success">Sathi</span></a
       >
       <div
         class="offcanvas offcanvas-end"
@@ -14,7 +14,9 @@
         aria-labelledby="offcanvasNavbarLabel"
       >
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Jeevan Jyoti</h5>
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="color: black; font-weight: bold;">
+            Jeevan <span class="text-success">Sathi</span>
+          </h5>
           <button
             type="button"
             class="btn-close"
@@ -33,13 +35,31 @@
                 >Home</a
               >
             </li>
-            <li class="nav-item">
+
+            <li class="dropdown">
               <a
-                class="nav-link mx-lg-2"
-                routerLink="/services"
-                routerLinkActive="active"
-                >Services</a
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
               >
+                Matches
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a
+                  class="dropdown-item"
+                  routerLink="/matches/grooms"
+                  routerLinkActive="active"
+                  >Grooms</a
+                >
+                <a
+                  class="dropdown-item"
+                  routerLink="/matches/brides"
+                  routerLinkActive="active"
+                  >Brides</a
+                >
+              </div>
             </li>
             <li class="nav-item">
               <a
@@ -49,17 +69,15 @@
                 >About</a
               >
             </li>
-            
-            <li class="dropdown">
-              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Matches
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" routerLink="/matches/grooms" routerLinkActive="active">Grooms</a>
-                <a class="dropdown-item" routerLink="/matches/brides" routerLinkActive="active">Brides</a>
-              </div>
+            <li class="nav-item">
+              <a
+                class="nav-link mx-lg-2"
+                routerLink="/services"
+                routerLinkActive="active"
+                >Services</a
+              >
             </li>
-            
+
             <li class="nav-item">
               <a
                 class="nav-link mx-lg-2"

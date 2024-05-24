@@ -5,13 +5,8 @@
 
 .profile-picture img {
   max-width: 100%;
-  max-height: auto;
+  height: auto;
   border-radius: 0.5rem;
-}
-.profile-picture  {
-  max-width: 100%;
-  max-height: 100%;
-  
 }
 
 .profile-details ul {
@@ -19,7 +14,7 @@
   padding: 0;
 }
 
-.profile-details{
+.profile-details {
   padding: 5px 5px;
 }
 
@@ -27,16 +22,16 @@
   margin-bottom: 10px;
 }
 
-.container{
+.container {
   margin-top: 100px;
   margin-bottom: 100px;
   padding: 2px;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.text{
+.text {
   font-size: small;
   margin-top: 10px;
 }

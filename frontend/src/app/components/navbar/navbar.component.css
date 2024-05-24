@@ -1,16 +1,18 @@
 .navbar{
   background-color: #ffffff;
   margin: 10px;
+  margin-top: 3px;
   border-radius: 15px;
   padding: 0.5rem;  
   border: 1px solid black;
+  
   
   
 }
 
 .navbar-brand{
   font-weight: bolder;
-  color: #009970;
+  color: #000000;
   font-size: 24px;
   transition: 0.3s color;
 }
@@ -35,22 +37,19 @@
 .navbar-toggler{
   border: none;
   font-size: 1.25rem;
-  background-color: #009970;
+  background: linear-gradient(45deg, #2bc4a8, #009970);
   border-radius: 3rem;
   margin-left: 15px;
   
 }
 
 .navbar-toggler:hover{
-  background-color: #01b887;
+  background: linear-gradient(45deg, #009970, #2bc4a8);
 
 }
 
 
-.offcanvas-body{
-  color: #009970;
-  background-color: white;
-}
+
 
 .offcanvas-header{
   color: #009970;

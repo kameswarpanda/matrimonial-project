@@ -1,14 +1,12 @@
-
-.hero-section{
+/* .hero-section {
   background: url(../../../../../assets/bg1.jpg) no-repeat center;
   background-size: cover;
   width: 100%;
   height: 100vh;
   color: #000;
-
 }
 
-.hero-section::before{
+.hero-section::before {
   background-color: rgba(0, 0, 0, 0);
   content: "";
   position: absolute;
@@ -18,48 +16,40 @@
   left: 0;
 }
 
-.hero-section .container{
+.hero-section .container {
   height: 100vh;
   position: relative;
   text-shadow: #000;
   z-index: 1;
 }
 
-.hero-section h1{
+.hero-section h1 {
   font-size: 2.5rem;
 }
 
-.hero-section p{
+.hero-section p {
   font-size: 1.5rem;
 }
 
-.hero-content{
+.hero-content {
   display: flex;
   justify-content: center;
-  
+} */
+
+.navbar {
+  padding: 0.5rem;
+  border-bottom: 1px solid black;
 }
 
-.navbar{
-  background-color: #ffffff;
-  /* margin: 20px; */
-  /* border-radius: 15px; */
-  padding: 0.5rem;  
-  border: 1px solid black;
-  
-  
-}
-
-.navbar-brand{
+.navbar-brand {
   font-weight: bolder;
-  color: #009970;
+  color: #000000;
   font-size: 24px;
   transition: 0.3s color;
 }
 
-
-
-.login-button{
-  background-color: #009970;
+.login-button {
+  background: linear-gradient(45deg, #2bc4a8, #009970);
   color: white;
   font-size: 14px;
   font-weight: bold;
@@ -69,116 +59,108 @@
   transition: 0.3s background-color;
 }
 
-.login-button:hover{
-  background-color: #00b383;
+.login-button:hover {
+  background: linear-gradient(45deg, #009970, #2bc4a8);
 }
 
-.navbar-toggler{
+.navbar-toggler {
   border: none;
   font-size: 1.25rem;
-  background-color: #009970;
+  background: linear-gradient(45deg, #2bc4a8, #009970);
   border-radius: 3rem;
   margin-left: 15px;
-  
 }
 
-.navbar-toggler:hover{
-  background-color: #01b887;
-
+.navbar-toggler:hover {
+  background: linear-gradient(45deg, #009970, #2bc4a8);
 }
 
-
-.offcanvas-body{
-  color: #009970;
+.offcanvas-header {
+  color: #198754;
   background-color: white;
 }
 
-.offcanvas-header{
-  color: #009970;
-  background-color: white;
-}
-
-.btn-close{
+.btn-close {
   color: rgb(0, 0, 0);
-  background-color: #009970;
+  background-color: #198754;
 }
 
-.navbar-toggler:focus, .btn-close:focus{
+.navbar-toggler:focus,
+.btn-close:focus {
   box-shadow: none;
   outline: none;
 }
 
-
-
-.nav-link{
-color: #000000;
-font-weight: bold;
-position: relative;
+.nav-link {
+  color: #000000;
+  font-weight: bold;
+  position: relative;
 }
 
-.nav-link:hover, .nav-link.active{
-  color: #009970;
+.nav-link:hover,
+.nav-link.active {
+  color: #198754;
 }
 
-@media(min-width: 991px){
-.nav-link::before{
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 2px;
-  background-color: #009970;
-  visibility: hidden;
-  transition: 0.1s ease-in-out;
+@media (min-width: 991px) {
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background-color: #198754;
+    visibility: hidden;
+    transition: 0.1s ease-in-out;
+  }
 
-} 
+  .nav-link:hover::before,
+  .nav-link.active::before {
+    width: 100%;
+    visibility: visible;
+  }
+}
 
-.nav-link:hover::before, .nav-link.active::before{
-  width: 100%;
-  visibility: visible;
-}}
-
-.btn{
+.btn {
   font-weight: bold;
   background: linear-gradient(45deg, #2bc4a8, #009970);
- 
-  
 }
 
 .btn:hover {
   background: linear-gradient(45deg, #009970, #2bc4a8);
 }
 
-
 /* for home page */
 
-h1{
-  font-family: 'Dancing Script', cursive;
+h1 {
+  font-family: "Dancing Script", cursive;
   font-weight: bold;
 }
 
-.carousel-item img{
+.carousel-item img {
   width: 100%;
   height: 80vh;
 }
 
-.about-img img{
+.about {
+  padding-top: 100px;
+}
+.about-img img {
   width: 60%;
   height: 60vh;
-  
+
   border-radius: 1rem;
   border: 1px solid black;
 }
 
-.card-body img{
-  
+.card-body img {
   min-width: 70%;
   max-height: 40vh;
 }
 
-.contact-form{
+.contact-form {
   max-width: 70%;
   margin: auto;
 }
