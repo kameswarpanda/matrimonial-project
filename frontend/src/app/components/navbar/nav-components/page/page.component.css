@@ -2,8 +2,9 @@ body {
   background-color: #f8f9fa;
 }
 .jumbotron {
-  background-color: #343a40;
-  color: #fff;
+  font-weight: bold;
+  background-color: #ccffe9;
+  color: #000000;
   padding: 30px 25px;
   padding-top: 90px;
   margin-bottom: 0;

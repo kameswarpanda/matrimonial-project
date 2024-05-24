@@ -3,27 +3,46 @@
   <div class="row">
     <div class="col-md-4">
       <div class="profile-picture">
-         <img [src]="'data:image/jpeg;base64,' + user.personalInfo.photograph" alt="Profile Picture" />
+        <img
+          [src]="'data:image/jpeg;base64,' + user.personalInfo.photograph"
+          alt="Profile Picture"
+        />
       </div>
     </div>
     <div class="col-md-8">
       <div class="profile-details">
-        <!-- <h3 class="mt-2">Meera Sharma</h3> -->
+        <h3 class="mt-2 mb-3">{{ user.firstName }} {{ user.lastName }}</h3>
         <ul class="text">
-            <h1>{{ user.firstName }} {{ user.lastName }}</h1>
-            <p>Blood Group: {{ user.bloodGroup }}</p>
-            <p>Age: {{ user.age }}</p>
-            <p>Gender: {{ user.gender }}</p>
-            <h3>Education</h3>
-            <p>Level: {{ user.educationCareer.educationLevel }}</p>
-            <p>Field: {{ user.educationCareer.educationField }}</p>
-            <h3>Family</h3>
-            <p>Status: {{ user.familyInfo.familyStatus }}</p>
-            <p>Type: {{ user.familyInfo.familyType }}</p>
-            <p>Father's Name: {{ user.familyInfo.fatherName }}</p>
+          <li><strong>Nick Name:</strong> {{ user.firstName }}</li>
+          <li>
+            <strong> Date of Birth:</strong> -- -- --
+            <strong> ({{ user.age }} yrs)</strong>
+          </li>
+          <!-- <li><strong>Mobile:</strong> +91 6345678901</li> -->
+
+          <li><strong>Gender:</strong> {{ user.gender }}</li>
+          <li>
+            <strong>Educational Career:</strong>
+            {{ user.educationCareer.educationLevel }}
+          </li>
+          <li>
+            <strong>Educational Field:</strong>
+            {{ user.educationCareer.educationField }}
+          </li>
+          <li>
+            <strong>Family Status:</strong> {{ user.familyInfo.familyStatus }}
+          </li>
+          <li>
+            <strong>Family Type:</strong> {{ user.familyInfo.familyType }}
+          </li>
+          <li>
+            <strong>Father Name:</strong> {{ user.familyInfo.fatherName }}
+          </li>
+          <!-- <li><strong>Income:</strong> Rs 5,50,000 per annum</li> -->
+          <li><strong>Blood Group:</strong> {{ user.personalInfo.bloodGroup }}</li>
         </ul>
 
-        <button type="button" class="btn btn-success ">Chat</button>
+        <button type="button" class="btn btn-success">Chat</button>
         <button type="button" class="btn btn-warning ms-2">Intrested</button>
       </div>
     </div>
