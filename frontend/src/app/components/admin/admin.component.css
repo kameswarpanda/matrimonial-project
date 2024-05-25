@@ -23,7 +23,7 @@ body {
   color: rgb(0, 0, 0);
   background-color: #abecac;
   border-right: 1px solid #dee2e6;
-  max-height: 100vh;
+  max-height: 100%;
   width: 230px;
   border-radius: 1rem;
   margin-left: 20px;
@@ -32,8 +32,8 @@ body {
   border:1px solid #000000;
 }
 .admin-main {
-  padding: 20px;
-  padding-right: 5px;
+  margin-bottom: 20px;
+  padding-left: 20px;
 }
 
 .list-group{
@@ -48,8 +48,4 @@ content{
   background-color: aliceblue;
 }
 
-.card{
-  border: 1px solid black;
-  border-radius: 1rem;
-}
 
