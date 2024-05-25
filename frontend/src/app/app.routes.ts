@@ -5,7 +5,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AboutComponent } from './components/navbar/nav-components/about/about.component';
 import { ContactComponent } from './components/navbar/nav-components/contact/contact.component';
 import { ServicesComponent } from './components/navbar/nav-components/services/services.component';
-import { AdminComponent } from './components/navbar/nav-components/admin/admin.component';
+import { AdminComponent } from './components/admin/admin.component';
 import { LocationBookingComponent } from './components/navbar/nav-components/location-booking/location-booking.component';
 import { HomeComponent } from './components/navbar/nav-components/home/home.component';
 import { ForgotComponent } from './components/User Details/forgot/forgot.component';
@@ -20,29 +20,33 @@ import { GroomInfoComponent } from './components/navbar/nav-components/Matches/g
 import { BridesComponent } from './components/navbar/nav-components/Matches/brides/brides.component';
 import { PersonalInfoComponent } from './components/User Details/personal-info/personal-info.component';
 import { ResetpasswordComponent } from './components/User Details/resetpassword/resetpassword.component';
-
+import { RegdReportComponent } from './components/admin/admin-control/regd-report/regd-report.component';
+import { ContactReportComponent } from './components/admin/admin-control/contact-report/contact-report.component';
+import { UserManagementComponent } from './components/admin/admin-control/user-management/user-management.component';
 
 export const routes: Routes = [
-    { path: "", component: HomeComponent},
-    { path: 'login', component: LoginComponent },
-    { path: 'signup', component: SignupComponent },
-    { path: 'navbar', component: NavbarComponent },
-    { path: 'home', component: HomeComponent },
-    { path: 'about', component: AboutComponent },
-    { path: 'contact', component: ContactComponent },
-    { path: 'locationbooking', component: LocationBookingComponent},
-    { path: 'services', component: ServicesComponent },
-    { path: 'admin', component: AdminComponent },
-    { path: 'forgot', component: ForgotComponent},
-    { path: 'resetpassword', component: ResetpasswordComponent},
-    // { path: 'loctaionbooking', component: LocationBookingComponent },
-    { path: 'userinfo/:userName', component: UserInfoComponent },
-    { path: 'familyinfo/:userName', component: FamilyInfoComponent },
-    { path: 'educationalinfo/:userName', component: EducationalInfoComponent },
-    { path: 'personalinfo/:userName', component: PersonalInfoComponent },
-    { path: 'page', component: PageComponent },
-    { path: 'matches/brides/bride-info', component: BridesInfoComponent },
-    { path: 'matches/grooms', component: GroomComponent},
-    { path: 'matches/brides', component: BridesComponent},
-    { path: 'matches/grooms/groom-info', component: GroomInfoComponent},
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'navbar', component: NavbarComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'locationbooking', component: LocationBookingComponent },
+  { path: 'services', component: ServicesComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'forgot', component: ForgotComponent },
+  { path: 'resetpassword', component: ResetpasswordComponent },
+  { path: 'userinfo/:userName', component: UserInfoComponent },
+  { path: 'familyinfo/:userName', component: FamilyInfoComponent },
+  { path: 'educationalinfo/:userName', component: EducationalInfoComponent },
+  { path: 'personalinfo/:userName', component: PersonalInfoComponent },
+  { path: 'page', component: PageComponent },
+  { path: 'matches/brides/bride-info', component: BridesInfoComponent },
+  { path: 'matches/grooms', component: GroomComponent },
+  { path: 'matches/brides', component: BridesComponent },
+  { path: 'matches/grooms/groom-info', component: GroomInfoComponent },
+  { path: 'admin/regd-report', component: RegdReportComponent },
+  { path: 'admin/contact-report', component: ContactReportComponent },
+  { path: 'admin/user-management', component: UserManagementComponent },
 ];

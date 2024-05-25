@@ -4,32 +4,36 @@ body {
   font-family: Arial, sans-serif;
 }
 .admin-header {
+  font-weight: bold;
   margin-top: 80px;
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 15px;
-  background-color: #343a40;
-  color: #fff;
+  background-color: #abecac;
+  color: #000000;
   padding: 5px;
   text-align: center;
+  border:1px solid #000000;
 }
 .admin-container {
   margin-top: 20px;
   
 }
 .admin-sidebar {
-  color: white;
-  background-color: #343a40;
+  color: rgb(0, 0, 0);
+  background-color: #abecac;
   border-right: 1px solid #dee2e6;
-  min-height: 100vh;
+  max-height: 100vh;
   width: 230px;
   border-radius: 1rem;
   margin-left: 20px;
   padding: 20px;
   margin-bottom: 20px;
+  border:1px solid #000000;
 }
 .admin-main {
   padding: 20px;
+  padding-right: 5px;
 }
 
 .list-group{
@@ -38,5 +42,14 @@ body {
 }
 .btn{
   margin-top: 10px;
+}
+
+content{
+  background-color: aliceblue;
+}
+
+.card{
+  border: 1px solid black;
+  border-radius: 1rem;
 }
 

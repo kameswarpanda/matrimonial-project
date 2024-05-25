@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+<!-- Admin Header -->
+<div class="admin-header">
+  <h2>Welcome to Admin Panel</h2>
+</div>
+
+<div class="container-fluid admin-container">
+  <div class="row">
+    <!-- Admin Sidebar -->
+    <div class="col-md-3 admin-sidebar mb-4">
+      <h4 style="font-weight: bold" class="mb-4">
+        Control Pannel
+        <hr />
+      </h4>
+
+      <ul class="list-group">
+        <button type="button" class="btn btn-success">Dashboard</button>
+        <button type="button" class="btn btn-success">Users Management</button>
+        <button type="button" class="btn btn-success">Contact Report</button>
+        <button type="button" class="btn btn-success">
+          Registration Report
+        </button>
+      </ul>
+    </div>
+
+    <!-- Admin Main Content -->
+    <div class="col-md-9 admin-main">
+      <div class="row mb-5">
+        <div class="col-sm-12 col-md-4 col-lg-4 col-12">
+          <div class="card">
+            <div class="card-body">
+              <i
+                class="fa fa-male fa-2x p-2 mb-2 text-white bg-success rounded"
+              ></i>
+              <h5 class="card-title my-3">Number of Grooms</h5>
+              <p class="card-text">34</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-12">
+          <div class="card">
+            <div class="card-body">
+              <i
+                class="fa fa-female fa-2x p-2 mb-2 text-white bg-success rounded"
+              ></i>
+              <h5 class="card-title my-3">Number of brides</h5>
+              <p class="card-text">12</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-12">
+          <div class="card">
+            <div class="card-body">
+              <i
+                class="fa fa-equals fa-2x p-2 mb-2 text-white bg-success rounded"
+              ></i>
+              <h5 class="card-title my-3">Total</h5>
+              <p class="card-text">56</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <app-contact-report></app-contact-report>
+      <app-regd-report></app-regd-report>
+      <app-user-management></app-user-management>
+    </div>
+  </div>
+</div>
