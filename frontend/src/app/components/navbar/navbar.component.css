@@ -29,6 +29,10 @@
   text-decoration: none;
   transition: 0.3s background-color;
 }
+.profile{
+  text-decoration: none;
+  color: white;
+}
 
 .login-button:hover{
   background: linear-gradient(45deg, #009970, #2bc4a8);

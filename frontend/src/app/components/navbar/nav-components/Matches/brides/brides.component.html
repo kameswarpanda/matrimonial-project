@@ -1,121 +1,11 @@
-<!-- <app-navbar></app-navbar>
-<div class="container">
-  <div class="row">
-    <div class="col-md-3  col-sm-6 item">
-      <a routerLink="/matches/brides/bride-info">
-        <div class="card item-card card-block">
-          <img
-            src="../../../assets/692153373dbfa9ba72d5df49cffce338.jpg"
-            alt="Unable to load photo"
-          />
-          <h5 class="card-title mt-3 mb-3 ">Priya Gupta</h5>
-
-          <p class="card-text">24 years, Not working</p>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-3 col-sm-6 item">
-      <a routerLink="/matches/brides/bride-info" class="text">
-        <div class="card item-card card-block">
-          <img
-            src="../../../assets/96e63fb2f38dbba9c62e6221849fbd5b.jpg"
-            alt="Photo of sunset"
-          />
-          <h5 class="card-title mt-3 mb-3">Nisha Patel</h5>
-          <p class="card-text">23 years, Doctor</p>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-3 col-sm-6 item">
-      <a routerLink="/matches/brides/bride-info">
-        <div class="card item-card card-block">
-          <img
-            src="../../../assets/b3b23599209f2eb624a2714ec29b32ae.jpg"
-            alt="Photo of sunset"
-          />
-          <h5 class="card-title mt-3 mb-3">Ayesh Khan</h5>
-          <p class="card-text">25 years, Developer</p>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-3 col-sm-6 item">
-      <a routerLink="/matches/brides/bride-info">
-        <div class="card item-card card-block">
-          <img
-            src="../../../assets/ca276a8984f445731beef2a57a59970c.jpg"
-            alt="Photo of sunset"
-          />
-          <h5 class="card-title mt-3 mb-3">Meera Sharma</h5>
-          <p class="card-text">23 years, Trainer</p>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-3 col-sm-6 item">
-      <a routerLink="/matches/brides/bride-info">
-        <div class="card item-card card-block">
-          <img
-            src="../../../assets/ca276a8984f445731beef2a57a59970c.jpg"
-            alt="Photo of sunset"
-          />
-          <h5 class="card-title mt-3 mb-3">Neha Singh</h5>
-          <p class="card-text">26 years, Lecturer</p>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-3 col-sm-6 item">
-      <a routerLink="/matches/brides/bride-info">
-        <div class="card item-card card-block">
-          <img
-            src="../../../assets/96e63fb2f38dbba9c62e6221849fbd5b.jpg"
-            alt="Photo of sunset"
-          />
-          <h5 class="card-title mt-3 mb-3">Pooja Reddy</h5>
-          <p class="card-text">22 years, Not working</p>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-3 col-sm-6 item">
-      <a routerLink="/matches/brides/bride-info">
-        <div class="card item-card card-block">
-          <img
-            src="../../../assets/692153373dbfa9ba72d5df49cffce338.jpg"
-            alt="Unable to load photo"
-          />
-          <h5 class="card-title mt-3 mb-3">Deepika Choudhuri</h5>
-          <p class="card-text">25 years, Teacher</p>
-        </div>
-      </a>
-    </div>
-
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-
-
-
-    
-    <div class="col-md-3 col-sm-6 item" *ngFor="let info of personalInfo">
-      <a routerLink="/matches/brides/bride-info">
-        <div class="card item-card card-block" >
-          <img [src]="'data:image/jpeg;base64,' + info.photograph" alt="Profile Picture" />
-          <h5 class="card-title mt-3 mb-3"> {{ info.bloodGroup }} </h5>
-          <p class="card-text">24 years, Not working</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</div> -->
-
 <app-navbar></app-navbar>
-
 <div class="container">
   <div class="row">
     <div *ngFor="let user of users" class="col-md-3 col-sm-6 item">
-      <a [routerLink]="['/matches/brides/bride-info', user.id]" (click)="viewDetails(user)">
+      <a
+        [routerLink]="['/matches/brides/bride-info', user.id]"
+        (click)="viewDetails(user)"
+      >
         <div class="card item-card card-block">
           <img
             *ngIf="user.personalInfo?.photograph"
@@ -125,31 +15,12 @@
           <h5 class="card-title mt-3 mb-3">
             {{ user.firstName }} {{ user.lastName }}
           </h5>
-          <p class="card-text">{{ user.age }} years, {{ user.educationCareer?.educationField || 'Not working' }}</p>
+          <p class="card-text">
+            {{ user.age }} years,
+            {{ user.educationCareer?.educationField || "Not working" }}
+          </p>
         </div>
       </a>
     </div>
   </div>
 </div>
-<!-- <div *ngFor="let info of users">
-  <div>{{ info.name }}</div>
-  <img [src]="'data:image/jpeg;base64,' + info.photograph" alt="Profile Picture">
-  <div>{{ info.bloodGroup }}</div>
-</div> -->
-
-<!-- <div *ngFor="let user of userInfos">
-  <div *ngFor="let personal of personalInfo">
-    <div *ngFor="let education of educationInfo">
-      <div *ngFor="let family of familyInfo">
-        <div class="col-md-3 col-sm-6 item">
-          <div class="card item-card card-block">
-            <img [src]="'data:image/jpeg;base64,' + personal.photograph" alt="Profile Picture" />
-            <h5 class="card-title mt-3 mb-3">{{ user.firstName }} {{ user.lastName }}</h5>
-            <p class="card-text">{{ user.age }} years, {{ education.educationField || 'Not working' }}</p>
-            <p class="card-text">{{ family.familyStatus }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->

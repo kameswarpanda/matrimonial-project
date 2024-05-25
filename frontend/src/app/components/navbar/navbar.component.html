@@ -5,7 +5,9 @@
         class="navbar-brand me-auto"
         routerLink="/home"
         routerLinkActive="active"
-        >Jeevan <span class="text-success">Sathi</span></a
+        ><i class="fas fa-user-friends text"></i>
+
+        Jeevan <span class="text-success">Sathi</span></a
       >
       <div
         class="offcanvas offcanvas-end"
@@ -14,7 +16,11 @@
         aria-labelledby="offcanvasNavbarLabel"
       >
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="color: black; font-weight: bold;">
+          <h5
+            class="offcanvas-title"
+            id="offcanvasNavbarLabel"
+            style="color: black; font-weight: bold"
+          >
             Jeevan <span class="text-success">Sathi</span>
           </h5>
           <button
@@ -32,7 +38,9 @@
                 aria-current="page"
                 routerLink="/page"
                 routerLinkActive="active"
-                >Home</a
+                >
+                <!-- <i class="fas fa-home text fa-sm me-2"></i> -->
+                Home</a
               >
             </li>
 
@@ -44,20 +52,21 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Matches
+              <!-- <i class="fas fa-heart text fa-sm me-2"></i> -->
+              Matches
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a
                   class="dropdown-item"
                   routerLink="/matches/grooms"
                   routerLinkActive="active"
-                  >Grooms</a
+                  ><i class="fas fa-user-tie text fa-sm me-2"></i>Grooms</a
                 >
                 <a
                   class="dropdown-item"
                   routerLink="/matches/brides"
                   routerLinkActive="active"
-                  >Brides</a
+                  ><i class="fas fa-user  text fa-sm me-2"></i>Brides</a
                 >
               </div>
             </li>
@@ -66,7 +75,9 @@
                 class="nav-link mx-lg-2"
                 routerLink="/about"
                 routerLinkActive="active"
-                >About</a
+                >
+                <!-- <i class="fas fa-address-card text fa-sm me-2"></i> -->
+                About</a
               >
             </li>
             <li class="nav-item">
@@ -74,7 +85,9 @@
                 class="nav-link mx-lg-2"
                 routerLink="/services"
                 routerLinkActive="active"
-                >Services</a
+                >
+                <!-- <i class="fas fa-tools text fa-sm me-2"></i> -->
+                Services</a
               >
             </li>
 
@@ -83,7 +96,9 @@
                 class="nav-link mx-lg-2"
                 routerLink="/contact"
                 routerLinkActive="active"
-                >Contact</a
+                >
+                <!-- <i class="fas fa-message text fa-sm me-2"></i> -->
+                Contact</a
               >
             </li>
 
@@ -101,20 +116,47 @@
                 class="nav-link mx-lg-2"
                 routerLink="/locationbooking"
                 routerLinkActive="active"
-                >Location Booking</a
+                >
+                <!-- <i class="fas fa-location-dot text fa-sm me-2"></i> -->
+                Location Booking</a
               >
             </li>
           </ul>
         </div>
       </div>
-      <a
-        href="#"
-        class="login-button"
-        routerLink="/home"
-        routerLinkActive="active"
-        (click)="showAlert()"
-        >Logout</a
-      >
+      <div class="dropdown login-button text-white">
+        <a
+          class=" dropdown-toggle profile"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+        <!-- <i class="fas fa-heart text fa-sm me-2"></i> -->
+        Profile
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a
+            class="dropdown-item"
+            routerLink="/home"
+            (click)="showAlert()"
+            ><i class="fas fa-sign-out text fa-sm me-2"></i>Logout</a
+          >
+          <a
+            class="dropdown-item"
+            routerLink="/user/changepassword"
+            ><i class="fas fa-lock text fa-sm me-2"></i>Change Password</a
+          >
+          <a
+            class="dropdown-item"
+            href="javascript:void(0);"
+            ><i class="fas fa-user-edit text fa-sm me-2"></i>Update Profile</a
+          >
+        </div>
+      </div>
+
+
+
       <button
         class="navbar-toggler"
         type="button"

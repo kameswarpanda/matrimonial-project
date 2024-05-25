@@ -23,6 +23,7 @@ import { ResetpasswordComponent } from './components/User Details/resetpassword/
 import { RegdReportComponent } from './components/admin/admin-control/regd-report/regd-report.component';
 import { ContactReportComponent } from './components/admin/admin-control/contact-report/contact-report.component';
 import { UserManagementComponent } from './components/admin/admin-control/user-management/user-management.component';
+import { ChangePasswordComponent } from './components/User Details/change-password/change-password.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,4 +50,5 @@ export const routes: Routes = [
   { path: 'admin/regd-report', component: RegdReportComponent },
   { path: 'admin/contact-report', component: ContactReportComponent },
   { path: 'admin/user-management', component: UserManagementComponent },
+  { path: 'user/changepassword', component: ChangePasswordComponent },
 ];
