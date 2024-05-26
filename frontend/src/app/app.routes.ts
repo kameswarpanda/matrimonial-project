@@ -12,7 +12,7 @@ import { ForgotComponent } from './components/User Details/forgot/forgot.compone
 import { UserInfoComponent } from './components/User Details/user-info/user-info.component';
 import { FamilyInfoComponent } from './components/User Details/family-info/family-info.component';
 import { EducationalInfoComponent } from './components/User Details/educational-info/educational-info.component';
-import { CasteInfoComponent } from './components/User Details/caste-info/caste-info.component';
+
 import { PageComponent } from './components/navbar/nav-components/page/page.component';
 import { BridesInfoComponent } from './components/navbar/nav-components/Matches/brides-info/brides-info.component';
 import { GroomComponent } from './components/navbar/nav-components/Matches/groom/groom.component';
@@ -25,6 +25,7 @@ import { ContactReportComponent } from './components/admin/admin-control/contact
 import { UserManagementComponent } from './components/admin/admin-control/user-management/user-management.component';
 import { ChangePasswordComponent } from './components/User Details/change-password/change-password.component';
 import { DashboardComponent } from './components/admin/admin-control/dashboard/dashboard.component';
+import { LocationBookingReportComponent } from './components/admin/admin-control/location-booking-report/location-booking-report.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -44,6 +45,7 @@ export const routes: Routes = [
       { path: 'admin/user-management', component: UserManagementComponent },
       { path: 'admin/regd-report', component: RegdReportComponent },
       { path: 'admin/dashboard', component: DashboardComponent },
+      { path: 'admin/location-booking', component: LocationBookingReportComponent },
     ],
   },
   { path: 'forgot', component: ForgotComponent },

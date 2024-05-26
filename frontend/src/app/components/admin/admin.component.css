@@ -1,51 +1,141 @@
-
 body {
   background-color: #f8f9fa;
   font-family: Arial, sans-serif;
 }
-.admin-header {
-  font-weight: bold;
-  margin-top: 80px;
-  margin-left: 10px;
-  margin-right: 10px;
-  border-radius: 15px;
-  background-color: #abecac;
-  color: #000000;
-  padding: 5px;
-  text-align: center;
-  border:1px solid #000000;
-}
+
 .admin-container {
-  margin-top: 20px;
-  
+  margin-top: 100px;
 }
 .admin-sidebar {
   color: rgb(0, 0, 0);
-  background-color: #abecac;
+  background-color: #abecac99;
   border-right: 1px solid #dee2e6;
-  max-height: 100%;
+  min-height: 80vh;
   width: 230px;
   border-radius: 1rem;
   margin-left: 20px;
   padding: 20px;
   margin-bottom: 20px;
-  border:1px solid #000000;
+  border: 1px solid #000000;
 }
 .admin-main {
   margin-bottom: 20px;
   padding-left: 20px;
 }
 
-.list-group{
+.list-group {
   width: 180px;
-  
 }
-.btn{
+.btn {
   margin-top: 10px;
 }
 
-content{
+content {
   background-color: aliceblue;
 }
 
+/* for Admin navbar */
 
+.navbar {
+  background-color: #ffffff;
+  backdrop-filter: blur(5px);
+  margin: 20px;
+  margin-top: 10px;
+  border-radius: 15px;
+  padding: 0.5rem;
+  border: 1px solid black;
+  padding: 0%;
+}
+
+.navbar-brand {
+  font-weight: bolder;
+  color: #000000;
+  font-size: 24px;
+  transition: 0.3s color;
+}
+
+.login-button {
+  background: linear-gradient(45deg, #2bc4a8, #009970);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s background-color;
+  
+}
+.profile {
+  text-decoration: none;
+  color: white;
+}
+
+.login-button:hover {
+  background: linear-gradient(45deg, #009970, #2bc4a8);
+}
+
+.offcanvas-body h3 {
+ font-weight: bold;
+}
+
+.nav-link {
+  color: #000000;
+  font-weight: bold;
+  position: relative;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0;
+  list-style: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Show dropdown menu when parent is hovered or focused */
+.dropdown:hover .dropdown-menu,
+.dropdown:focus .dropdown-menu {
+  display: block;
+}
+
+/* Dropdown Items */
+.dropdown-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  clear: both;
+  font-weight: normal;
+  color: #333;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: #fff;
+  background-color: #009970;
+}
+
+/* Active state for dropdown items */
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #fff;
+  background-color: #009970;
+}
+
+/* Divider Line */
+.dropdown-divider {
+  height: 0;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  border-top: 1px solid #e9ecef;
+}

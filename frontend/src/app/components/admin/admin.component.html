@@ -1,8 +1,43 @@
-<app-navbar></app-navbar>
-<!-- Admin Header -->
-<div class="admin-header">
-  <h2>Welcome to Admin Panel</h2>
-</div>
+<!-- Admin Navbar -->
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand me-auto"
+      ><i class="fas fa-user-friends text me-3"></i>Jeevan
+      <span class="text-success">Sathi</span></a
+    >
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel"
+    >
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2"><h3>Welcome to Admin Panel</h3></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dropdown login-button text-white">
+      <a
+        class="dropdown-toggle profile"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+        >Admin
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" (click)="showAlert()" routerLink="/home"
+          ><i class="fas fa-sign-out text fa-sm me-2"></i>Logout</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>
 
 <div class="container-fluid admin-container">
   <div class="row">
@@ -14,18 +49,47 @@
       </h4>
 
       <ul class="list-group">
-        <button type="button" class="btn btn-success" routerLink="admin/dashboard">Dashboard</button>
-        <button type="button" class="btn btn-success" routerLink="admin/user-management">Users Management</button>
-        <button type="button" class="btn btn-success" routerLink="admin/contact-report">Contact Report</button>
-        <button type="button" class="btn btn-success" routerLink="admin/regd-report">
-          Registration Report
+        <button
+          type="button"
+          class="btn btn-success"
+          routerLink="admin/dashboard"
+        >
+          <i class="fas fa-columns text fa-sm me-2"></i>Dashboard
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-success"
+          routerLink="admin/contact-report"
+        >
+          <i class="fas fa-phone text fa-sm me-2"></i>Contact Report
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          routerLink="admin/regd-report"
+        >
+          <i class="fas fa-book text fa-sm me-2"></i>Registrations
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          routerLink="admin/location-booking"
+        >
+          <i class="fas fa-location-dot text fa-sm me-2"></i>Booking Report
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          routerLink="admin/user-management"
+        >
+          <i class="fas fa-user text fa-sm me-2"></i>Users
         </button>
       </ul>
     </div>
 
     <!-- Admin Main Content -->
     <div class="col-md-9 admin-main">
-      
       <router-outlet></router-outlet>
     </div>
   </div>
