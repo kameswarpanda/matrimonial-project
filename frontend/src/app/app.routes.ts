@@ -6,7 +6,7 @@ import { AboutComponent } from './components/navbar/nav-components/about/about.c
 import { ContactComponent } from './components/navbar/nav-components/contact/contact.component';
 import { ServicesComponent } from './components/navbar/nav-components/services/services.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { LocationBookingComponent } from './components/navbar/nav-components/location-booking/location-booking.component';
+import { ChatFormComponent } from './components/navbar/nav-components/chat-form/chat-form.component';
 import { HomeComponent } from './components/navbar/nav-components/home/home.component';
 import { ForgotComponent } from './components/User Details/forgot/forgot.component';
 import { UserInfoComponent } from './components/User Details/user-info/user-info.component';
@@ -26,6 +26,7 @@ import { UserManagementComponent } from './components/admin/admin-control/user-m
 import { ChangePasswordComponent } from './components/User Details/change-password/change-password.component';
 import { DashboardComponent } from './components/admin/admin-control/dashboard/dashboard.component';
 import { LocationBookingReportComponent } from './components/admin/admin-control/location-booking-report/location-booking-report.component';
+import { ChatsComponent } from './components/navbar/chats/chats.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,7 +36,7 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'locationbooking', component: LocationBookingComponent },
+  { path: 'chatform', component: ChatFormComponent },
   { path: 'services', component: ServicesComponent },
   {
     path: 'admin',
@@ -60,4 +61,5 @@ export const routes: Routes = [
   { path: 'matches/brides', component: BridesComponent },
   { path: 'matches/grooms/groom-info', component: GroomInfoComponent },
   { path: 'user/changepassword', component: ChangePasswordComponent },
+  { path: 'chats', component: ChatsComponent },
 ];
