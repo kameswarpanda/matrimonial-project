@@ -11,7 +11,6 @@ import {
 import { CommonModule } from '@angular/common';
 import { Registration } from '../../../models/registration/registration';
 import { RegistrationService } from '../../../services/registration/registration.service';
-import { zoomInAnimation } from '../../../../animations';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +24,7 @@ import { zoomInAnimation } from '../../../../animations';
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
-  animations: [zoomInAnimation]
+  
 })
 
 export class LoginComponent {
