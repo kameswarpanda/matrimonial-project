@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="user">
-  <h3>Interesed Candidates</h3>
+  <h3>Contact with Interesed Candidates</h3>
   <hr />
   <table class="table table-striped">
     <thead>
@@ -21,11 +21,8 @@
         <td>12/6/2024</td>
         <td>4:00 PM</td>
         <td>
-          <button type="button" class="btn btn-success me-2">Approve
+          <button type="button" class="btn btn-success me-2" (click)="onClick()" [disabled]="isDisabled">{{buttonText}}
             <i class="fa-solid fa-check"></i>
-          </button>
-          <button type="button" class="btn btn-danger">Reject
-            <i class="fa-solid fa-times"></i>
           </button>
         </td>
       </tr>

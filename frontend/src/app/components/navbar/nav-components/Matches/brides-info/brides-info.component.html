@@ -44,8 +44,12 @@
           </li>
         </ul>
 
-        <button type="button" class="btn btn-success" routerLink="/chatform">Chat</button>
-        <button type="button" class="btn btn-warning ms-2">Intrested</button>
+        <button type="button" class="btn btn-success" routerLink="/chatform" [disabled]="chatBtnDisabled">
+          <i class="fa fa-message me-2"></i>Chat
+        </button>
+        <button type="button" class="btn btn-danger ms-2" [disabled]="interestBtnDisabled" (click)="onClick()">
+          {{intrestButton}} <i class="fa fa-check"></i>
+        </button>
       </div>
     </div>
   </div>

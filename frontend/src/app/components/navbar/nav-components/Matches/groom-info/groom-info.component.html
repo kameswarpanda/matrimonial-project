@@ -15,11 +15,10 @@
         <ul class="text">
           <li><strong>Nick Name:</strong> {{ user.firstName }}</li>
           <li>
-            <strong> Date of Birth:</strong> -- -- --
+            <strong> Date of Birth (Age):</strong> -- -- --
             <strong> ({{ user.age }} yrs)</strong>
           </li>
           <!-- <li><strong>Mobile:</strong> +91 6345678901</li> -->
-
           <li><strong>Gender:</strong> {{ user.gender }}</li>
           <li>
             <strong>Educational Career:</strong>
@@ -44,8 +43,12 @@
           </li>
         </ul>
 
-        <button type="button" class="btn btn-success">Chat</button>
-        <button type="button" class="btn btn-warning ms-2">Intrested</button>
+        <button type="button" class="btn btn-success" routerLink="/chatform" [disabled]="chatBtnDisabled">
+          <i class="fa fa-message me-2"></i>Chat
+        </button>
+        <button type="button" class="btn btn-danger ms-2" [disabled]="interestedBtnDisabled" (click)="onClick()">
+          {{interestButton}} <i class="fa fa-check"></i>
+        </button>
       </div>
     </div>
   </div>
