@@ -10,10 +10,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Vikram Pathi</td>
-        <td>vikramgmail.com</td>
+      <tr *ngFor="let regd of regdData">
+        <td>{{regd.rid}}</td>
+        <td>{{regd.userName}}</td>
+        <td>{{regd.email}}</td>
       </tr>
     </tbody>
   </table>

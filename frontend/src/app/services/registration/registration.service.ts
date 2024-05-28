@@ -39,4 +39,9 @@ export class RegistrationService {
   getAllRegistrations(): Observable<Registration[]> {
     return this.http.get<Registration[]>(this.baseUrl);
   }
+
+  //for delete users
+  destroyUser(username: String): Observable<any>{
+    return this.http.delete(`${this.baseUrl}/${username}`)
+  }
 }

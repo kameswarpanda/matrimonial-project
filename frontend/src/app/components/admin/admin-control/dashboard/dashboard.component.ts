@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from '../../../../services/registration/registration.service';
+import { UserInfoService } from '../../../../services/userinfo/userinfo.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,19 +14,22 @@ export class DashboardComponent implements OnInit{
   totalBrides: number = 0;
   totalRegistrations: number = 0;
 
-  constructor(private registrationService: RegistrationService) {}
+  constructor(private registrationService: RegistrationService,
+    private userInfoService: UserInfoService,
+  ) {}
 
   ngOnInit() {
     this.fetchDashboardData();
   }
 
   fetchDashboardData() {
-    this.registrationService.getAllRegistrations().subscribe(
-      (registrations: any[]) => {
+    
+    this.userInfoService.getAllUserInfo().subscribe(
+      (userInfo: any[]) => {
         // Calculate total number of grooms, brides, and registrations
-        this.totalGrooms = registrations.filter(reg => reg.gender === 'Male').length;
-        this.totalBrides = registrations.filter(reg => reg.gender === 'Female').length;
-        this.totalRegistrations = registrations.length;
+        this.totalGrooms = userInfo.filter(reg => reg.gender === 'male').length;
+        this.totalBrides = userInfo.filter(reg => reg.gender === 'female').length;
+        this.totalRegistrations = userInfo.length;
       },
       (error) => {
         console.error('Error fetching dashboard data:', error);

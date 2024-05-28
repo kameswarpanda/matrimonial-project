@@ -5,6 +5,7 @@ body {
 
 .admin-container {
   margin-top: 100px;
+  margin-left: 25px;
 }
 .admin-sidebar {
   color: rgb(0, 0, 0);
@@ -28,6 +29,7 @@ body {
 }
 .btn {
   margin-top: 10px;
+  font-weight: bold;
 }
 
 content {

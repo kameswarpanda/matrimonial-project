@@ -51,23 +51,29 @@
       <ul class="list-group">
         <button
           type="button"
-          class="btn btn-success"
+          class="btn btn-outline-success"
           routerLink="admin/dashboard"
+          [ngClass]="{'active': selectedButton === 1}" 
+            (click)="selectButton(1)"
         >
           <i class="fas fa-columns text fa-sm me-2"></i>Dashboard
         </button>
 
         <button
           type="button"
-          class="btn btn-success"
+          class="btn btn-outline-success"
           routerLink="admin/contact-report"
+          [ngClass]="{'active': selectedButton === 2}" 
+            (click)="selectButton(2)"
         >
           <i class="fas fa-phone text fa-sm me-2"></i>Contact Report
         </button>
         <button
           type="button"
-          class="btn btn-success"
+          class="btn btn-outline-success"
           routerLink="admin/regd-report"
+          [ngClass]="{'active': selectedButton === 3}" 
+            (click)="selectButton(3)"
         >
           <i class="fas fa-book text fa-sm me-2"></i>Registrations
         </button>
@@ -80,10 +86,12 @@
         </button> -->
         <button
           type="button"
-          class="btn btn-success"
+          class="btn btn-outline-success"
           routerLink="admin/user-management"
+          [ngClass]="{'active': selectedButton === 4}" 
+            (click)="selectButton(4)"
         >
-          <i class="fas fa-user text fa-sm me-2"></i>Users
+          <i class="fas fa-user text fa-sm me-2"></i>Manage Users
         </button>
       </ul>
     </div>

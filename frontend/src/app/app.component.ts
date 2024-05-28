@@ -29,4 +29,8 @@ import { PageComponent } from './components/navbar/nav-components/page/page.comp
 })
 export class AppComponent {
   title = 'matrimonial-project';
+
+  onActive(){
+    window.scroll(0, 0);
+  }
 }

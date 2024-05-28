@@ -6,7 +6,7 @@
     <div class="container">
       <div class="row mb-4">
         <div class="col">
-          <div class="card  info text-black">
+          <div class="card info text-black">
             <div class="card-body">
               <h2 class="card-title">Welcome back to Jeevansathi.com</h2>
               <p>
@@ -27,58 +27,38 @@
             class="d-flex justify-content-between align-items-center mb-2"
           ></div>
           <div class="row recommendations">
-            <div class="col-6 col-md-4 col-lg-2 mb-3">
-              <div class="card card-hover">
-                <img src="../../../../../assets/bride1.jfif" alt="Profile 1" />
-                <div class="card-body text-center">
-                  <h6>Surbhi Panigrahi</h6>
-                  <p>20 Yrs, 5'0"</p>
+            <div
+              *ngFor="let user of users"
+              class="col-6 col-md-4 col-lg-2 mb-3"
+            >
+              <a
+                [routerLink]="['/matches/brides/bride-info', user.id]"
+                (click)="viewDetails(user)"
+              >
+                <div class="card card-hover">
+                  <img
+                    *ngIf="user.personalInfo?.photograph"
+                    [src]="
+                      'data:image/jpeg;base64,' + user.personalInfo.photograph
+                    "
+                    alt="Unable to load photo"
+                  />
+                  <div class="card-body text-center">
+                    <h6>{{ user.firstName }} {{ user.lastName }}</h6>
+                    <p>
+                      {{ user.age }} years,
+                      {{
+                        user.educationCareer?.educationField || "Not working"
+                      }}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mb-3">
-              <div class="card card-hover">
-                <img
-                  src="../../../../../assets/ca276a8984f445731beef2a57a59970c.jpg"
-                  alt="Profile 2"
-                />
-                <div class="card-body text-center">
-                  <h6>Subhasmita Rath</h6>
-                  <p>22 Yrs, 5'2"</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mb-3">
-              <div class="card card-hover">
-                <img src="../../../../../assets/bride3.jfif" alt="Profile 3" />
-                <div class="card-body text-center">
-                  <h6>Priya Naya</h6>
-                  <p>22 Yrs, 5'1"</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mb-3">
-              <div class="card card-hover">
-                <img src="../../../../../assets/bride4.jfif" alt="Profile 4" />
-                <div class="card-body text-center">
-                  <h6>Baisakhi Dash</h6>
-                  <p>20 Yrs, 5'3"</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 mb-3">
-              <div class="card card-hover">
-                <img src="../../../../../assets/bride5.jfif" alt="Profile 5" />
-                <div class="card-body text-center">
-                  <h6>Phoolarani</h6>
-                  <p>22 Yrs, 5'0"</p>
-                </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
       </div>
-      
+
       <!-- New Matches -->
       <div class="row">
         <div class="col">
@@ -89,7 +69,10 @@
           <div class="row recommendations">
             <div class="col-6 col-md-4 col-lg-2 mb-3">
               <div class="card card-hover">
-                <img src="../../../../../assets/female-avatar-img-new.svg" alt="Profile 1" />
+                <img
+                  src="../../../../../assets/female-avatar-img-new.svg"
+                  alt="Profile 1"
+                />
                 <div class="card-body text-center">
                   <h6>Surbhi Panigrahi</h6>
                   <p>20 Yrs, 5'0"</p>
@@ -110,7 +93,10 @@
             </div>
             <div class="col-6 col-md-4 col-lg-2 mb-3">
               <div class="card card-hover">
-                <img src="../../../../../assets/female-avatar-img-new.svg" alt="Profile 3" />
+                <img
+                  src="../../../../../assets/female-avatar-img-new.svg"
+                  alt="Profile 3"
+                />
                 <div class="card-body text-center">
                   <h6>Priya Naya</h6>
                   <p>22 Yrs, 5'1"</p>
@@ -119,7 +105,10 @@
             </div>
             <div class="col-6 col-md-4 col-lg-2 mb-3">
               <div class="card card-hover">
-                <img src="../../../../../assets/female-avatar-img-new.svg" alt="Profile 4" />
+                <img
+                  src="../../../../../assets/female-avatar-img-new.svg"
+                  alt="Profile 4"
+                />
                 <div class="card-body text-center">
                   <h6>Baisakhi Dash</h6>
                   <p>20 Yrs, 5'3"</p>
@@ -128,7 +117,10 @@
             </div>
             <div class="col-6 col-md-4 col-lg-2 mb-3">
               <div class="card card-hover">
-                <img src="../../../../../assets/female-avatar-img-new.svg" alt="Profile 5" />
+                <img
+                  src="../../../../../assets/female-avatar-img-new.svg"
+                  alt="Profile 5"
+                />
                 <div class="card-body text-center">
                   <h6>Phoolarani</h6>
                   <p>22 Yrs, 5'0"</p>
@@ -138,7 +130,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
