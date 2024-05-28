@@ -35,4 +35,8 @@ export class RegistrationService {
   findByUserName(username: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/username/${username}`);
   }
+
+  getAllRegistrations(): Observable<Registration[]> {
+    return this.http.get<Registration[]>(this.baseUrl);
+  }
 }

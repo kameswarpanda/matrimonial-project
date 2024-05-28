@@ -498,7 +498,7 @@
 
 <!-- contact section -->
 
-<section class="about py-5 bg-white" id="contact">
+<!-- <section class="about py-5 bg-white" id="contact">
   <div class="container mb-5">
     <div class="text-center my-5">
       <h1 data-aos="fade-up">Conatct<span class="text-success"> Us</span></h1>
@@ -557,5 +557,119 @@
         <img src="../../../../../assets/curated-matches.jpeg" alt="" class="card-hover" />
       </div>
     </div>
+  </div> -->
+<!-- </section> -->
+<!-- src/app/contact/contact.component.html -->
+
+<section class="about py-5" id="contact">
+  <div class="container mb-5">
+    <div class="text-center my-5">
+      <h1>Contact<span class="text-success"> Us</span></h1>
+      <hr class="w-25 m-auto" />
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-12">
+        <div class="contact-form">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="name" class="form-label"><strong>Your Name</strong></label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label"><strong>Email Address</strong></label>
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="Enter Your Email address"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label"><strong>Your Message</strong></label>
+              <textarea
+                class="form-control"
+                formControlName="message"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="contactForm.invalid">Send Message</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6 col-12 m-auto text-center about-img">
+        <img src="assets/curated-matches.jpeg" alt="" class="card-hover" />
+      </div>
+    </div>
   </div>
 </section>
+
+
+<!-- <section class="about py-5" id="contact">
+  <div class="container mb-5">
+    <div class="text-center my-5">
+      <h1>Conatct<span class="text-success"> Us</span></h1>
+      <hr class="w-25 m-auto" />
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-12">
+        <div class="contact-form">
+          <form action="#" method="post">
+            <div class="mb-3">
+              <label for="name" class="form-label"
+                ><strong>Your Name</strong></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label"
+                ><strong>Email Address</strong></label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Enter Your Email address"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label"
+                ><Strong>Your Message</Strong></label
+              >
+              <textarea
+                class="form-control"
+                id="message"
+                name="message"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Send Message</button>
+          </form>
+        </div>
+      </div>
+      <div
+        class="col-sm-12 col-md-6 col-lg-6 col-12 m-auto text-center about-img"
+      >
+        <img src="../../../../../assets/curated-matches.jpeg" alt="" class="card-hover" />
+      </div>
+    </div>
+  </div>
+</section> -->
+

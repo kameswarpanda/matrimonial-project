@@ -10,10 +10,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Vikram Pathi</td>
-        <td>vikramgmail.com</td>
-        <td>Hi! I am unable to login please help me.</td>
+      <tr *ngFor="let contact of contactData">
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.message }}</td>
       </tr>
     </tbody>
   </table>
