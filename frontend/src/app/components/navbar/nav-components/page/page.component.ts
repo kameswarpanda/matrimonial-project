@@ -8,10 +8,11 @@ import { EducationCareerService } from '../../../../services/education-level/edu
 import { FamilyInfoService } from '../../../../services/family-info/family-info.service';
 import { PersonalInfoService } from '../../../../services/personal-info/personal-info.service';
 
-import { forkJoin } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { Registration } from '../../../../models/registration/registration';
 import { RegistrationService } from '../../../../services/registration/registration.service';
+import { UserInfo } from '../../../../models/userinfo/userinfo';
 
 @Component({
   selector: 'app-page',
@@ -27,6 +28,8 @@ export class PageComponent implements OnInit{
   familyInfo: any = [];
   loggedInUser: string | null = null;
   registration: any;
+  allUserInfo!: any[];
+  gender: any;
 
   constructor(
     private userService: UserInfoService,
@@ -42,55 +45,120 @@ export class PageComponent implements OnInit{
     personalInfos: this.personalInfoService.getAllPersonalInfo();
     this.loggedInUser = sessionStorage.getItem('loggedInUser');
     
-    this.registration = this.loadRegistrationDetails()
+    this.registration = this.loadRegistrationDetails();
+
+
+    console.log(this.allUserInfo)
+
+    this.userService.getAllUserInfo().subscribe(
+      (userInfo: any[]) => {
+        this.allUserInfo = userInfo;
+        console.log(this.allUserInfo)
+        for (const userInfo of this.allUserInfo) {
+          if (userInfo.registration.userName === this.loggedInUser) {
+            this.gender = userInfo.gender;
+            console.log(this.gender)
     
-    forkJoin({
-      userInfo: this.userService.getAllUserInfo(),
-      educationCareers: this.educationCareerService.getAllEducationInfo(),
-      familyInfos: this.familyInfoService.getAllFamilyInfo(),
-      personalInfos: this.personalInfoService.getAllPersonalInfo(),
-    }).subscribe(
-      ({ userInfo, educationCareers, familyInfos, personalInfos }) => {
-        this.users = userInfo
-          .filter(userInfo => userInfo.gender === 'female')
-          .map((user) => {
-            const educationCareer = educationCareers.find(
-              (ec) => ec.registration.rid === user.registration.rid
-            );
-            const familyInfo = familyInfos.find(
-              (fi) => fi.registration.rid === user.registration.rid
-            );
-            const personalInfo = personalInfos.find(
-              (pi) => pi.registration.rid === user.registration.rid
-            );
-            return {
-              firstName: user.firstName,
-              lastName: user.lastName,
-              age: user.age,
-              gender: user.gender,
-              educationCareer: {
-                educationLevel:
-                  educationCareer?.educationLevel || 'Not available',
-                educationField:
-                  educationCareer?.educationField || 'Not available',
-              },
-              familyInfo: {
-                familyStatus: familyInfo?.familyStatus || 'Not available',
-                familyType: familyInfo?.familyType || 'Not available',
-                fatherName: familyInfo?.fatherName || 'Not available',
-              },
-              personalInfo: personalInfo || null,
-            };
-          });
+            break;
+          }
+        }
+        
+        forkJoin({
+          userInfo: this.userService.getAllUserInfo(),
+          educationCareers: this.educationCareerService.getAllEducationInfo(),
+          familyInfos: this.familyInfoService.getAllFamilyInfo(),
+          personalInfos: this.personalInfoService.getAllPersonalInfo(),
+        }).subscribe(
+          ({ userInfo, educationCareers, familyInfos, personalInfos }) => {
+            console.log(this.gender)
+            if(this.gender == 'male'){
+            this.users = userInfo
+              .filter(userInfo => userInfo.gender === 'female')
+              .map((user) => {
+                const educationCareer = educationCareers.find(
+                  (ec) => ec.registration.rid === user.registration.rid
+                );
+                const familyInfo = familyInfos.find(
+                  (fi) => fi.registration.rid === user.registration.rid
+                );
+                const personalInfo = personalInfos.find(
+                  (pi) => pi.registration.rid === user.registration.rid
+                );
+                return {
+                  firstName: user.firstName,
+                  lastName: user.lastName,
+                  age: user.age,
+                  gender: user.gender,
+                  registration: user.registration,
+                  educationCareer: {
+                    educationLevel:
+                      educationCareer?.educationLevel || 'Not available',
+                    educationField:
+                      educationCareer?.educationField || 'Not available',
+                  },
+                  familyInfo: {
+                    familyStatus: familyInfo?.familyStatus || 'Not available',
+                    familyType: familyInfo?.familyType || 'Not available',
+                    fatherName: familyInfo?.fatherName || 'Not available',
+                  },
+                  personalInfo: personalInfo || null,
+                };
+              });
+            } else {
+              this.users = userInfo
+              .filter(userInfo => userInfo.gender === 'male')
+              .map((user) => {
+                const educationCareer = educationCareers.find(
+                  (ec) => ec.registration.rid === user.registration.rid
+                );
+                const familyInfo = familyInfos.find(
+                  (fi) => fi.registration.rid === user.registration.rid
+                );
+                const personalInfo = personalInfos.find(
+                  (pi) => pi.registration.rid === user.registration.rid
+                );
+                return {
+                  firstName: user.firstName,
+                  lastName: user.lastName,
+                  age: user.age,
+                  gender: user.gender,
+                  registration: user.registration,
+                  educationCareer: {
+                    educationLevel:
+                      educationCareer?.educationLevel || 'Not available',
+                    educationField:
+                      educationCareer?.educationField || 'Not available',
+                  },
+                  familyInfo: {
+                    familyStatus: familyInfo?.familyStatus || 'Not available',
+                    familyType: familyInfo?.familyType || 'Not available',
+                    fatherName: familyInfo?.fatherName || 'Not available',
+                  },
+                  personalInfo: personalInfo || null,
+                };
+              });
+            }
+          }
+        );
+      },
+      (error) => {
+        console.error('Error fetching user info:', error);
       }
     );
-
   }
+  
 
   viewDetails(user: any): void {
-    this.router.navigate(['/matches/brides/bride-info'], {
-      state: { user },
-    });
+    if(this.gender == 'male'){
+      this.router.navigate(['/matches/brides/bride-info'], {
+        state: { user },
+      });
+    } else {
+      this.router.navigate(['/matches/grooms/groom-info'], {
+        state: { user },
+      });
+    }
+
   }
 
   loadRegistrationDetails(): void {
