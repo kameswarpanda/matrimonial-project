@@ -10,6 +10,8 @@ import { PersonalInfoService } from '../../../../services/personal-info/personal
 
 import { forkJoin } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { Registration } from '../../../../models/registration/registration';
+import { RegistrationService } from '../../../../services/registration/registration.service';
 
 @Component({
   selector: 'app-page',
@@ -23,9 +25,12 @@ export class PageComponent implements OnInit{
   users: any = [];
   educationInfo: any = [];
   familyInfo: any = [];
+  loggedInUser: string | null = null;
+  registration: any;
 
   constructor(
     private userService: UserInfoService,
+    private registrationService: RegistrationService,
     private educationCareerService: EducationCareerService,
     private familyInfoService: FamilyInfoService,
     private personalInfoService: PersonalInfoService,
@@ -35,7 +40,10 @@ export class PageComponent implements OnInit{
 
   ngOnInit(): void {
     personalInfos: this.personalInfoService.getAllPersonalInfo();
-
+    this.loggedInUser = sessionStorage.getItem('loggedInUser');
+    
+    this.registration = this.loadRegistrationDetails()
+    
     forkJoin({
       userInfo: this.userService.getAllUserInfo(),
       educationCareers: this.educationCareerService.getAllEducationInfo(),
@@ -44,7 +52,7 @@ export class PageComponent implements OnInit{
     }).subscribe(
       ({ userInfo, educationCareers, familyInfos, personalInfos }) => {
         this.users = userInfo
-          .filter((userInfo) => userInfo.gender === 'female')
+          .filter(userInfo => userInfo.gender === 'female')
           .map((user) => {
             const educationCareer = educationCareers.find(
               (ec) => ec.registration.rid === user.registration.rid
@@ -76,11 +84,31 @@ export class PageComponent implements OnInit{
           });
       }
     );
+
   }
 
   viewDetails(user: any): void {
     this.router.navigate(['/matches/brides/bride-info'], {
       state: { user },
     });
+  }
+
+  loadRegistrationDetails(): void {
+    const loggedInUserName: string = this.loggedInUser !== null ? this.loggedInUser : '';
+    this.registrationService.findByUserName(loggedInUserName).subscribe(
+      (data: Registration) => {
+        console.log(data);
+        this.registration = data;
+        this.registration = {
+          rid: data.rid,
+          userName: data.userName,
+          password: data.password,
+          email: data.email,
+        };
+      },
+      (error) => {
+        console.log('Error fetching registration details:', error);
+      }
+    );
   }
 }

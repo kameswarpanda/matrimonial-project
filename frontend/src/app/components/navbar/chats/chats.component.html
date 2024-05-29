@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="user">
-  <h3>Contact with Interesed Candidates</h3>
+  <h3>Contact with Interested Candidates</h3>
   <hr />
   <table class="table table-striped">
     <thead>
@@ -10,21 +10,21 @@
         <th>Location</th>
         <th>Date</th>
         <th>Time</th>
-        <th>Action</th>
+        <!-- <th>Action</th> -->
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Vikram Pathi</td>
-        <td>vikramgmail.com</td>
-        <td>Hyderabad</td>
-        <td>12/6/2024</td>
-        <td>4:00 PM</td>
-        <td>
-          <button type="button" class="btn btn-success me-2" (click)="onClick()" [disabled]="isDisabled">{{buttonText}}
+      <tr *ngFor="let message of messages">
+        <td>{{ message.name }}</td>
+        <td>{{ message.email }}</td>
+        <td>{{ message.location }}</td>
+        <td>{{ message.date }}</td>
+        <td>{{ message.time }}</td>
+        <!-- <td>
+          <button type="button" class="btn btn-success me-2" (click)="onClick()" [disabled]="isDisabled">{{ buttonText }}
             <i class="fa-solid fa-check"></i>
           </button>
-        </td>
+        </td> -->
       </tr>
     </tbody>
   </table>

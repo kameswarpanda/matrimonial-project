@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NavbarComponent } from '../../../navbar.component';
 import Swal from 'sweetalert2';
+import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @Component({
@@ -13,20 +15,27 @@ import Swal from 'sweetalert2';
 })
 export class BridesInfoComponent implements OnInit{
   user!: any;
+  loggedInUser: string | null = null;
 
   constructor(
     private router : Router
   ) {}
   ngOnInit(): void {
     this.user = history.state.user;
-    // if (!this.user) {
-    //   this.router.navigate(['/matches/brides']);
-    // }
+    this.loggedInUser = sessionStorage.getItem('loggedInUser');
   }
   chatBtnDisabled = true;
   interestBtnDisabled = false;
   intrestButton = 'Share Interest';
-  onClick(){
+
+  OnChatClick(){
+    this.router.navigate(['/chatform'], {
+      state: { user: this.user }
+    });
+  }
+
+
+  onClick(e:Event){
     this.chatBtnDisabled = false;
     this.interestBtnDisabled = true;
     this.intrestButton = 'Interest Shared';
@@ -48,6 +57,16 @@ export class BridesInfoComponent implements OnInit{
       title: 'Interest Shared Successfully',
     });
 
-    //for Email notifictaion used(Email JS)
+    //Email verification
+    const form = document.getElementById('interestForm') as HTMLFormElement;
+    emailjs.sendForm('service_hksa34h', 'template_4x9byr7', form, 'yoF2P1NACJyTjTxOS')
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error: EmailJSResponseStatus) => {
+          console.log('FAILED...', error.text);
+        }
+      );
   }
 }

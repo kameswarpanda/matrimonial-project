@@ -5,58 +5,62 @@
       <div class="booking-form">
         <h3 class="text-center mb-4">Fill form to show your interest</h3>
 
-        <form>
+        <form [formGroup]="interestForm" (ngSubmit)="onSubmit()">
           <div class="form-group mb-3">
-            <label for="name" class="form-level mb-2"
-              ><i class="fa-solid fa-user me-2"></i>Your Name</label
-            >
+            <label for="name" class="form-level mb-2">
+              <i class="fa-solid fa-user me-2"></i>Your Name
+            </label>
             <input
               type="text"
               class="form-control"
               id="name"
+              formControlName="name"
               placeholder="Enter your name"
+              required
             />
           </div>
 
           <div class="form-group mb-3">
-            <label for="email" class="form-level mb-2"
-              ><i class="fa-solid fa-envelope me-2"></i>Your Email</label
-            >
+            <label for="email" class="form-level mb-2">
+              <i class="fa-solid fa-envelope me-2"></i>Your Email
+            </label>
             <input
               type="email"
               class="form-control"
               id="email"
+              formControlName="email"
               placeholder="Enter your Email"
+              required
             />
           </div>
           <div class="form-group mb-3">
-            <label for="location" class="form-level mb-2"
-              ><i class="fa-solid fa-location me-2"></i>Select Location</label
-            >
-            <select class="form-control" id="location">
+            <label for="location" class="form-level mb-2">
+              <i class="fa-solid fa-location me-2"></i>Select Location
+            </label>
+            <select class="form-control" id="location" formControlName="location" required>
               <option>-- Select --</option>
-              <option>Bhubaneswar</option>
-              <option>Hydrabad</option>
-              <option>Bengalur</option>
-              <option>pune</option>
+              <option>Hyderabad</option>
+              <option>Ladakh</option>
+              <option>Banglore</option>
+              <option>Pune</option>
             </select>
           </div>
 
           <div class="form-group mb-3">
-            <label for="date" class="form-level mb-2"
-              ><i class="fa-solid fa-calendar me-2"></i>Select Date</label
-            >
-            <input type="date" class="form-control" id="date" />
+            <label for="date" class="form-level mb-2">
+              <i class="fa-solid fa-calendar me-2"></i>Select Date
+            </label>
+            <input type="date" class="form-control" id="date" formControlName="date" required />
           </div>
 
           <div class="form-group mb-3">
-            <label for="time" class="form-level mb-2"
-              ><i class="fa-solid fa-clock me-2"></i>Select Time</label
-            >
-            <input type="time" class="form-control" id="time" />
+            <label for="time" class="form-level mb-2">
+              <i class="fa-solid fa-clock me-2"></i>Select Time
+            </label>
+            <input type="time" class="form-control" id="time" formControlName="time" required />
           </div>
 
-          <button type="submit" class="btn mt-3 btn-success btn-block">
+          <button type="submit" class="btn mt-3 btn-success btn-block" [disabled]="interestForm.invalid">
             Submit
           </button>
         </form>

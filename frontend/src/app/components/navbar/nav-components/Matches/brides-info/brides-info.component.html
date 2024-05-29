@@ -44,10 +44,20 @@
           </li>
         </ul>
 
-        <button type="button" class="btn btn-success" routerLink="/chatform" [disabled]="chatBtnDisabled">
+        <form id="interestForm" style="display:none;">
+          <input type="text" name="loggedInUser" [value]="loggedInUser" />
+          <input type="text" name="firstName" [value]="user?.firstName" />
+          <input type="text" name="lastName" [value]="user?.lastName" />
+          <!-- <input type="text" name="email" [value]="user?.email" /> -->
+        </form>
+
+        <!-- <button type="button" class="btn btn-success" (click) = "OnChatClick()" [disabled]="chatBtnDisabled">
+          <i class="fa fa-message me-2"></i>Chat
+        </button> -->
+        <button type="button" class="btn btn-success" (click) = "OnChatClick()">
           <i class="fa fa-message me-2"></i>Chat
         </button>
-        <button type="button" class="btn btn-danger ms-2" [disabled]="interestBtnDisabled" (click)="onClick()">
+        <button type="button" class="btn btn-danger ms-2" [disabled]="interestBtnDisabled" (click)="onClick($event)">
           {{intrestButton}} <i class="fa fa-check"></i>
         </button>
       </div>

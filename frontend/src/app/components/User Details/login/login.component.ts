@@ -52,6 +52,7 @@ export class LoginComponent {
       return;
     }
 
+    sessionStorage.setItem('loggedInUser', this.userForm.value.userName);
     const loginInfo = {
       userName: this.userForm.value.userName,
       password: this.userForm.value.password,
