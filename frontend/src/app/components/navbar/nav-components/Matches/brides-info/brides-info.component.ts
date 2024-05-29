@@ -24,6 +24,8 @@ export class BridesInfoComponent implements OnInit{
     this.user = history.state.user;
     this.loggedInUser = sessionStorage.getItem('loggedInUser');
   }
+
+
   chatBtnDisabled = true;
   interestBtnDisabled = false;
   intrestButton = 'Share Interest';
@@ -39,6 +41,8 @@ export class BridesInfoComponent implements OnInit{
     this.chatBtnDisabled = false;
     this.interestBtnDisabled = true;
     this.intrestButton = 'Interest Shared';
+
+    console.log(this.user.email)
 
     //sweet alert
     const Toast = Swal.mixin({

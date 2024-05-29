@@ -11,6 +11,7 @@ import { forkJoin } from 'rxjs';
 import { Registration } from '../../../../../models/registration/registration';
 import { CommonModule } from '@angular/common';
 import { userInfo } from 'os';
+import { RegistrationService } from '../../../../../services/registration/registration.service';
 
 @Component({
   selector: 'app-brides',
@@ -28,6 +29,7 @@ export class BridesComponent implements OnInit{
 
 
   constructor(
+    private registrationService: RegistrationService,
     private userService: UserInfoService,
     private educationCareerService: EducationCareerService,
     private familyInfoService: FamilyInfoService,
@@ -46,7 +48,7 @@ export class BridesComponent implements OnInit{
       educationCareers: this.educationCareerService.getAllEducationInfo(),
       familyInfos: this.familyInfoService.getAllFamilyInfo(),
       personalInfos: this.personalInfoService.getAllPersonalInfo()
-    }).subscribe(({ userInfo, educationCareers, familyInfos, personalInfos }) => {
+    }).subscribe(({userInfo, educationCareers, familyInfos, personalInfos }) => {
       this.users = userInfo.filter(userInfo => userInfo.gender === 'female').map(user => {
         const educationCareer = educationCareers.find(ec => ec.registration.rid === user.registration.rid);
         const familyInfo = familyInfos.find(fi => fi.registration.rid === user.registration.rid);
@@ -56,6 +58,7 @@ export class BridesComponent implements OnInit{
           lastName: user.lastName,
           age: user.age,
           gender: user.gender,
+          email: user.registration.email,
           educationCareer: {
             educationLevel: educationCareer?.educationLevel || 'Not available',
             educationField: educationCareer?.educationField || 'Not available'
@@ -72,8 +75,10 @@ export class BridesComponent implements OnInit{
   }
 
   viewDetails(user: any): void {
+    console.log(user.email)
     this.router.navigate(['/matches/brides/bride-info'], {
       state: { user }
     });
+
 }
 }
