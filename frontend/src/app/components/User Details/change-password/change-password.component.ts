@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -12,6 +12,8 @@ import Swal from 'sweetalert2';
 import { NavbefloginComponent } from '../../navbar/nav-components/navbeflogin/navbeflogin.component';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../navbar/navbar.component';
+import { Registration } from '../../../models/registration/registration';
+import { RegistrationService } from '../../../services/registration/registration.service';
 
 @Component({
   selector: 'app-change-password',
@@ -26,10 +28,12 @@ import { NavbarComponent } from '../../navbar/navbar.component';
   templateUrl: './change-password.component.html',
   styleUrl: './change-password.component.css',
 })
-export class ChangePasswordComponent {
+export class ChangePasswordComponent implements OnInit{
   passwordForm: FormGroup;
+  loggedInUser: string | null = null;
+  registration: any;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private registrationService : RegistrationService) {
     this.passwordForm = this.fb.group(
       {
         oldPassword: ['', [Validators.required, Validators.minLength(6)]],
@@ -40,6 +44,11 @@ export class ChangePasswordComponent {
     );
   }
 
+  ngOnInit(): void {
+    this.loggedInUser = sessionStorage.getItem('loggedInUser');
+    this.registration = this.loadRegistrationDetails();
+  }
+
   passwordsMatchValidator(group: FormGroup) {
     const newPassword = group.get('newPassword')?.value;
     const confirmPassword = group.get('confirmPassword')?.value;
@@ -47,47 +56,53 @@ export class ChangePasswordComponent {
   }
 
   onSubmit() {
-    if (this.passwordForm.valid) {
-      // sweet alert
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
+    if (this.passwordForm.valid && this.registration) {
+      // Extract new password
+      const newPassword = this.passwordForm.get('newPassword')?.value;
+
+      // Update password in the registration object
+      this.registration.password = newPassword;
+
+      // Call the service to update the password
+      this.registrationService.updateRegistration(this.registration).subscribe(
+        (response) => {
+          // Display success message
+          Swal.fire({
+            icon: 'success',
+            title: 'Password changed successfully',
+          });
+
+          // Redirect to the desired page
+          this.router.navigate(['/page']);
         },
-      });
-      Toast.fire({
-        icon: 'success',
-        title: 'Password changed successfull',
-      });
-
-      this.router.navigate(['/page'])
-
-      //   const formData = this.ResetPasswordForm.value;
-      //   console.log('Form submitted with data:', formData);
-      //   // Here you can proceed with sending the form data to your server or performing any other actions
-    } 
-
-    // else{
-    //   const Toast = Swal.mixin({
-    //     toast: true,
-    //     position: 'top-end',
-    //     showConfirmButton: false,
-    //     timer: 3000,
-    //     timerProgressBar: true,
-    //     didOpen: (toast) => {
-    //       toast.onmouseenter = Swal.stopTimer;
-    //       toast.onmouseleave = Swal.resumeTimer;
-    //     },
-    //   });
-    //   Toast.fire({
-    //     icon: 'error',
-    //     title: 'Please fill out all the details',
-    //   });
-    // }
+        (error) => {
+          console.error('Error updating password:', error);
+          // Display error message
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong! Unable to change password.',
+          });
+        }
+      );
+    }
+  }
+  loadRegistrationDetails(): void {
+    const loggedInUserName: string = this.loggedInUser !== null ? this.loggedInUser : '';
+    this.registrationService.findByUserName(loggedInUserName).subscribe(
+      (data: Registration) => {
+        console.log(data);
+        this.registration = data;
+        this.registration = {
+          rid: data.rid,
+          userName: data.userName,
+          password: data.password,
+          email: data.email,
+        };
+      },
+      (error) => {
+        console.log('Error fetching registration details:', error);
+      }
+    );
   }
 }

@@ -27,6 +27,12 @@ export class RegistrationService {
     return this.http.post<Registration>(this.baseUrl, registration);
   }
 
+  
+  updateRegistration(registration: Registration): Observable<Registration> {
+    const url = `${this.baseUrl}/${registration.rid}`;
+    return this.http.put<Registration>(url, registration);
+  }
+
   getRegistrationById(id: number): Observable<Registration> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<Registration>(url);
