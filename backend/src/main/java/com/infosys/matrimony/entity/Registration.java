@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,22 +41,22 @@ public class Registration {
 	private String email;
 
 	@JsonIgnore
-	@OneToOne(mappedBy = "registration")
+	@OneToOne(mappedBy = "registration",  cascade = CascadeType.ALL)
 	private User user;
 
 	@JsonIgnore
-	@OneToOne(mappedBy = "registration")
+	@OneToOne(mappedBy = "registration",  cascade = CascadeType.ALL)
 	private EducationCareer educationCareer;
 
 	@JsonIgnore
-	@OneToOne(mappedBy = "registration")
+	@OneToOne(mappedBy = "registration",  cascade = CascadeType.ALL)
 	private FamilyInfo family;
 
 	@JsonIgnore
-	@OneToOne(mappedBy = "registration")
+	@OneToOne(mappedBy = "registration",  cascade = CascadeType.ALL)
 	private PersonalInfo personalInfo;
 
-    @OneToMany(mappedBy = "registration") // Bidirectional relationship
+    @OneToMany(mappedBy = "registration", cascade = CascadeType.ALL) // Bidirectional relationship
     private List<Message> messages;
 
 	public Long getRid() {

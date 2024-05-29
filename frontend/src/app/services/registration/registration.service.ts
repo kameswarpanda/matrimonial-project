@@ -47,7 +47,7 @@ export class RegistrationService {
   }
 
   //for delete users
-  destroyUser(username: String): Observable<any>{
-    return this.http.delete(`${this.baseUrl}/${username}`)
+  deleteUser(rid: number): Observable<any>{
+    return this.http.delete(`${this.baseUrl}/${rid}`)
   }
 }

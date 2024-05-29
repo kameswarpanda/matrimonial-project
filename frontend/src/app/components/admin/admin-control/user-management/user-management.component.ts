@@ -17,6 +17,8 @@ export class UserManagementComponent {
 
   ngOnInit() {
     this.fetchRegdData();
+    
+    // this.registration = this.loadRegistrationDetails();
   }
 
   fetchRegdData() {
@@ -31,10 +33,10 @@ export class UserManagementComponent {
   }
 
   //for delete user from admin panel
-  deleteUser(event:any, username:String){
+  deleteUser(event:any, rid: number){
       if(confirm('Are you sure you want to delete this data')){
         event.target.innerText = "Deleting..."
-        this.registrationsService.destroyUser(username).subscribe((res:any) => {
+        this.registrationsService.deleteUser(rid).subscribe((res:any) => {
           this.fetchRegdData();
           alert('User deleted successfully');
         });
