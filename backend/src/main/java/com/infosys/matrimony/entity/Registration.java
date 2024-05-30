@@ -56,6 +56,7 @@ public class Registration {
 	@OneToOne(mappedBy = "registration",  cascade = CascadeType.ALL)
 	private PersonalInfo personalInfo;
 
+		@JsonIgnore
     @OneToMany(mappedBy = "registration", cascade = CascadeType.ALL) // Bidirectional relationship
     private List<Message> messages;
 
