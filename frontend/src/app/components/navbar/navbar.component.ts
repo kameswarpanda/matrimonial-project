@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -11,7 +11,16 @@ import Swal from 'sweetalert2';
 })
 
 
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
+
+  
+  
+  userName!: string | null;
+  ngOnInit(): void {
+
+    this.userName = sessionStorage.getItem('loggedInUser');
+  }
+
   showAlert() {
     //sweet alert
     const Toast = Swal.mixin({
