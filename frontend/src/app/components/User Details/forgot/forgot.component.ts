@@ -20,6 +20,7 @@ export class ForgotComponent {
   constructor(private fb:FormBuilder){
     this.forgotForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
+      userName: ['', [Validators.required, Validators.minLength(3)]],
     })
   }
    

@@ -8,8 +8,37 @@
   <div class="panel-body">
     <form (submit)="onSubmit($event)" [formGroup]="forgotForm">
       <div class="form-group">
-        <div class="input-with-icon">
-          <label for="newPassword" class="form-level ms-2 mb-2"
+        <div>
+          <label for="userName" class="form-level ms-2 mb-2"
+            ><i class="fa-solid fa-user input-icon me-2"></i>User Name</label
+          >
+          <input
+            formControlName="userName"
+            id="userName"
+            name="userName"
+            placeholder="username"
+            class="form-control"
+            type="userName"
+          />
+          <div
+            class="text-danger mt-2 ms-2"
+            *ngIf="
+              forgotForm.controls['userName'].invalid &&
+              (forgotForm.controls['userName'].touched ||
+                forgotForm.controls['userName'].dirty)
+            "
+          >
+            <span *ngIf="forgotForm.controls['userName'].errors?.['required']"
+              >Required</span
+            >
+            <span *ngIf="forgotForm.controls['userName'].errors?.['minlength']"
+              >Enter a valid username</span
+            >
+          </div>
+        </div>
+
+        <div>
+          <label for="newPassword" class="form-level ms-2 mb-2 mt-2"
             ><i class="fa-solid fa-envelope input-icon me-2"></i>Email
             Address</label
           >
