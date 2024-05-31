@@ -75,18 +75,36 @@ export class PersonalInfoComponent implements OnInit{
         }
       );
 
-      Swal.fire({
-        icon: 'success',
-        title: 'Personal-info received successfully',
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
         showConfirmButton: false,
-        timer: 1500,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: 'success',
+        title: 'personal info recived successfully',
       });
     } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Please fill out all required fields.',
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'center-end',
         showConfirmButton: false,
-        timer: 1500,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'please fill out all required fields',
       });
     }
   }
