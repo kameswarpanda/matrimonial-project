@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../navbar.component';
 import Swal from 'sweetalert2';
 import { Message } from '../../../models/messages/messages';
 import { MessagingService } from '../../../services/message/message.service';
 import { CommonModule } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-chats',
@@ -12,7 +13,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './chats.component.html',
   styleUrl: './chats.component.css',
 })
-export class ChatsComponent {
+export class ChatsComponent implements OnInit{
   messages: Message[] = [];
   filteredMessages: Message[] = []; // Array to store filtered messages
   isDisabled = false;
@@ -38,11 +39,10 @@ export class ChatsComponent {
 
   filterMessages(): void {
     const username = sessionStorage.getItem('loggedInUser'); 
-    if (username) {
-      this.filteredMessages = this.messages.filter(message => message.registration.userName === username);
-    } else {
-      console.error('No logged-in user found');
-    }
+    console.log(username)
+      this.filteredMessages = this.messages.filter(message => message.registration.userName == username);
+
+      console.log(this.filteredMessages)
   }
   onClick() {
     this.isDisabled = true;

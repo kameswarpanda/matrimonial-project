@@ -51,12 +51,12 @@
           <input type="text" name="loggedInUser" [value]="loggedInUser" />
           <input type="text" name="firstName" [value]="user?.firstName" />
           <input type="text" name="lastName" [value]="user?.lastName" />
-          <input type="text" name="email" [value]="user?.email" />
+          <!-- <input type="text" name="email" [value]="user?.email" /> -->
         </form>
 
 
        <button type="button" class="btn btn-success" (click) = "OnChatClick()">
-          <i class="fa fa-message me-2"></i>Chat
+          <i class="fa fa-message me-2"></i>Chat{{user.firstName}}
         </button>
         <button type="button" class="btn btn-danger ms-2" [disabled]="interestBtnDisabled" (click)="onClick($event)">
           {{intrestButton}} <i class="fa fa-check"></i>

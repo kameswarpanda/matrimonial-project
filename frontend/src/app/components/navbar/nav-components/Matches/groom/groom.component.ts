@@ -53,7 +53,6 @@ export class GroomComponent implements OnInit{
           lastName: user.lastName,
           age: user.age,
           gender: user.gender,
-          email: user.registration.email,
           educationCareer: {
             educationLevel: educationCareer?.educationLevel || 'Not available',
             educationField: educationCareer?.educationField || 'Not available'

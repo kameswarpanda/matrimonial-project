@@ -57,6 +57,7 @@ export class SignupComponent implements OnInit {
 
     if (this.userForm.valid) {
       const registrationData = this.userForm.value;
+      console.log(registrationData)
 
       this.registrationService.saveRegistration(registrationData).subscribe(
         (response) => {
@@ -72,22 +73,23 @@ export class SignupComponent implements OnInit {
             icon: 'success',
           });
           
-          //Email verification
-          emailjs
-          .sendForm('service_hksa34h', 'template_xt58p0e', e.target as HTMLFormElement , {
-            publicKey: 'yoF2P1NACJyTjTxOS',
-              }
-            )
-            .then(
-              () => {
-                console.log('SUCCESS!');
-              },
-              (error) => {
-                console.log('FAILED...', (error as EmailJSResponseStatus).text);
-              }
-            );
+          // //Email verification
+          // emailjs
+          // .sendForm('service_hksa34h', 'template_xt58p0e', e.target as HTMLFormElement , {
+          //   publicKey: 'yoF2P1NACJyTjTxOS',
+          //     }
+          //   )
+          //   .then(
+          //     () => {
+          //       console.log('SUCCESS!');
+          //     },
+          //     (error) => {
+          //       console.log('FAILED...', (error as EmailJSResponseStatus).text);
+          //     }
+          //   );
 
-          this.router.navigate(['/home']);
+          // this.router.navigate(['/home']);
+          this.router.navigate(['/userinfo', this.userForm.value.userName] );
         },
         (error) => {
           console.error('Registration failed:', error);
