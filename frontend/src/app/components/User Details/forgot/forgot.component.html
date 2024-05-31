@@ -8,11 +8,31 @@
   <div class="panel-body">
     <form (submit)="onSubmit($event)" [formGroup]="forgotForm">
       <div class="form-group">
-        <div class="input-with-icon">
-          <label for="newPassword" class="form-level ms-2 mb-2"
-            ><i class="fa-solid fa-envelope input-icon me-2"></i>Email
-            Address</label
-          >
+        <div>
+          <label for="userName" class="form-label ms-2 mb-2">
+            <i class="fa-solid fa-user input-icon me-2"></i>User Name
+          </label>
+          <input
+            formControlName="userName"
+            id="userName"
+            name="userName"
+            placeholder="username"
+            class="form-control"
+            type="text"
+          />
+          <div
+            class="text-danger mt-2 ms-2"
+            *ngIf="forgotForm.controls['userName'].invalid &&
+              (forgotForm.controls['userName'].touched || forgotForm.controls['userName'].dirty)">
+            <span *ngIf="forgotForm.controls['userName'].errors?.['required']">Required</span>
+            <span *ngIf="forgotForm.controls['userName'].errors?.['minlength']">Enter a valid username</span>
+          </div>
+        </div>
+
+        <div>
+          <label for="email" class="form-label ms-2 mb-2 mt-2">
+            <i class="fa-solid fa-envelope input-icon me-2"></i>Email Address
+          </label>
           <input
             formControlName="email"
             id="email"
@@ -23,18 +43,10 @@
           />
           <div
             class="text-danger mt-2 ms-2"
-            *ngIf="
-              forgotForm.controls['email'].invalid &&
-              (forgotForm.controls['email'].touched ||
-                forgotForm.controls['email'].dirty)
-            "
-          >
-            <span *ngIf="forgotForm.controls['email'].errors?.['required']"
-              >Required</span
-            >
-            <span *ngIf="forgotForm.controls['email'].errors?.['email']"
-              >Enter a valid Email</span
-            >
+            *ngIf="forgotForm.controls['email'].invalid &&
+              (forgotForm.controls['email'].touched || forgotForm.controls['email'].dirty)">
+            <span *ngIf="forgotForm.controls['email'].errors?.['required']">Required</span>
+            <span *ngIf="forgotForm.controls['email'].errors?.['email']">Enter a valid Email</span>
           </div>
         </div>
       </div>
@@ -47,17 +59,11 @@
           type="submit"
         />
       </div>
-
     </form>
     <div class="mt-3 text-center">
       <p>
         Back to
-        <a
-          routerLink="/login"
-          routerLinkActive="active"
-          style="text-decoration: none"
-          >Login</a
-        >
+        <a routerLink="/login" routerLinkActive="active" style="text-decoration: none">Login</a>
       </p>
     </div>
   </div>

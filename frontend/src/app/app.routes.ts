@@ -50,7 +50,7 @@ export const routes: Routes = [
     ],
   },
   { path: 'forgot', component: ForgotComponent },
-  { path: 'resetpassword', component: ResetpasswordComponent },
+  { path: 'resetpassword/:userName', component: ResetpasswordComponent },
   { path: 'userinfo/:userName', component: UserInfoComponent },
   { path: 'familyinfo/:userName', component: FamilyInfoComponent },
   { path: 'educationalinfo/:userName', component: EducationalInfoComponent },

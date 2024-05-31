@@ -57,9 +57,7 @@ public class Registration {
 	@OneToOne(mappedBy = "registration",  cascade = CascadeType.ALL)
 	private PersonalInfo personalInfo;
 
-
-	@JsonIgnore
-	@OneToMany(mappedBy = "registration", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "registration", cascade = CascadeType.ALL) // Bidirectional relationship
     private List<Message> messages;
 
 	public Long getRid() {
