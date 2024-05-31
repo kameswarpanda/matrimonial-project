@@ -24,25 +24,22 @@ import { RegistrationService } from '../../../services/registration/registration
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
-  
 })
-
 export class LoginComponent {
   userForm: FormGroup;
   isFormSubmitted: boolean = false;
   registration: any;
   loginInfo: any;
 
-  
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private registrationService: RegistrationService,
-    // private route: ActivatedRoute
-  ) {
+    private registrationService: RegistrationService
+  ) // private route: ActivatedRoute
+  {
     this.userForm = this.formBuilder.group({
       userName: ['', Validators.minLength(3)],
-      password: ['', Validators.minLength(6)],
+      password: ['', Validators.minLength(8)],
     });
   }
 
@@ -58,26 +55,28 @@ export class LoginComponent {
       password: this.userForm.value.password,
     };
 
-    if(this.userForm.value.userName === "Admin" && this.userForm.value.password === "Admin1"){
+    if (
+      this.userForm.value.userName === 'Admin' &&
+      this.userForm.value.password === 'Admin123'
+    ) {
       this.showToast('success', 'Admin Signed in successfully');
-      this.router.navigate(['/admin/admin/dashboard'])
-    }
-    else{
-    this.registrationService.findByUserName(loginInfo.userName).subscribe(
-      (data) => {
-        if (data && data.password === loginInfo.password) {
-          this.showToast('success', 'Signed in successfully');
-          this.router.navigate(['/page']);
-        } else {
-          this.showToast('error', 'Incorrect username or password');
+      this.router.navigate(['/admin/admin/dashboard']);
+    } else {
+      this.registrationService.findByUserName(loginInfo.userName).subscribe(
+        (data) => {
+          if (data && data.password === loginInfo.password) {
+            this.showToast('success', 'Signed in successfully');
+            this.router.navigate(['/page']);
+          } else {
+            this.showToast('error', 'Incorrect username or password');
+          }
+        },
+        (error) => {
+          console.log('Error fetching registration details:', error);
+          this.showToast('error', 'User not found');
         }
-      },
-      (error) => {
-        console.log('Error fetching registration details:', error);
-        this.showToast('error', 'User not found');
-      }
-    );
-  }
+      );
+    }
   }
 
   private showToast(icon: 'success' | 'error', title: string) {

@@ -36,8 +36,8 @@ export class ChangePasswordComponent implements OnInit{
   constructor(private fb: FormBuilder, private router: Router, private registrationService : RegistrationService) {
     this.passwordForm = this.fb.group(
       {
-        oldPassword: ['', [Validators.required, Validators.minLength(6)]],
-        newPassword: ['', [Validators.required, Validators.minLength(6)]],
+        oldPassword: ['', [Validators.required, Validators.minLength(8)]],
+        newPassword: ['', [Validators.required, Validators.minLength(8)]],
         confirmPassword: ['', Validators.required],
       },
       { validators: this.passwordsMatchValidator }
