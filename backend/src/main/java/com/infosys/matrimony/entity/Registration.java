@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,7 +26,7 @@ import lombok.Setter;
 @Table(name = "registrations")
 public class Registration {
 
-    @Id
+  @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="r_id")
 	private Long rid;
@@ -57,6 +56,7 @@ public class Registration {
 	@OneToOne(mappedBy = "registration",  cascade = CascadeType.ALL)
 	private PersonalInfo personalInfo;
 
+		@JsonIgnore
     @OneToMany(mappedBy = "registration", cascade = CascadeType.ALL) // Bidirectional relationship
     private List<Message> messages;
 
