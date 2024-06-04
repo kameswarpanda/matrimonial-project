@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -21,7 +22,8 @@ export class NavbarComponent implements OnInit{
     this.userName = sessionStorage.getItem('loggedInUser');
   }
 
-  showAlert() {
+  logOut() {
+    localStorage.removeItem('authToken');
     //sweet alert
     const Toast = Swal.mixin({
       toast: true,
@@ -39,4 +41,12 @@ export class NavbarComponent implements OnInit{
       title: 'Logout Successful',
     });
   }
+
+  myProfile(){}
+  updateProfile(){}
+  
+  openModal(){
+
+  }
+
 }

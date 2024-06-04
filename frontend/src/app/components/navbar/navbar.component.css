@@ -17,6 +17,10 @@
   transition: 0.3s color;
 }
 
+.bell{
+  font-size: 25px;
+  color: #01b484;
+}
 
 
 .login-button{
@@ -157,4 +161,3 @@ position: relative;
   overflow: hidden;
   border-top: 1px solid #e9ecef;
 }
-
