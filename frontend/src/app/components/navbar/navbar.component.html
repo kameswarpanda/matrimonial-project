@@ -1,155 +1,60 @@
 <div class="user">
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <a
-        class="navbar-brand me-auto"
-        routerLink="/page"
-        routerLinkActive="active"
-        ><i class="fas fa-user-friends me-3"></i>
-
-        Jeevan <span class="text-success">Sathi</span></a
-      >
-      <div
-        class="offcanvas offcanvas-end"
-        tabindex="-1"
-        id="offcanvasNavbar"
-        aria-labelledby="offcanvasNavbarLabel"
-      >
+      <a class="navbar-brand me-auto" routerLink="/page" routerLinkActive="active">
+        <i class="fas fa-user-friends me-3"></i>
+        Jeevan <span class="text-success">Sathi</span>
+      </a>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
-          <h5
-            class="offcanvas-title"
-            id="offcanvasNavbarLabel"
-            style="color: black; font-weight: bold"
-          >
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="color: black; font-weight: bold">
             Jeevan <span class="text-success">Sathi</span>
           </h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
             <li class="nav-item">
-              <a
-                class="nav-link mx-lg-2"
-                aria-current="page"
-                routerLink="/page"
-                routerLinkActive="active"
-              >
-                <!-- <i class="fas fa-home text fa-sm me-2"></i> -->
-                Home</a
-              >
+              <a class="nav-link mx-lg-2" aria-current="page" routerLink="/page" routerLinkActive="active">Home</a>
             </li>
-
             <li class="dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <!-- <i class="fas fa-heart text fa-sm me-2"></i> -->
-                Matches
-              </a>
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Matches</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a
-                  class="dropdown-item"
-                  routerLink="/matches/grooms"
-                  routerLinkActive="active"
-                  ><i class="fas fa-user-tie text fa-sm me-2"></i>Grooms</a
-                >
-                <a
-                  class="dropdown-item"
-                  routerLink="/matches/brides"
-                  routerLinkActive="active"
-                  ><i class="fas fa-user text fa-sm me-2"></i>Brides</a
-                >
+                <a class="dropdown-item" routerLink="/matches/grooms" routerLinkActive="active">
+                  <i class="fas fa-user-tie text fa-sm me-2"></i>Grooms</a>
+                <a class="dropdown-item" routerLink="/matches/brides" routerLinkActive="active">
+                  <i class="fas fa-user text fa-sm me-2"></i>Brides</a>
               </div>
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link mx-lg-2"
-                routerLink="/about"
-                routerLinkActive="active"
-              >
-                <!-- <i class="fas fa-address-card text fa-sm me-2"></i> -->
-                About</a
-              >
+              <a class="nav-link mx-lg-2" routerLink="/about" routerLinkActive="active">About</a>
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link mx-lg-2"
-                routerLink="/services"
-                routerLinkActive="active"
-              >
-                <!-- <i class="fas fa-tools text fa-sm me-2"></i> -->
-                Services</a
-              >
+              <a class="nav-link mx-lg-2" routerLink="/services" routerLinkActive="active">Services</a>
             </li>
-
             <li class="nav-item">
-              <a
-                class="nav-link mx-lg-2"
-                routerLink="/contact"
-                routerLinkActive="active"
-              >
-                <!-- <i class="fas fa-message text fa-sm me-2"></i> -->
-                Contact</a
-              >
+              <a class="nav-link mx-lg-2" routerLink="/contact" routerLinkActive="active">Contact</a>
             </li>
-
             <li class="nav-item">
-              <a
-                class="nav-link mx-lg-2"
-                routerLink="/chats"
-                routerLinkActive="active"
-              >
-                <!-- <i class="fas fa-location-dot text fa-sm me-2"></i> -->
-                Chats</a
-              >
+              <a class="nav-link mx-lg-2" routerLink="/chats" routerLinkActive="active">Chats</a>
             </li>
           </ul>
         </div>
       </div>
-
       <!-- Notification icon system -->
-
       <div>
-        <button
-          type="button"
-          class="btn me-3 position-relative"
-          (click)="openModal()"
-        >
+        <button type="button" class="btn me-3 position-relative"   (click)="onBellButtonClick()">
           <i class="fas fa-bell bell"></i>
-          <span
-            class="position-absolute top-30 start-80 translate-middle p-1 bg-danger border border-light rounded-circle"
-          >
-          </span>
+          <span *ngIf="hasNewNotifications" class="position-absolute top-30 start-80 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
         </button>
       </div>
-
       <!-- Notification Modal -->
-      <div
-        class="modal fade"
-        id="notificationModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Notifications</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -162,52 +67,27 @@
               </ul>
             </div>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
       </div>
-
       <div class="dropdown login-button text-white">
-        <a
-          class="dropdown-toggle profile"
-          role="button"
-          data-bs-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
+        <a class="dropdown-toggle profile" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user me-2"></i>{{ userName }}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="javascript:void(0);" (click)="myProfile()"
-            ><i class="fas fa-user text fa-sm me-2"></i>My Profile</a
-          >
-          <a class="dropdown-item" href="javascript:void(0);" (click)="updateProfile()"
-            ><i class="fas fa-user-edit text fa-sm me-2"></i>Update Profile</a
-          >
-          <a class="dropdown-item" routerLink="/user/changepassword"
-            ><i class="fas fa-lock text fa-sm me-2"></i>Change Password</a
-          >
-          <a class="dropdown-item" routerLink="/home" (click)="logOut()"
-            ><i class="fas fa-sign-out text fa-sm me-2"></i>Logout</a
-          >
+          <a class="dropdown-item" href="javascript:void(0);" (click)="myProfile()">
+            <i class="fas fa-user text fa-sm me-2"></i>My Profile</a>
+          <a class="dropdown-item" href="javascript:void(0);" (click)="updateProfile()">
+            <i class="fas fa-user-edit text fa-sm me-2"></i>Update Profile</a>
+          <a class="dropdown-item" routerLink="/user/changepassword">
+            <i class="fas fa-lock text fa-sm me-2"></i>Change Password</a>
+          <a class="dropdown-item" routerLink="/home" (click)="logOut()">
+            <i class="fas fa-sign-out text fa-sm me-2"></i>Logout</a>
         </div>
       </div>
-
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasNavbar"
-        aria-controls="offcanvasNavbar"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>

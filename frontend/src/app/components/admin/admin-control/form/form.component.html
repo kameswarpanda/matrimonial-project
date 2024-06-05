@@ -1,0 +1,36 @@
+<div class="contact">
+  <h3>Fill Reply Form</h3>
+  <hr />
+  <form [formGroup]="contactForm1" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label"><strong>Your Name</strong></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="name"
+        placeholder="Enter your name"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label"><strong>Email Address</strong></label>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        placeholder="Enter Your Email address"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label"><strong>Your Message</strong></label>
+      <textarea
+        class="form-control"
+        formControlName="message"
+        rows="4"
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="contactForm1.invalid">Send Message</button>
+  </form>
+</div>

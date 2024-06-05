@@ -161,3 +161,12 @@ position: relative;
   overflow: hidden;
   border-top: 1px solid #e9ecef;
 }
+
+.bell {
+  font-size: 24px;
+  color: green;
+}
+
+.position-relative {
+  position: relative;
+}
