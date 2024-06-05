@@ -8,7 +8,7 @@ import { Registration } from '../../models/registration/registration';
 })
 export class RegistrationService {
   private baseUrl = 'http://localhost:8080/api/registrations'; 
-
+  
   private rid!:number;
   private userName!:string | null;
 
@@ -41,6 +41,9 @@ export class RegistrationService {
   findByUserName(username: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/username/${username}`);
   }
+  findByEmail(email: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/email/${email}`);
+  }
 
   getAllRegistrations(): Observable<Registration[]> {
     return this.http.get<Registration[]>(this.baseUrl);
@@ -49,5 +52,9 @@ export class RegistrationService {
   //for delete users
   deleteUser(rid: number): Observable<any>{
     return this.http.delete(`${this.baseUrl}/${rid}`)
+  }
+  getRegistrationByUsername(username: string): Observable<Registration> {
+    const url = `${this.baseUrl}/username/${username}`;
+    return this.http.get<Registration>(url);
   }
 }

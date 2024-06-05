@@ -33,6 +33,15 @@ public class RegistrationController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+@GetMapping("/email/{email}")
+    public ResponseEntity<Registration> findByEmail(@PathVariable String email) {
+        Registration registration = registrationService.findByEmail(email);
+        if (registration != null) {
+            return new ResponseEntity<>(registration, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
     @GetMapping
     public ResponseEntity<List<Registration>> getAllRegistrations() {

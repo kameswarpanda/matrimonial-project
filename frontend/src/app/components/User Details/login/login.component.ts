@@ -23,7 +23,7 @@ import { RegistrationService } from '../../../services/registration/registration
     CommonModule,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   userForm: FormGroup;
@@ -35,8 +35,7 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     private router: Router,
     private registrationService: RegistrationService
-  ) // private route: ActivatedRoute
-  {
+  ) {
     this.userForm = this.formBuilder.group({
       userName: ['', Validators.minLength(3)],
       password: ['', Validators.minLength(8)],
@@ -49,7 +48,6 @@ export class LoginComponent {
       return;
     }
 
-    sessionStorage.setItem('loggedInUser', this.userForm.value.userName);
     const loginInfo = {
       userName: this.userForm.value.userName,
       password: this.userForm.value.password,
@@ -60,13 +58,18 @@ export class LoginComponent {
       this.userForm.value.password === 'Admin123'
     ) {
       this.showToast('success', 'Admin Signed in successfully');
+      sessionStorage.setItem('loggedInUser', loginInfo.userName);
+      sessionStorage.setItem('isFirstLogin', 'true');
       this.router.navigate(['/admin/admin/dashboard']);
     } else {
       this.registrationService.findByUserName(loginInfo.userName).subscribe(
         (data) => {
           if (data && data.password === loginInfo.password) {
             this.showToast('success', 'Signed in successfully');
+            sessionStorage.setItem('loggedInUser', loginInfo.userName);
+            sessionStorage.setItem('loggedInUserEmail', data.email); // Store email in session storage
             this.router.navigate(['/page']);
+            console.log(data.email);
           } else {
             this.showToast('error', 'Incorrect username or password');
           }

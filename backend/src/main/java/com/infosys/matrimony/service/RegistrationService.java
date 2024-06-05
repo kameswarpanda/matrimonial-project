@@ -11,4 +11,5 @@ public interface RegistrationService {
     Registration updateRegistration(Long id, Registration updatedRegistration);
     void deleteRegistration(Long id);
     Registration findByUserName(String userName);
+    Registration findByEmail(String email);
 }

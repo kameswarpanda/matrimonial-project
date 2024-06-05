@@ -15,10 +15,14 @@
         <td>{{ contact.name }}</td>
         <td>{{ contact.email }}</td>
         <td>{{ contact.message }}</td>
+
         <td>
-          <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to={{ contact.email }}" target="_blank" >
+
+          <!-- <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to={{ contact.email }}" target="_blank" >
             <button type="button" class="btn btn-danger">Reply</button>
-          </a>
+          </a> -->
+
+          <button type="button" class="btn btn-danger" (click)="handleAction(contact)">Reply</button>
           
         </td>
       </tr>

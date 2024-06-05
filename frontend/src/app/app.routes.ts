@@ -27,6 +27,8 @@ import { ChangePasswordComponent } from './components/User Details/change-passwo
 import { DashboardComponent } from './components/admin/admin-control/dashboard/dashboard.component';
 import { LocationBookingReportComponent } from './components/admin/admin-control/location-booking-report/location-booking-report.component';
 import { ChatsComponent } from './components/navbar/chats/chats.component';
+import { FormComponent } from './components/admin/admin-control/form/form.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -47,6 +49,8 @@ export const routes: Routes = [
       { path: 'admin/regd-report', component: RegdReportComponent },
       { path: 'admin/dashboard', component: DashboardComponent },
       { path: 'admin/location-booking', component: LocationBookingReportComponent },
+      {path: 'admin/form', component: FormComponent},
+    
     ],
   },
   { path: 'forgot', component: ForgotComponent },
@@ -62,4 +66,7 @@ export const routes: Routes = [
   { path: 'matches/grooms/groom-info', component: GroomInfoComponent },
   { path: 'user/changepassword', component: ChangePasswordComponent },
   { path: 'chats', component: ChatsComponent },
+  {
+    path:'notification',component:NotificationsComponent
+  }
 ];

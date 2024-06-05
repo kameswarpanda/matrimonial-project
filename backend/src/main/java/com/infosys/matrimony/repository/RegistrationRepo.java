@@ -6,4 +6,5 @@ import com.infosys.matrimony.entity.Registration;
 
 public interface RegistrationRepo extends JpaRepository<Registration, Long>{
     Optional<Registration> findByUserName(String userName);
+    Optional<Registration> findByEmail(String email);
 } 

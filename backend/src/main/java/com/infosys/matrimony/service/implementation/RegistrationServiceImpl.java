@@ -50,5 +50,8 @@ public class RegistrationServiceImpl implements RegistrationService {
     public Registration findByUserName(String userName) {
         return registrationRepository.findByUserName(userName).orElse(null);
     }
-    
+    @Override
+    public Registration findByEmail(String email) {
+        return registrationRepository.findByEmail(email).orElse(null);
+    }
 }

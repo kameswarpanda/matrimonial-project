@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="user">
+  <h3>Notifications from Admin </h3>
+  <hr />
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        
+        <!-- <th>Action</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let message of messages">
+        <td>{{ message.name }}</td>
+        <td>{{ message.email }}</td>
+        <td>{{ message.message }}</td>
+     
+        <!-- <td>
+          <button type="button" class="btn btn-success me-2" (click)="onClick()" [disabled]="isDisabled">{{ buttonText }}
+            <i class="fa-solid fa-check"></i>
+          </button>
+        </td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>
