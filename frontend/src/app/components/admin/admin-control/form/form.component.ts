@@ -50,11 +50,11 @@ export class FormComponent implements OnInit {
         response => {
           Swal.fire({
             icon: 'success',
-            title: 'You have successfully replied to this query',
+            title: 'Message sent',
             toast: true,
             position: 'center-end',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 1500,
             timerProgressBar: true,
             didOpen: (toast) => {
               toast.onmouseenter = Swal.stopTimer;

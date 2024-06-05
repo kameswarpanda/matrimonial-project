@@ -1,29 +1,29 @@
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar>
 <div class="user">
-  <h3>Notifications from Admin </h3>
-  <hr />
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Message</th>
-        
-        <!-- <th>Action</th> -->
+        <th class="text-center">Messages from Admin</th>
+        <th>Time</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let message of messages">
-        <td>{{ message.name }}</td>
-        <td>{{ message.email }}</td>
-        <td>{{ message.message }}</td>
-     
-        <!-- <td>
+        <td class="text-center">{{ message.message }}</td>
+        <td>-- -- --</td>
+        
+        <td>
           <button type="button" class="btn btn-success me-2" (click)="onClick()" [disabled]="isDisabled">{{ buttonText }}
             <i class="fa-solid fa-check"></i>
           </button>
-        </td> -->
+        </td>
       </tr>
     </tbody>
   </table>
+</div> -->
+
+<div class="notification-box" *ngFor="let message of messages">
+  <p><strong>Admin : </strong>{{ message.message }}</p>
+  <button class="text-center btn" (click)="closeNotificationBox()"><i class="fas fa-close"></i></button>
 </div>
+

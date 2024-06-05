@@ -3,15 +3,20 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import Swal from 'sweetalert2';
 import { MessagingService } from '../../services/message/message.service';
 import { CommonModule } from '@angular/common';
+import { NotificationService } from '../../services/notification/notification.service';
+import { NotificationsComponent } from '../notifications/notifications.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule],
+  imports: [RouterLink, RouterLinkActive, CommonModule, NotificationsComponent],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+
+  isNotificationBoxVisible!: boolean;
+
   private previousReplies: any[] = []; // Store previously fetched replies
   hasNewNotifications: boolean = false; // Flag to indicate new notifications
   notificationInterval: any;
@@ -19,9 +24,14 @@ export class NavbarComponent implements OnInit {
   userName!: string | null;
   isFirstLogin: boolean = false; // Track if it's the first login
 
-  constructor(private router: Router, private messagingService: MessagingService) {}
+  constructor(private router: Router, private messagingService: MessagingService, private notificationService: NotificationService) {}
 
   ngOnInit(): void {
+
+    this.notificationService.isNotificationBoxVisible$.subscribe(
+      isVisible => this.isNotificationBoxVisible = isVisible
+    );
+
     this.userName = sessionStorage.getItem('loggedInUser');
     this.isFirstLogin = sessionStorage.getItem('isFirstLogin') === 'true';
 
@@ -121,5 +131,9 @@ export class NavbarComponent implements OnInit {
   onBellButtonClick(): void {
     this.navigateToNotifications();
     this.stopNotificationMessages();
+  }
+
+  toggleNotificationBox() {
+    this.notificationService.toggleNotificationBox();
   }
 }

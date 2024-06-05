@@ -5,6 +5,7 @@ import { Reply } from '../../models/reply/reply';
 import { MessagingService } from '../../services/message/message.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
+import { NotificationService } from '../../services/notification/notification.service';
 
 @Component({
   selector: 'app-notifications',
@@ -19,7 +20,7 @@ export class NotificationsComponent implements OnInit {
   isDisabled = false;
   buttonText = 'Confirm';
 
-  constructor(private messagingService: MessagingService) {}
+  constructor(private messagingService: MessagingService, private notificationService: NotificationService) {}
 
   ngOnInit(): void {
     this.fetchMessages(); // Fetch messages when the component initializes
@@ -68,7 +69,9 @@ export class NotificationsComponent implements OnInit {
       icon: 'success',
       title: 'Confirmation sent to User',
     });
+  }
 
-    // For Email notification used (Email JS)
+  closeNotificationBox() {
+    this.notificationService.hideNotificationBox();
   }
 }

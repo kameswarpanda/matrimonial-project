@@ -14,11 +14,13 @@
         <h3 class="mt-2 mb-3">{{ user.firstName }} {{ user.lastName }}</h3>
         <ul class="text">
           <li><strong>Nick Name:</strong> {{ user.firstName }}</li>
-          <li>
-            <strong> Date of Birth (Age):</strong> -- -- --
-            <strong> ({{ user.age }} yrs)</strong>
-          </li>
+
+          <!-- <li><strong> Date of Birth :</strong> -- -- -- </li> -->
+
+          <li><strong>Age: </strong> {{ user.age }} Yrs</li>
+
           <!-- <li><strong>Mobile:</strong> +91 6345678901</li> -->
+
           <li><strong>Gender:</strong> {{ user.gender }}</li>
           <li>
             <strong>Educational Career:</strong>
@@ -56,7 +58,7 @@
 
 
        <button type="button" class="btn btn-success" (click) = "OnChatClick()">
-          <i class="fa fa-message me-2"></i>Chat{{user.firstName}}
+          <i class="fa fa-message me-2"></i>Chat
         </button>
         <button type="button" class="btn btn-danger ms-2" [disabled]="interestBtnDisabled" (click)="onClick($event)">
           {{intrestButton}} <i class="fa fa-check"></i>

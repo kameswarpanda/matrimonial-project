@@ -170,3 +170,7 @@ position: relative;
 .position-relative {
   position: relative;
 }
+
+.logout{
+  cursor: pointer;
+}
