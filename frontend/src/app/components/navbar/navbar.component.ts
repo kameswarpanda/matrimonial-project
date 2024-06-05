@@ -52,8 +52,12 @@ export class NavbarComponent implements OnInit {
 
   logOut() {
     localStorage.removeItem('authToken');
-    sessionStorage.removeItem('isFirstLogin'); // Clear the first login flag on logout
-    // Sweet alert
+
+    sessionStorage.clear();
+
+    // Clear browsing history
+    window.history.pushState({}, document.title, '/');
+    //sweet alert
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -69,6 +73,8 @@ export class NavbarComponent implements OnInit {
       icon: 'success',
       title: 'Logout Successful',
     });
+
+    this.router.navigate(['/home']);
   }
 
   myProfile() {}

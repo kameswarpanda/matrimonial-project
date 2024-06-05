@@ -26,8 +26,14 @@ export class AdminComponent {
   }
 
   constructor(private router: Router){}
-  showAlert() {
-    //sweet alert
+
+  onLogout() {
+    // Clear session storage
+    sessionStorage.clear();
+
+    // Redirect to login page
+    this.router.navigate(['/']);
+    // Show success alert
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -39,10 +45,11 @@ export class AdminComponent {
         toast.onmouseleave = Swal.resumeTimer;
       },
     });
+
     Toast.fire({
       icon: 'success',
       title: 'Admin Logout Successful',
     });
-    // this.router.navigate(['/home'])
   }
+  
 }
