@@ -44,7 +44,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
       userName: ['', Validators.minLength(3)],
-      password: ['', Validators.minLength(8)],
+      password: ['', Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)],
       email: ['', Validators.email],
     });
 
@@ -74,22 +74,22 @@ export class SignupComponent implements OnInit {
           });
           
           //Email verification
-          emailjs
-          .sendForm('service_hksa34h', 'template_xt58p0e', e.target as HTMLFormElement , {
-            publicKey: 'yoF2P1NACJyTjTxOS',
-              }
-            )
-            .then(
-              () => {
-                console.log('SUCCESS!');
-              },
-              (error) => {
-                console.log('FAILED...', (error as EmailJSResponseStatus).text);
-              }
-            );
+          // emailjs
+          // .sendForm('service_hksa34h', 'template_xt58p0e', e.target as HTMLFormElement , {
+          //   publicKey: 'yoF2P1NACJyTjTxOS',
+          //     }
+          //   )
+          //   .then(
+          //     () => {
+          //       console.log('SUCCESS!');
+          //     },
+          //     (error) => {
+          //       console.log('FAILED...', (error as EmailJSResponseStatus).text);
+          //     }
+          //   );
 
-          this.router.navigate(['/home']);
-          // this.router.navigate(['/userinfo', this.userForm.value.userName] );
+          // this.router.navigate(['/home']);
+          this.router.navigate(['/userinfo', this.userForm.value.userName] );
         },
         (error) => {
           console.error('Registration failed:', error);

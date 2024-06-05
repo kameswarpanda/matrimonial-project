@@ -87,7 +87,7 @@
             />
             <!-- for password validation -->
             <div
-              class="text-danger"
+              class="text-danger mt-1"
               *ngIf="
                 userForm.controls['password'].invalid &&
                 (userForm.controls['password'].touched ||
@@ -97,9 +97,7 @@
               <span *ngIf="userForm.controls['password'].errors?.['required']"
                 >Required</span
               >
-              <span *ngIf="userForm.controls['password'].errors?.['minlength']"
-                >Minimum 8 character</span
-              >
+              <span *ngIf="userForm.controls['password'].errors?.['pattern']">Password must be at least 8 characters long <br>It contain letters, numbers, and special characters</span>
             </div>
           </div>
 

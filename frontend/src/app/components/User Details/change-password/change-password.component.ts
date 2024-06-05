@@ -37,7 +37,7 @@ export class ChangePasswordComponent implements OnInit{
     this.passwordForm = this.fb.group(
       {
         oldPassword: ['', [Validators.required, Validators.minLength(8)]],
-        newPassword: ['', [Validators.required, Validators.minLength(8)]],
+        newPassword: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]],
         confirmPassword: ['', Validators.required],
       },
       { validators: this.passwordsMatchValidator }
@@ -47,6 +47,14 @@ export class ChangePasswordComponent implements OnInit{
   ngOnInit(): void {
     this.loggedInUser = sessionStorage.getItem('loggedInUser');
     this.registration = this.loadRegistrationDetails();
+
+    // Ensure sessionStorage is accessed only in the browser
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      const someData = sessionStorage.getItem('someData');
+      // Process the retrieved data as needed
+    } else {
+      console.error('sessionStorage is not available.');
+    }
   }
 
   passwordsMatchValidator(group: FormGroup) {
