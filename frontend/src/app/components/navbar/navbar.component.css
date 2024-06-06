@@ -1,13 +1,15 @@
 .navbar{
-  background-color: #ffffff;
-  margin: 10px;
-  margin-top: 3px;
-  border-radius: 15px;
-  padding: 0.5rem;  
-  border: 1px solid black;
-  
-  
-  
+
+  background-color:rgba(255, 255, 255, 0.485); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+  /* border-bottom: 1px solid black; */
+  padding: 0.5rem;   
+}
+
+.logo{
+  max-height: 50px;
+  max-width: 45px;
 }
 
 .navbar-brand{
@@ -19,7 +21,7 @@
 
 .bell{
   font-size: 25px;
-  color: #01b484;
+  color: #2bc4a8;
 }
 
 

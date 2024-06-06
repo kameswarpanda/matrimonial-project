@@ -1,8 +1,15 @@
 .navbar {
-  padding: 0.5rem;
+  background-color:rgba(255, 255, 255, 0.599); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
   border-bottom: 1px solid black;
+  /* padding: 0%; */
 }
 
+.logo{
+  max-height: 50px;
+  max-width: 45px;
+}
 .navbar-brand {
   font-weight: bolder;
   color: #000000;
@@ -100,9 +107,16 @@ h1 {
   font-family: "Dancing Script", cursive;
   font-weight: bold;
 }
+
+.bandhan{
+  /* font-family: "Dancing Script", cursive; */
+  font-weight: bold;
+  /* font-size: 30px; */
+}
 .border{
   /* max-height: 60px; */
-  padding: 30px;
+  /* background-color: azure; */
+  padding: 28px;
 }
 .carousel-item img {
   width: 100%;

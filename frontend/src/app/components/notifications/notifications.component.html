@@ -22,8 +22,11 @@
   </table>
 </div> -->
 
-<div class="notification-box" *ngFor="let message of messages">
-  <p><strong>Admin : </strong>{{ message.message }}</p>
-  <button class="text-center btn" (click)="closeNotificationBox()"><i class="fas fa-close"></i></button>
+<div class="notification-box">
+  <div *ngFor="let message of messages">
+    <p><strong>Admin : </strong>{{ message.message }}</p>
+  </div>
+  <button class="text-center btn" (click)="closeNotificationBox()">
+    <i class="fas fa-close"></i>
+  </button>
 </div>
-
