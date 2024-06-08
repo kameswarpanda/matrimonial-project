@@ -1,0 +1,95 @@
+<form>
+  <div class="form-group">
+    <label for="familyStatus" class="mb-2">Family Status</label><br />
+    <div class="btn-group-toggle" data-toggle="buttons">
+      <i class="fa-solid fa-signal me-3"></i>
+      <label class="btn btn-option">
+        <input
+          formControlName="familyStatus"
+          type="radio"
+          name="familyStatus"
+          id="middleClass"
+          value="Middle Class"
+        />
+        Middle Class
+      </label>
+      <label class="btn btn-option">
+        <input
+          formControlName="familyStatus"
+          type="radio"
+          name="familyStatus"
+          id="upperMiddleClass"
+          value="Upper Middle Class"
+        />
+        Upper Middle Class
+      </label>
+      <label class="btn btn-option">
+        <input
+          formControlName="familyStatus"
+          type="radio"
+          name="familyStatus"
+          id="highClass"
+          value="High Class"
+        />
+        High Class
+      </label>
+      <label class="btn btn-option">
+        <input
+          formControlName="familyStatus"
+          type="radio"
+          name="familyStatus"
+          id="richAffluent"
+          value="Rich Affluent"
+        />
+        Rich/Affluent
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="familyType" class="mb-2">Family Type</label><br />
+    <div class="btn-group-toggle" data-toggle="buttons">
+      <i class="fa-solid fa-users  me-3"></i>
+      <label class="btn btn-option">
+        <input
+          type="radio"
+          name="familyType"
+          id="joint"
+          value="Joint"
+          formControlName="familyType"
+        />
+        Joint
+      </label>
+      <label class="btn btn-option">
+        <input
+          type="radio"
+          name="familyType"
+          id="nuclear"
+          value="Nuclear"
+          formControlName="familyType"
+        />
+        Nuclear
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fatherName" class="mb-2">Father Name</label>
+    <div class="input-with-icon">
+      <i class="fa-solid fa-user input-icon me-3 input-icon"></i>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your father name"
+        id="fatherName"
+        formControlName="fatherName"
+        required
+      />
+    </div>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-success btn-continue mt-3"
+    routerLinkActive="active"
+  >
+    Update
+  </button>
+</form>

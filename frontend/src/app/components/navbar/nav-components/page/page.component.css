@@ -31,6 +31,19 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+.btn {
+  /* font-weight: bold; */
+  /* background: linear-gradient(45deg, #2bc4a8, #009970); */
+  border-radius: 2rem;
+  padding: 5px 25px;
+  background: linear-gradient(45deg, rgb(30, 10, 76), rgb(58, 14, 162));
+  color: white;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, rgb(58, 14, 162), rgb(30, 10, 76));
+}
+
 .overlay-text {
   position: absolute;
   top: 50%;

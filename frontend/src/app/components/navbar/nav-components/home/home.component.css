@@ -112,13 +112,12 @@
 /* for home page */
 
 .bandhan {
-   /* font-family: "Chela One", system-ui; */
+  font-size: 28px;
   font-weight: bold;
-  color: rgb(255, 255, 255);
+  font-style: italic;
+  color: #ffd000;
 }
-.border {
-  padding: 28px;
-}
+
 
 /* hero section */
 .hero {
@@ -133,6 +132,7 @@
   position: absolute;
   right: 0;
   bottom: 0;
+  top: 0;
   z-index: -1;
 }
 
@@ -185,6 +185,18 @@
   }
 }
 
+.animations{
+  opacity: 0;
+  transform: translateY(30px);
+  animation: moveup 0.5s linear forwards;
+}
+
+@keyframes moveup{
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 /* About section */
 
 .about {
@@ -206,6 +218,10 @@ h1 {
   border: 1px solid black;
 }
 
+.accordian-bg{
+  background-color: #ffffff91;
+  color: rgb(30, 10, 76);
+}
 .services{
   background-color: rgba(255, 255, 255, 0.482);
 }

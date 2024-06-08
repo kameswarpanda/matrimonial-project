@@ -1,0 +1,52 @@
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+h5{
+  text-align: center;
+  font-weight: bold;
+  color: rgb(30, 10, 76);
+  margin-bottom: 30px;
+}
+
+.btn-option {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color: #495057; /* Button text color */
+  background-color: #fff; /* Button background color */
+  border: 1px solid #ced4da; /* Button border color */
+}
+
+.btn-option.active {
+  background-color: #e9ecef; /* Lighter background color when selected */
+}
+
+.btn-continue {
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+  background: linear-gradient(45deg, rgb(30, 10, 76), rgb(58, 14, 162));
+}
+
+.btn-continue:hover {
+  background: linear-gradient(45deg, rgb(58, 14, 162), rgb(30, 10, 76));
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input {
+  padding-left: 30px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 8px; 
+  top: 55%;
+  transform: translateY(-50%);
+}

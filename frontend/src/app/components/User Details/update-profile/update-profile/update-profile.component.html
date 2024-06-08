@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a
+              class="nav-link mx-lg-2"
+              aria-current="page"
+              routerLink="update-userInfo"
+              routerLinkActive="active"
+              >User Info</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="update-personalInfo" routerLinkActive="active"
+              >Personal Info</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="update-educationalInfo" routerLinkActive="active"
+              >Educational info</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="update-familyInfo" routerLinkActive="active">Family info</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <hr class="mx-5">
+
+  <!-- update form -->
+   
+  <div class="container1">
+
+    <router-outlet></router-outlet>
+  </div>
+</div>

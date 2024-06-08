@@ -30,6 +30,12 @@ import { ChatsComponent } from './components/navbar/chats/chats.component';
 import { FormComponent } from './components/admin/admin-control/form/form.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { authGuard } from './components/guards/auth.guard';
+import { UpdateProfileComponent } from './components/User Details/update-profile/update-profile/update-profile.component';
+import path from 'path';
+import { UpdateUserInfoComponent } from './components/User Details/update-profile/update-profile/update-control/update-userInfo/update-user-info/update-user-info.component';
+import { UpdatePersonalInfoComponent } from './components/User Details/update-profile/update-profile/update-control/update-personalInfo/update-personal-info/update-personal-info.component';
+import { UpdateEducationalInfoComponent } from './components/User Details/update-profile/update-profile/update-control/update-educationalInfo/update-educational-info/update-educational-info.component';
+import { UpdateFamilyInfoComponent } from './components/User Details/update-profile/update-profile/update-control/update-familyInfo/update-family-info/update-family-info.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,21 +43,45 @@ export const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'navbar', component: NavbarComponent, canActivate: [authGuard] },
   { path: 'home', component: HomeComponent, canActivate: [authGuard] },
-  { path: 'about', component: AboutComponent , canActivate: [authGuard]},
+  { path: 'about', component: AboutComponent, canActivate: [authGuard] },
   { path: 'contact', component: ContactComponent, canActivate: [authGuard] },
   { path: 'chatform', component: ChatFormComponent, canActivate: [authGuard] },
   { path: 'services', component: ServicesComponent, canActivate: [authGuard] },
   {
     path: 'admin',
-    component: AdminComponent, canActivate: [authGuard],
+    component: AdminComponent,
+    canActivate: [authGuard],
     children: [
-      { path: 'admin/contact-report', component: ContactReportComponent, canActivate: [authGuard] },
-      { path: 'admin/user-management', component: UserManagementComponent, canActivate: [authGuard] },
-      { path: 'admin/regd-report', component: RegdReportComponent, canActivate: [authGuard] },
-      { path: 'admin/dashboard', component: DashboardComponent, canActivate: [authGuard] },
-      { path: 'admin/location-booking', component: LocationBookingReportComponent, canActivate: [authGuard] },
-      {path: 'admin/form', component: FormComponent, canActivate: [authGuard]},
-    
+      {
+        path: 'admin/contact-report',
+        component: ContactReportComponent,
+        canActivate: [authGuard],
+      },
+      {
+        path: 'admin/user-management',
+        component: UserManagementComponent,
+        canActivate: [authGuard],
+      },
+      {
+        path: 'admin/regd-report',
+        component: RegdReportComponent,
+        canActivate: [authGuard],
+      },
+      {
+        path: 'admin/dashboard',
+        component: DashboardComponent,
+        canActivate: [authGuard],
+      },
+      {
+        path: 'admin/location-booking',
+        component: LocationBookingReportComponent,
+        canActivate: [authGuard],
+      },
+      {
+        path: 'admin/form',
+        component: FormComponent,
+        canActivate: [authGuard],
+      },
     ],
   },
   { path: 'forgot', component: ForgotComponent },
@@ -61,13 +91,48 @@ export const routes: Routes = [
   { path: 'educationalinfo/:userName', component: EducationalInfoComponent },
   { path: 'personalinfo/:userName', component: PersonalInfoComponent },
   { path: 'page', component: PageComponent, canActivate: [authGuard] },
-  { path: 'matches/brides/bride-info', component: BridesInfoComponent, canActivate: [authGuard] },
-  { path: 'matches/grooms', component: GroomComponent , canActivate: [authGuard]},
-  { path: 'matches/brides', component: BridesComponent , canActivate: [authGuard]},
-  { path: 'matches/grooms/groom-info', component: GroomInfoComponent, canActivate: [authGuard] },
-  { path: 'user/changepassword', component: ChangePasswordComponent , canActivate: [authGuard]},
+  {
+    path: 'matches/brides/bride-info',
+    component: BridesInfoComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'matches/grooms',
+    component: GroomComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'matches/brides',
+    component: BridesComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'matches/grooms/groom-info',
+    component: GroomInfoComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'user/changepassword',
+    component: ChangePasswordComponent,
+    canActivate: [authGuard],
+  },
   { path: 'chats', component: ChatsComponent, canActivate: [authGuard] },
   {
-    path:'notification',component:NotificationsComponent, canActivate: [authGuard]
-  }
+    path: 'update-profile',
+    component: UpdateProfileComponent, canActivate: [authGuard],
+    children: [
+      { path: 'update-userInfo', component: UpdateUserInfoComponent, canActivate: [authGuard] },
+      { path: 'update-personalInfo', component: UpdatePersonalInfoComponent, canActivate: [authGuard] },
+      {
+        path: 'update-educationalInfo',
+        component: UpdateEducationalInfoComponent, canActivate: [authGuard]
+      },
+      { path: 'update-familyInfo', component: UpdateFamilyInfoComponent, canActivate: [authGuard] },
+    ],
+  },
+  {
+    path: 'notification',
+    component: NotificationsComponent,
+    canActivate: [authGuard],
+  },
 ];

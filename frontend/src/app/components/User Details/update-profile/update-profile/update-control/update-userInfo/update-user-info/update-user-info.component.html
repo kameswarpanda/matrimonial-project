@@ -1,0 +1,105 @@
+<form>
+  <!-- Username -->
+  <div class="mb-3">
+    <label for="name" class="form-label"
+      ><i class="fa-solid fa-user"></i> Enter Username</label
+    >
+    <input
+      formControlName="userName"
+      name="userName"
+      type="text"
+      class="form-control"
+      id="userName"
+      placeholder="user.userName"
+      required
+      disabled
+    />
+  </div>
+
+  <!-- for Email -->
+  <div class="mb-3">
+    <label for="email" class="form-label"
+      ><i class="fas fa-envelope"></i> Enter your email</label
+    >
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      placeholder="user.emailid"
+      required
+      formControlName="email"
+      name="email"
+      disabled
+      />
+  </div>
+  <div class="form-group">
+    <label for="firstName" class="mb-2"
+      ><i class="fas fa-user"></i> First Name</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      placeholder="user.firstName"
+      id="firstName"
+      formControlName="firstName"
+      required
+    />
+    <div
+      class="text-danger"
+      *ngIf="
+        userForm.controls['firstName'].invalid &&
+        (userForm.controls['firstName'].touched ||
+          userForm.controls['firstName'].dirty)
+      "
+    >
+      <span *ngIf="userForm.controls['firstName'].errors?.['firstName']"
+        >This is Required</span
+      >
+      <span *ngIf="userForm.controls['firstName'].errors?.['firstName']"
+        >Minmum 3 characters Required</span
+      >
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName" class="mb-2"
+      ><i class="fas fa-user-tie"></i> Last Name</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      placeholder="user.lastName"
+      id="lastName"
+      formControlName="lastName"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="dob" class="mb-2"><i class="fas fa-calendar me-2"></i>Date of Birth:</label>
+    <input type="date" class="form-control" id="dob">
+  </div>
+  <!-- <div class="form-group">
+    <label for="age" class="mb-2"><i class="fas fa-calendar"></i> Age</label>
+    <input
+      type="number"
+      class="form-control"
+      placeholder="Enter Age"
+      id="age"
+      formControlName="age"
+      required
+    />
+  </div> -->
+  <div class="form-group">
+    <label>Gender:  </label>
+    <div class="form-check form-check-inline radio-inline space">
+      <input class="form-check-input" type="radio" name="gender" id="male" value="male" formControlName="gender" disabled>
+      <label class="form-check-label" for="male">Male</label>
+    </div>
+    <div class="form-check form-check-inline radio-inline">
+      <input class="form-check-input" type="radio" name="gender" id="female" value="female" formControlName="gender" disabled>
+      <label class="form-check-label" for="female">Female</label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success btn-block mt-3">
+    Update
+  </button>
+</form>

@@ -1,0 +1,46 @@
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.form-group .radio-inline {
+  margin-right: 20px;
+}
+
+.space {
+  margin-left: 15px;
+}
+
+.heading{
+  color: #009970;
+  font-weight: bold;
+}
+
+.btn {
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+  background: linear-gradient(45deg, rgb(30, 10, 76), rgb(58, 14, 162));
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, rgb(58, 14, 162), rgb(30, 10, 76));
+}

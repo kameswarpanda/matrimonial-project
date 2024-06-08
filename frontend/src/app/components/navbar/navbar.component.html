@@ -8,7 +8,7 @@
       >
         <!-- <i class="fas fa-user-friends me-3"></i> -->
         <img src="../../../../../assets/logo2.png" alt="" class="logo">
-        <span class="text-light bandhan ms-2"> Bandhan</span>
+        <span class=" bandhan ms-2"> Bandhan</span>
       </a>
       <div
         class="offcanvas offcanvas-end"
@@ -22,7 +22,7 @@
             id="offcanvasNavbarLabel"
             style="color: black; font-weight: bold"
           >
-            <span class="text-light">Bandhan</span>
+            <span class="bandhan">Bandhan</span>
           </h5>
           <button
             type="button"
@@ -138,13 +138,14 @@
           >
             <i class="fas fa-user text fa-sm me-2"></i>My Profile</a
           >
-          <!-- <a
+          <a
             class="dropdown-item"
-            href="javascript:void(0);"
+            routerLink="/update-profile/update-userInfo"
+            routerLinkActive="active"
             (click)="updateProfile()"
           >
             <i class="fas fa-user-edit text fa-sm me-2"></i>Update Profile</a
-          > -->
+          >
           <a class="dropdown-item" routerLink="/user/changepassword">
             <i class="fas fa-lock text fa-sm me-2"></i>Change Password</a
           >

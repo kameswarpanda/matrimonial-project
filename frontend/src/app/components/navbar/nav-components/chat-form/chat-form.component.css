@@ -7,7 +7,7 @@ body {
   /* overflow-y: auto; */
   margin-top: 100px;
   margin-bottom: 50px;
-  background-color: #fff;
+  background-color: #ffffffab;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
@@ -25,10 +25,10 @@ h3{
   border-radius: 5px;
   font-weight: bold;
   margin-top: 10px;
-  background: linear-gradient(45deg, #2bc4a8, #009970);
+  background: linear-gradient(45deg, rgb(30, 10, 76), rgb(58, 14, 162));
 }
 
 
 .btn:hover{
-  background: linear-gradient(45deg, #009970, #2bc4a8);
+  background: linear-gradient(45deg, rgb(58, 14, 162), rgb(30, 10, 76));
 }
