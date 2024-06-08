@@ -7,8 +7,8 @@
         routerLinkActive="active"
       >
         <!-- <i class="fas fa-user-friends me-3"></i> -->
-        <img src="../../../../../assets/logo1.png" alt="" class="logo">
-        <span class="text-success bandhan ms-2"> Bandhan</span>
+        <img src="../../../../../assets/logo2.png" alt="" class="logo">
+        <span class="text-light bandhan ms-2"> Bandhan</span>
       </a>
       <div
         class="offcanvas offcanvas-end"
@@ -22,7 +22,7 @@
             id="offcanvasNavbarLabel"
             style="color: black; font-weight: bold"
           >
-            <span class="text-success">Bandhan</span>
+            <span class="text-light">Bandhan</span>
           </h5>
           <button
             type="button"
@@ -45,6 +45,7 @@
             <li class="dropdown">
               <a
                 class="nav-link dropdown-toggle"
+                routerLinkActive="active"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-haspopup="true"
@@ -53,14 +54,14 @@
               >
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a
-                  class="dropdown-item"
+                  class="dropdown-item nav-link"
                   routerLink="/matches/grooms"
                   routerLinkActive="active"
                 >
                   <i class="fas fa-user-tie text fa-sm me-2"></i>Grooms</a
                 >
                 <a
-                  class="dropdown-item"
+                  class="dropdown-item nav-link"
                   routerLink="/matches/brides"
                   routerLinkActive="active"
                 >

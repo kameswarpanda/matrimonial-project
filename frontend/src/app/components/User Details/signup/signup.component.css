@@ -10,14 +10,14 @@
   /* max-height: 85vh;
   overflow-y: auto; */
   border-radius: 10px;
-  background-color: white;
+  background-color: #ffffffab;
   padding: 30px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 .signup-form h2 {
   margin-bottom: 30px;
-  color: #333;
+  color: rgb(30, 10, 76);
   font-weight: bold;
 }
 
@@ -33,12 +33,12 @@
   border-radius: 5px;
   font-weight: bold;
   margin-top: 10px;
-  background: linear-gradient(45deg, #2bc4a8, #009970);
+  background: linear-gradient(45deg, rgb(30, 10, 76), rgb(58, 14, 162));
 }
 
 
 .btn:hover{
-  background: linear-gradient(45deg, #009970, #2bc4a8);
+  background: linear-gradient(45deg, rgb(58, 14, 162), rgb(30, 10, 76));
 }
 /* .btn-google {
   background-color: #db4437;

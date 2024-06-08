@@ -1,6 +1,7 @@
  h1 {
   font-family: "Dancing Script", cursive;
   font-weight: bold;
+  color: rgb(30, 10, 76);
 }
 
 .carousel-item img {
@@ -35,4 +36,11 @@
 .card-hover:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn{
+  border-radius: 2rem;
+  padding: 5px 25px;
+  background: linear-gradient(45deg, rgb(30, 10, 76), rgb(58, 14, 162));
+  color: white;
 }

@@ -1,12 +1,9 @@
-body {
-  background-color: #f8f9fa;
-}
 
 .container {
-  
+  color: rgb(30, 10, 76);
   max-width: 800px;
   margin: 120px auto;
-  background-color: #fff;
+  background-color: #ffffffab;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -24,7 +21,7 @@ body {
 h5{
   text-align: center;
   font-weight: bold;
-  color: #007254;
+  color: rgb(30, 10, 76);
   margin-bottom: 30px;
 }
 
@@ -44,11 +41,11 @@ h5{
   border-radius: 5px;
   font-weight: bold;
   margin-top: 10px;
-  background: linear-gradient(45deg, #2bc4a8, #009970);
+  background: linear-gradient(45deg, rgb(30, 10, 76), rgb(58, 14, 162));
 }
 
 .btn-continue:hover {
-  background: linear-gradient(45deg, #009970, #2bc4a8);
+  background: linear-gradient(45deg, rgb(58, 14, 162), rgb(30, 10, 76));
 }
 
 .input-with-icon {

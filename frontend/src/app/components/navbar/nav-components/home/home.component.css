@@ -1,15 +1,14 @@
 .navbar {
-  background-color:rgba(255, 255, 255, 0.599); /* Semi-transparent background */
-  backdrop-filter: blur(10px); /* Blur effect */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+  background-color: rgb(30, 10, 76);
+  box-shadow: 0 4px 6px rgba(139, 139, 139, 0.44);
   border-bottom: 1px solid black;
-  /* padding: 0%; */
 }
 
-.logo{
+.logo {
   max-height: 50px;
   max-width: 45px;
 }
+
 .navbar-brand {
   font-weight: bolder;
   color: #000000;
@@ -18,8 +17,8 @@
 }
 
 .login-button {
-  background: linear-gradient(45deg, #2bc4a8, #009970);
-  color: white;
+  background: linear-gradient(45deg, #ffd700, #d77431);
+  color: #faffb1;
   font-size: 14px;
   font-weight: bold;
   padding: 8px 20px;
@@ -29,29 +28,34 @@
 }
 
 .login-button:hover {
-  background: linear-gradient(45deg, #009970, #2bc4a8);
+  background: linear-gradient(45deg, #d77431, #ffd700);
 }
 
 .navbar-toggler {
   border: none;
   font-size: 1.25rem;
-  background: linear-gradient(45deg, #2bc4a8, #009970);
+  background: linear-gradient(45deg, #ffd700, #d77431);
   border-radius: 3rem;
   margin-left: 15px;
 }
 
 .navbar-toggler:hover {
-  background: linear-gradient(45deg, #009970, #2bc4a8);
+  background: linear-gradient(45deg, #d77431, #ffd700);
 }
 
 .offcanvas-header {
-  color: #198754;
-  background-color: white;
+  color: #ffffff;
+  background-color: rgb(30, 10, 76);
+}
+
+.offcanvas-body{
+  color: #ffffff;
+  background-color: rgb(30, 10, 76);
 }
 
 .btn-close {
-  color: rgb(0, 0, 0);
-  background-color: #198754;
+  color: rgb(255, 255, 255);
+  background-color: rgb(219, 216, 53);
 }
 
 .navbar-toggler:focus,
@@ -61,14 +65,14 @@
 }
 
 .nav-link {
-  color: #000000;
+  color: white;
   font-weight: bold;
   position: relative;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: #198754;
+  color: #ffd700;
 }
 
 @media (min-width: 991px) {
@@ -80,7 +84,7 @@
     transform: translateX(-50%);
     width: 100%;
     height: 2px;
-    background-color: #198754;
+    background-color: rgb(30, 10, 76);
     visibility: hidden;
     transition: 0.1s ease-in-out;
   }
@@ -93,40 +97,107 @@
 }
 
 .btn {
-  font-weight: bold;
-  background: linear-gradient(45deg, #2bc4a8, #009970);
+  /* font-weight: bold; */
+  /* background: linear-gradient(45deg, #2bc4a8, #009970); */
+  border-radius: 2rem;
+  padding: 5px 25px;
+  background: linear-gradient(45deg, rgb(30, 10, 76), rgb(58, 14, 162));
+  color: white;
 }
 
 .btn:hover {
-  background: linear-gradient(45deg, #009970, #2bc4a8);
+  background: linear-gradient(45deg, rgb(58, 14, 162), rgb(30, 10, 76));
 }
 
 /* for home page */
 
-h1 {
-  font-family: "Dancing Script", cursive;
+.bandhan {
+   /* font-family: "Chela One", system-ui; */
   font-weight: bold;
+  color: rgb(255, 255, 255);
 }
-
-.bandhan{
-  /* font-family: "Dancing Script", cursive; */
-  font-weight: bold;
-  /* font-size: 30px; */
-}
-.border{
-  /* max-height: 60px; */
-  /* background-color: azure; */
+.border {
   padding: 28px;
 }
-.carousel-item img {
-  width: 100%;
-  height: 90vh;
+
+/* hero section */
+.hero {
+  position: relative;
+  color: rgb(30, 10, 76)  ;
+  padding: 100px 0;
+  text-align: center;
+  overflow: hidden;
 }
+
+.video-background {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+@media(min-aspect-ratio: 16/9){
+  .video-background{
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media(max-aspect-ratio: 16/9){
+  .video-background{
+    width: auto;
+    height: 100%;
+  }
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+.hero p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.hero .btn {
+  padding: 5px 30px;
+  /* font-size: 1.2rem; */
+}
+
+.hero-box{
+  border-radius: 1rem;
+  background: linear-gradient(45deg, #f88d46, #ffeb78);
+  border: 1px solid black;
+  max-width: 400px; 
+  margin-left: 70px;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* About section */
 
 .about {
   padding-top: 100px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.401);
 }
+
+h1 {
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
+  color: rgb(30, 10, 76);
+}
+
 .about-img img {
   width: 60%;
   height: 60vh;
@@ -135,6 +206,21 @@ h1 {
   border: 1px solid black;
 }
 
+.services{
+  background-color: rgba(255, 255, 255, 0.482);
+}
+
+.testimonials{
+  background-color: rgba(255, 255, 255, 0.603);
+}
+
+.card{
+  background-color: #ffffff89;
+}
+
+.fa{
+  background-color: rgb(30, 10, 76);
+}
 .card-body img {
   min-width: 70%;
   max-height: 40vh;
@@ -147,8 +233,16 @@ h1 {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+.contact{
+  background-color: rgba(255, 255, 255, 0.727);
+}
 
 .contact-form {
   max-width: 70%;
   margin: auto;
 }
+
+.form-control{
+  background-color: #ffffffab;
+}
+

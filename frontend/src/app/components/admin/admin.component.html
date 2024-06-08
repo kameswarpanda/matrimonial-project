@@ -5,8 +5,8 @@
     <a class="navbar-brand me-auto"
       >
       <!-- <i class="fas fa-user-friends text me-3"></i> -->
-      <img src="../../../../../assets/logo1.png" alt="" class="logo">
-        <span class="text-success bandhan ms-2"> Bandhan</span>
+      <img src="../../../../../assets/logo2.png" alt="" class="logo">
+        <span class="text-light bandhan ms-2"> Bandhan</span>
       </a
     >
     <div
@@ -54,7 +54,7 @@
       <ul class="list-group">
         <button
           type="button"
-          class="btn btn-outline-success"
+          class="btn btn-outline-dark"
           routerLink="admin/dashboard"
           [ngClass]="{'active': selectedButton === 1}" 
             (click)="selectButton(1)"
@@ -64,7 +64,7 @@
 
         <button
           type="button"
-          class="btn btn-outline-success"
+          class="btn btn-outline-dark"
           routerLink="admin/contact-report"
           [ngClass]="{'active': selectedButton === 2}" 
             (click)="selectButton(2)"
@@ -73,23 +73,16 @@
         </button>
         <button
           type="button"
-          class="btn btn-outline-success"
+          class="btn btn-outline-dark"
           routerLink="admin/regd-report"
           [ngClass]="{'active': selectedButton === 3}" 
             (click)="selectButton(3)"
         >
           <i class="fas fa-book text fa-sm me-2"></i>Registrations
         </button>
-        <!-- <button
-          type="button"
-          class="btn btn-success"
-          routerLink="admin/location-booking"
-        >
-          <i class="fas fa-location-dot text fa-sm me-2"></i>Booking Report
-        </button> -->
         <button
           type="button"
-          class="btn btn-outline-success"
+          class="btn btn-outline-dark"
           routerLink="admin/user-management"
           [ngClass]="{'active': selectedButton === 4}" 
             (click)="selectButton(4)"

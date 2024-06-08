@@ -1,15 +1,10 @@
-<!-- <app-navbeflogin></app-navbeflogin> -->
-
-<!-- Navbar -->
+<!-- Nav section -->
 <section>
-  <nav
-    class="navbar navbar-expand-lg fixed-top" 
-  >
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <a class="navbar-brand me-auto">
-        <!-- <i class="fas fa-handshake text me-3"></i> -->
-         <img src="../../../../../assets/logo1.png" alt="" class="logo">
-        <span class="text-success bandhan ms-2"> Bandhan</span>
+        <img src="../../../../../assets/logo2.png" alt="" class="logo" />
+        <span class="bandhan ms-2"> Bandhan</span>
       </a>
       <div
         class="offcanvas offcanvas-end"
@@ -23,19 +18,19 @@
             id="offcanvasNavbarLabel"
             style="font-weight: bold; color: black"
           >
-          <span class="text-success">Bandhan</span>
+            <span class="text-light">Bandhan</span>
           </h5>
           <button
             type="button"
-            class="btn-close"
+            class="btn-close text-light"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           ></button>
         </div>
-        <div class="offcanvas-body ">
+        <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link mx-lg-2" aria-current="page" href="#carousel"
+              <a class="nav-link mx-lg-2" aria-current="page" href="#hero"
                 >Home</a
               >
             </li>
@@ -73,39 +68,38 @@
   </nav>
 </section>
 
-<!-- start carousel -->
-<section id="carousel">
-  <div class="border"></div>
-  <div id="carouselExampleCaptions" class="carousel slide">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img
-          src="../../../../../assets/banner1.webp"
-          class="d-block w-100"
-          alt="..."
-        />
-        <div class="carousel-caption d-md-block mb-5 pb-5">
-          <h2 class="fs-1">Find Your Perfect Match !!</h2>
-          <p class="fs-4">
-            Join thousands of happy couples who met through our website.
-          </p>
-          <div class="hero-content">
-            <button
-              class="btn btn-success btn-lg btn-block mt-4 me-4"
-              routerLink="/login"
-              routerLinkActive="active"
-            >
-              Sign in
-            </button>
+<!-- Hero section -->
+<section id="hero" class="hero text-center">
 
-            <button
-              class="btn btn-success btn-lg btn-block ms-4 mt-4"
-              routerLink="/signup"
-              routerLinkActive="active"
-            >
-              Sign Up
-            </button>
-          </div>
+  <video autoplay muted loop plays-inline id="heroVideo" class="video-background">
+    <source src="../../../../../assets/background-vedio1.mp4" type="video/mp4">
+  </video>
+
+  <div class="container">
+    <h1>Find Your Perfect Match !!</h1>
+    <p>
+      We're dedicated to helping you discover meaningful connections.<br>Start your
+      journey towards finding the one meant for you.
+    </p>
+    <div class="row mt-4">
+      <div class="col-md-6 mt-4">
+        <div class="p-4 hero-box">
+          <p>
+            Excited to start your search for your life partner? Click on the
+            'Register' button to create your account and your journey to find
+            meaningful connections
+          </p>
+          <a routerLink="/signup" class="btn btn-primary">Sign Up</a>
+        </div>
+      </div>
+      <div class="col-md-6 mt-4">
+        <div class="p-4 hero-box">
+          <p>
+            Ready to find your soulmate? Simply click on the 'Login' button to
+            access your account and begin your journey towards discovering
+            meaningful connections
+          </p>
+          <a routerLink="/login" class="btn btn-primary">Sign in</a>
         </div>
       </div>
     </div>
@@ -114,19 +108,19 @@
 
 <!-- About Us -->
 
-<section class="about pb-5 bg-light" id="about">
+<section class="about pb-5" id="about">
   <div class="container">
     <div class="text-center mb-5">
-      <h1 data-aos="fade-up">About <span class="text-success">Us</span></h1>
+      <h1 data-aos="fade-up">About Us</h1>
       <hr class="w-25 m-auto" />
     </div>
     <div class="row">
       <div
-        class="col-sm-12 col-md-6 col-lg-6 col-12"
+        class="col-sm-12 col-md-6 col-lg-6 col-12 mt-4"
         data-aos="fade-right"
         data-aos-offset="200"
       >
-        <h1>What do you <span class="text-success">want to know</span></h1>
+        <h1>What do you want to know</h1>
         <p class="p-2">
           Online Marriage Jeevansathi.com is a trusted platform for finding your
           life partner. We prioritize security, privacy, and personalized
@@ -215,28 +209,28 @@
         </div>
       </div>
       <div
-        class="col-sm-12 col-md-6 col-lg-6 col-12 m-auto text-center about-img"
+        class="col-sm-12 col-md-6 col-lg-6 col-12 m-auto text-center about-img mt-4"
         data-aos="fade-down-left"
       >
-        <img src="../../../../../assets/coupl3.jpg" alt="" class="card-hover"/>
+        <img src="../../../../../assets/coupl3.jpg" alt="" class="card-hover" />
       </div>
     </div>
   </div>
 </section>
 
 <!-- services section -->
-<section class="services py-5 bg-white" id="services">
+<section class="services py-5" id="services">
   <div class="container">
     <div class="text-center my-5">
-      <h1 data-aos="fade-up">Our<span class="text-success"> Services</span></h1>
+      <h1 data-aos="fade-up">Our Services</h1>
       <hr class="w-25 m-auto" />
     </div>
     <div class="row" data-aos="zoom-in-up" data-aos-offset="200">
-      <div class="col-sm-12 col-md-4 col-lg-4 col-12">
+      <div class="col-sm-12 col-md-4 col-lg-4 col-12 mt-4">
         <div class="card card-hover">
           <div class="card-body">
             <i
-              class="fa fa-handshake p-2 mb-2 text-white bg-success rounded"
+              class="fa fa-handshake p-2 mb-2 text-white rounded"
             ></i>
             <h5 class="card-title my-3">Personalized Matchmaking</h5>
             <p class="card-text">
@@ -248,10 +242,10 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-4 col-lg-4 col-12">
+      <div class="col-sm-12 col-md-4 col-lg-4 col-12 mt-4">
         <div class="card card-hover">
-          <div class="card-body bg-success text-white">
-            <i class="fa fa-shield-alt p-2 mb-2 text-dark bg-white rounded"></i>
+          <div class="card-body">
+            <i class="fa fa-shield-alt p-2 mb-2 text-white rounded"></i>
             <h5 class="card-title my-3">Verified Profiles</h5>
             <p class="card-text">
               "Every profile undergoes thorough verification, ensuring
@@ -262,10 +256,10 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-4 col-lg-4 col-12">
+      <div class="col-sm-12 col-md-4 col-lg-4 col-12 mt-4">
         <div class="card card-hover">
           <div class="card-body">
-            <i class="fa fa-lock p-2 mb-2 text-white bg-success rounded"></i>
+            <i class="fa fa-lock p-2 mb-2 text-white rounded"></i>
             <h5 class="card-title my-3">Privacy and Security</h5>
             <p class="card-text">
               "We prioritize your privacy and security with robust measures and
@@ -278,11 +272,11 @@
       </div>
     </div>
 
-    <div class="row mt-5" data-aos="zoom-in-down" data-aos-offset="200">
-      <div class="col-sm-12 col-md-4 col-lg-4 col-12">
+    <div class="row mt-2" data-aos="zoom-in-down" data-aos-offset="200">
+      <div class="col-sm-12 col-md-4 col-lg-4 col-12 mt-4">
         <div class="card card-hover">
           <div class="card-body">
-            <i class="fa fa-id-card p-2 mb-2 text-white bg-success rounded"></i>
+            <i class="fa fa-id-card p-2 mb-2 text-white rounded"></i>
             <h5 class="card-title my-3">In-Depth Profiles</h5>
             <p class="card-text">
               "Detailed profiles include interests, lifestyle, and background,
@@ -293,10 +287,10 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-4 col-lg-4 col-12">
+      <div class="col-sm-12 col-md-4 col-lg-4 col-12 mt-4">
         <div class="card card-hover">
-          <div class="card-body bg-success text-white">
-            <i class="fa fa-headset p-2 mb-2 text-dark bg-white rounded"></i>
+          <div class="card-body">
+            <i class="fa fa-headset p-2 mb-2 text-light rounded"></i>
             <h5 class="card-title my-3">Dedicated Customer Support</h5>
             <p class="card-text">
               "Our 24/7 customer support team is always ready to assist with any
@@ -306,10 +300,10 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-4 col-lg-4 col-12">
+      <div class="col-sm-12 col-md-4 col-lg-4 col-12 mt-4">
         <div class="card card-hover">
           <div class="card-body">
-            <i class="fa fa-trophy p-2 mb-2 text-white bg-success rounded"></i>
+            <i class="fa fa-trophy p-2 mb-2 text-white rounded"></i>
             <h5 class="card-title my-3">Success Stories and Tips</h5>
             <p class="card-text">
               "Read inspiring success stories and expert relationship tips to
@@ -324,16 +318,14 @@
 </section>
 
 <!-- Testimonials -->
-<section class="partener py-5 text-center bg-light" id="testimonials">
+<section class="testimonials py-5 text-center " id="testimonials">
   <div class="container">
     <div class="text-center my-5">
-      <h1 data-aos="fade-up">
-        <span class="text-success">Testimonials</span>
-      </h1>
+      <h1 data-aos="fade-up">Testimonials</h1>
       <hr class="w-25 m-auto" />
     </div>
     <div class="row">
-      <div class="col-sm-12 col-md-4 col-lg-4 col-12" data-aos="fade-right">
+      <div class="col-sm-12 col-md-4 col-lg-4 col-12 mt-4" data-aos="fade-right">
         <div class="card card-hover">
           <div class="card-body">
             <img
@@ -353,7 +345,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-4 col-lg-4 col-12" data-aos="zoom-in-down">
+      <div class="col-sm-12 col-md-4 col-lg-4 col-12 mt-4" data-aos="zoom-in-down">
         <div class="card card-hover">
           <div class="card-body">
             <img
@@ -373,7 +365,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-4 col-lg-4 col-12" data-aos="fade-left">
+      <div class="col-sm-12 col-md-4 col-lg-4 col-12 mt-4" data-aos="fade-left">
         <div class="card card-hover">
           <div class="card-body">
             <img
@@ -400,18 +392,20 @@
 
 <!-- contact section -->
 
-<section class="about py-5" id="contact">
+<section class="contact py-5" id="contact">
   <div class="container mb-5">
     <div class="text-center my-5">
-      <h1>Contact<span class="text-success"> Us</span></h1>
+      <h1>Contact Us</h1>
       <hr class="w-25 m-auto" />
     </div>
     <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-6 col-12">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-12 mt-4">
         <div class="contact-form">
           <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
-              <label for="name" class="form-label"><strong>Your Name</strong></label>
+              <label for="name" class="form-label"
+                ><strong>Your Name</strong></label
+              >
               <input
                 type="text"
                 class="form-control"
@@ -421,7 +415,9 @@
               />
             </div>
             <div class="mb-3">
-              <label for="email" class="form-label"><strong>Email Address</strong></label>
+              <label for="email" class="form-label"
+                ><strong>Email Address</strong></label
+              >
               <input
                 type="email"
                 class="form-control"
@@ -431,7 +427,9 @@
               />
             </div>
             <div class="mb-3">
-              <label for="message" class="form-label"><strong>Your Message</strong></label>
+              <label for="message" class="form-label"
+                ><strong>Your Message</strong></label
+              >
               <textarea
                 class="form-control"
                 formControlName="message"
@@ -439,11 +437,19 @@
                 required
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-success" [disabled]="contactForm.invalid">Send Message</button>
+            <button
+              type="submit"
+              class="btn btn-success"
+              [disabled]="contactForm.invalid"
+            >
+              Send Message
+            </button>
           </form>
         </div>
       </div>
-      <div class="col-sm-12 col-md-6 col-lg-6 col-12 m-auto text-center about-img">
+      <div
+        class="col-sm-12 col-md-6 col-lg-6 col-12 m-auto text-center about-img mt-4"
+      >
         <img src="assets/curated-matches.jpeg" alt="" class="card-hover" />
       </div>
     </div>

@@ -1,42 +1,11 @@
-.admin-container {
-  margin-top: 100px;
-  margin-left: 25px;
-}
-.admin-sidebar {
-  color: rgb(0, 0, 0);
-  background-color: #abecac99;
-  border-right: 1px solid #dee2e6;
-  min-height: 80vh;
-  width: 230px;
-  border-radius: 1rem;
-  margin-left: 20px;
-  padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid #000000;
-}
-.admin-main {
-  margin-bottom: 20px;
-  padding-left: 20px;
-}
-
-.list-group {
-  width: 180px;
-}
-.btn {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-content {
-  background-color: aliceblue;
-}
-
 /* for Admin navbar */
 
 .navbar {
-  background-color: rgba(255, 255, 255, 0.644); /* Semi-transparent background */
-  backdrop-filter: blur(10px); /* Blur effect */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+  background-color: rgb(30, 10, 76);
+  box-shadow: 0 4px 6px rgba(139, 139, 139, 0.44);
+  border-bottom: 1px solid black;
+  /* backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  */
   padding: 5px;
 }
 
@@ -53,8 +22,8 @@ content {
 }
 
 .login-button {
-  background: linear-gradient(45deg, #2bc4a8, #009970);
-  color: white;
+  background: linear-gradient(45deg, #ffd700, #d77431);
+  color: #faffb1;
   font-size: 14px;
   font-weight: bold;
   padding: 8px 20px;
@@ -69,7 +38,7 @@ content {
 }
 
 .login-button:hover {
-  background: linear-gradient(45deg, #009970, #2bc4a8);
+  background: linear-gradient(45deg, #d77431, #ffd700);
 }
 
 .offcanvas-body h3 {
@@ -77,7 +46,7 @@ content {
 }
 
 .nav-link {
-  color: #000000;
+  color: white;
   font-weight: bold;
   position: relative;
 }
@@ -93,7 +62,7 @@ content {
   padding: 0.5rem 0;
   margin: 0;
   list-style: none;
-  background-color: #fff;
+  background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
@@ -120,14 +89,14 @@ content {
 .dropdown-item:hover,
 .dropdown-item:focus {
   color: #fff;
-  background-color: #009970;
+  background-color: rgb(30, 10, 76);
 }
 
 /* Active state for dropdown items */
 .dropdown-item.active,
 .dropdown-item:active {
   color: #fff;
-  background-color: #009970;
+  background-color: rgb(30, 10, 76);
 }
 
 /* Divider Line */
@@ -140,4 +109,40 @@ content {
 
 .logout{
   cursor: pointer;
+}
+
+
+/* for admin container */
+
+.admin-container {
+  margin-top: 100px;
+  margin-left: 25px;
+}
+.admin-sidebar {
+  color: rgb(0, 0, 0);
+  background: linear-gradient(45deg, #fcec94, #ffb380);
+  border-right: 1px solid #dee2e6;
+  min-height: 80vh;
+  width: 230px;
+  border-radius: 1rem;
+  margin-left: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #000000;
+}
+.admin-main {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.list-group {
+  width: 180px;
+}
+.btn {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+content {
+  background-color: aliceblue;
 }

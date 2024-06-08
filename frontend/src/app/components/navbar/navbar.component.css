@@ -1,9 +1,8 @@
 .navbar{
 
-  background-color:rgba(255, 255, 255, 0.485); /* Semi-transparent background */
-  backdrop-filter: blur(10px); /* Blur effect */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
-  /* border-bottom: 1px solid black; */
+  background-color: rgb(30, 10, 76);
+  box-shadow: 0 4px 6px rgba(139, 139, 139, 0.44);
+  border-bottom: 1px solid black;
   padding: 0.5rem;   
 }
 
@@ -21,13 +20,13 @@
 
 .bell{
   font-size: 25px;
-  color: #2bc4a8;
+  color: #ffd700;
 }
 
 
 .login-button{
-  background: linear-gradient(45deg, #2bc4a8, #009970);
-  color: white;
+  background: linear-gradient(45deg, #ffd700, #d77431);
+  color: #faffb1;
   font-size: 14px;
   font-weight: bold;
   padding: 8px 20px;
@@ -41,34 +40,36 @@
 }
 
 .login-button:hover{
-  background: linear-gradient(45deg, #009970, #2bc4a8);
+  background: linear-gradient(45deg, #d77431, #ffd700);
 }
 
 .navbar-toggler{
   border: none;
   font-size: 1.25rem;
-  background: linear-gradient(45deg, #2bc4a8, #009970);
+  background: linear-gradient(45deg, #ffd700, #d77431);
   border-radius: 3rem;
   margin-left: 15px;
   
 }
 
 .navbar-toggler:hover{
-  background: linear-gradient(45deg, #009970, #2bc4a8);
+  background: linear-gradient(45deg, #d77431, #ffd700);
 
 }
 
-
-
-
-.offcanvas-header{
-  color: #009970;
-  background-color: white;
+.offcanvas-header {
+  color: #ffffff;
+  background-color: rgb(30, 10, 76);
 }
 
-.btn-close{
-  color: rgb(0, 0, 0);
-  background-color: #009970;
+.offcanvas-body{
+  color: #ffffff;
+  background-color: rgb(30, 10, 76);
+}
+
+.btn-close {
+  color: rgb(255, 255, 255);
+  background-color: rgb(219, 216, 53);
 }
 
 .navbar-toggler:focus, .btn-close:focus{
@@ -76,16 +77,14 @@
   outline: none;
 }
 
-
-
 .nav-link{
-color: #000000;
+color: #ffffff;
 font-weight: bold;
 position: relative;
 }
 
 .nav-link:hover, .nav-link.active{
-  color: #009970;
+  color: #ffd700;
 }
 
 @media(min-width: 991px){
@@ -97,7 +96,7 @@ position: relative;
   transform: translateX(-50%);
   width: 100%;
   height: 2px;
-  background-color: #009970;
+  background-color: rgb(30, 10, 76);
   visibility: hidden;
   transition: 0.1s ease-in-out;
 
@@ -146,14 +145,14 @@ position: relative;
 .dropdown-item:hover,
 .dropdown-item:focus {
   color: #fff;
-  background-color: #009970;
+  background-color: rgb(30, 10, 76);
 }
 
 /* Active state for dropdown items */
 .dropdown-item.active,
 .dropdown-item:active {
   color: #fff;
-  background-color: #009970;
+  background-color: rgb(30, 10, 76);
 }
 
 /* Divider Line */
@@ -162,11 +161,6 @@ position: relative;
   margin: 0.5rem 0;
   overflow: hidden;
   border-top: 1px solid #e9ecef;
-}
-
-.bell {
-  font-size: 24px;
-  color: green;
 }
 
 .position-relative {

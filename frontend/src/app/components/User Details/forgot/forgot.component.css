@@ -4,9 +4,13 @@
   margin-top: 120px;
   margin-left: 250px;
   padding: 20px;
-  background-color: #fff;
+  background-color: #ffffffab;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+h2, .fa, p{
+  color: rgb(30, 10, 76);
 }
 
 .text-center {
@@ -15,28 +19,13 @@
 
 .btn {
   font-weight: bold;
-  background: linear-gradient(45deg, #2bc4a8, #009970);
+  background: linear-gradient(45deg, rgb(30, 10, 76), rgb(58, 14, 162));
 }
 
 .btn:hover {
-  background: linear-gradient(45deg, #009970, #2bc4a8);
+  background: linear-gradient(45deg, rgb(58, 14, 162), rgb(30, 10, 76));
 }
 
 .form-level {
   font-weight: bold;
 }
-
-/* .input-with-icon {
-  position: relative;
-}
-
-.input-with-icon input {
-  padding-left: 30px; 
-}
-
-.input-icon {
-  position: absolute;
-  left: 8px;
-  top: 55%;
-  transform: translateY(-50%);
-} */

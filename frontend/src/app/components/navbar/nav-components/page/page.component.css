@@ -1,21 +1,10 @@
-.sidebar {
-  margin-top: 100px;
-  margin-left: 20px;
-  border-radius: 0.5rem;
-  border: 1px solid black;
-  max-height: 80vh;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  padding: 20px;
-  width: 250px;
-  z-index: 1030;
-}
+
 .content {
   margin-top: 100px;
   margin-bottom: 50px;
   border-radius: 0.5rem;
 }
+
 .profile-pic {
   width: 60px;
   height: 60px;
@@ -26,11 +15,14 @@
   width: 100%;
   border-radius: 5px;
 }
-
-.info {
-  background-color: #abecac;
+.info{
+  background-color: #ffffffab;
 }
-
+.card{
+  background-color: #ffffffab;
+  /* background-color: rgb(30, 10, 76); */
+  color: rgb(0, 0, 0);
+}
 .card-hover {
   transition: transform 0.3s, box-shadow 0.3s;
 }
