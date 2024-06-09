@@ -7,20 +7,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.infosys.matrimony.entity.PersonalInfo;
 import com.infosys.matrimony.entity.Registration;
 import com.infosys.matrimony.repository.PersonalInfoRepository;
-// import com.infosys.matrimony.repository.RegistrationRepo;
 import com.infosys.matrimony.service.PersonalInfoService;
-// import com.vaadin.flow.component.upload.receivers.MultiFileMemoryBuffer;
-// import com.vaadin.server.StreamResource;
-// import com.vaadin.ui.Image;
-// import com.vaadin.ui.Upload;
 
-// import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
-
-
-
 
 @Service
 public class PersonalInfoServiceImpl implements PersonalInfoService {
@@ -30,7 +21,6 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
 
     @Override
     public PersonalInfo createPersonalInfo(MultipartFile file, String bloodGroup, Registration registration) throws IOException {
-
         PersonalInfo personalInfo = new PersonalInfo();
         personalInfo.setBloodGroup(bloodGroup);
         personalInfo.setRegistration(registration);
@@ -42,7 +32,6 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
         return personalInfoRepository.save(personalInfo);
     }
 
-    
     @Override
     public PersonalInfo getPersonalInfoById(Long id) {
         return personalInfoRepository.findById(id).orElse(null);
@@ -52,18 +41,22 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
     public List<PersonalInfo> getAllPersonalInfo() {
         List<PersonalInfo> allImages = personalInfoRepository.findAll();
         return allImages.stream()
-        .map(info -> new PersonalInfo(info.getId(), info.getPhotograph(), info.getBloodGroup(), info.getRegistration()))
-                .collect(Collectors.toList());
-        // return personalInfoRepository.findAll();
+            .map(info -> new PersonalInfo(info.getId(), info.getPhotograph(), info.getBloodGroup(), info.getRegistration()))
+            .collect(Collectors.toList());
     }
- 
-
 
     @Override
-    public PersonalInfo updatePersonalInfo(Long id, PersonalInfo updatedPersonalInfo) {
-        if (personalInfoRepository.existsById(id)) {
-            updatedPersonalInfo.setId(id);
-            return personalInfoRepository.save(updatedPersonalInfo);
+    public PersonalInfo updatePersonalInfo(Long id, MultipartFile file, String bloodGroup, Registration registration) throws IOException {
+        PersonalInfo personalInfo = personalInfoRepository.findById(id).orElse(null);
+        if (personalInfo != null) {
+            personalInfo.setBloodGroup(bloodGroup);
+            personalInfo.setRegistration(registration);
+
+            if (file != null && !file.isEmpty()) {
+                personalInfo.setPhotograph(file.getBytes());
+            }
+
+            return personalInfoRepository.save(personalInfo);
         }
         return null; 
     }
@@ -73,8 +66,4 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
         personalInfoRepository.deleteById(id);
     }
 
-    @Override
-    public PersonalInfo savePersonalInfo(PersonalInfo personalInfo) {
-        throw new UnsupportedOperationException("Unimplemented method 'savePersonalInfo'");
-    }
 }

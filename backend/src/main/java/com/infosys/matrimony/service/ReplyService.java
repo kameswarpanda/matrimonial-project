@@ -2,8 +2,6 @@ package com.infosys.matrimony.service;
 
 import java.util.List;
 import java.util.Optional;
-
-import com.infosys.matrimony.entity.Contact;
 import com.infosys.matrimony.entity.Reply;
 
 public interface ReplyService {

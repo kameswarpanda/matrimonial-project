@@ -6,10 +6,6 @@ import com.infosys.matrimony.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.infosys.matrimony.entity.Contact;
-import com.infosys.matrimony.repository.ContactRepository;
-import com.infosys.matrimony.service.ContactService;
-
 import java.util.List;
 import java.util.Optional;
 

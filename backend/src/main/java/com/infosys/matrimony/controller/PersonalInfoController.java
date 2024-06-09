@@ -10,8 +10,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.infosys.matrimony.entity.PersonalInfo;
 import com.infosys.matrimony.entity.Registration;
 import com.infosys.matrimony.service.PersonalInfoService;
-import java.util.List;
 
+import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -37,11 +37,6 @@ public class PersonalInfoController {
             return new ResponseEntity<>("Failed to upload file: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    // @PostMapping
-    // public ResponseEntity<PersonalInfo> savePersonalInfo(@RequestBody PersonalInfo personalInfo) {
-    //     PersonalInfo savedPersonalInfo = personalInfoService.savePersonalInfo(personalInfo);
-    //     return new ResponseEntity<>(savedPersonalInfo, HttpStatus.CREATED);
-    // }
 
     @GetMapping("/{id}")
     public ResponseEntity<PersonalInfo> getPersonalInfoById(@PathVariable Long id) {
@@ -59,21 +54,25 @@ public class PersonalInfoController {
         return new ResponseEntity<>(personalInfos, HttpStatus.OK);
     }
 
-    // @GetMapping
-    // public List<PersonalInfo> getAllImages() {
-    //     List<PersonalInfo> allImages = imageRepository.findAll();
-    //     return allImages.stream()
-    //             .map(img -> new ImageModel( img.getId(),img.getName(), img.getType(), img.getPicByte()))
-    //             .collect(Collectors.toList());
-    // }
+    @PutMapping(value = "/{id}", consumes = {"multipart/form-data"})
+    public ResponseEntity<?> updatePersonalInfo(
+            @PathVariable Long id,
+            @RequestParam(value = "file", required = false) MultipartFile file,
+            @RequestParam("bloodGroup") String bloodGroup,
+            @RequestParam("registration") String registrationJson) {
+        try {
+            // Convert the registration JSON string to Registration object
+            ObjectMapper objectMapper = new ObjectMapper();
+            Registration registration = objectMapper.readValue(registrationJson, Registration.class);
 
-    @PutMapping("/{id}")
-    public ResponseEntity<PersonalInfo> updatePersonalInfo(@PathVariable Long id, @RequestBody PersonalInfo updatedPersonalInfo) {
-        PersonalInfo personalInfo = personalInfoService.updatePersonalInfo(id, updatedPersonalInfo);
-        if (personalInfo != null) {
-            return new ResponseEntity<>(personalInfo, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            PersonalInfo updatedPersonalInfo = personalInfoService.updatePersonalInfo(id, file, bloodGroup, registration);
+            if (updatedPersonalInfo != null) {
+                return new ResponseEntity<>(updatedPersonalInfo, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>("Failed to update personal info: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -82,5 +81,4 @@ public class PersonalInfoController {
         personalInfoService.deletePersonalInfo(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-    
 }

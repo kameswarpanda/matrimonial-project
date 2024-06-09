@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.infosys.matrimony.entity.Contact;
-import com.infosys.matrimony.service.ContactService;
-
 import java.util.List;
 import java.util.Optional;
 

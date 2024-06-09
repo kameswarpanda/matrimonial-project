@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="familyForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="familyStatus" class="mb-2">Family Status</label><br />
     <div class="btn-group-toggle" data-toggle="buttons">
@@ -48,7 +48,7 @@
   <div class="form-group">
     <label for="familyType" class="mb-2">Family Type</label><br />
     <div class="btn-group-toggle" data-toggle="buttons">
-      <i class="fa-solid fa-users  me-3"></i>
+      <i class="fa-solid fa-users me-3"></i>
       <label class="btn btn-option">
         <input
           type="radio"
@@ -88,7 +88,6 @@
   <button
     type="submit"
     class="btn btn-success btn-continue mt-3"
-    routerLinkActive="active"
   >
     Update
   </button>

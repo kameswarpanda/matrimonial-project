@@ -24,4 +24,9 @@ export class PersonalInfoService {
   getAllPersonalInfo(): Observable<Personalinfo[]> {
     return this.http.get<Personalinfo[]>(this.apiUrl);
   }
+
+  updatePersonalInfo(id: number, formData: FormData): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, formData);
+  }
+
 }
