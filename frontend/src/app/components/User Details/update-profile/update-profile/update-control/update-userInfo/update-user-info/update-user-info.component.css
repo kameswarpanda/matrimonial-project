@@ -2,6 +2,10 @@
   margin-bottom: 20px;
 }
 
+h4{
+  font-weight: bold;
+}
+
 .form-group label {
   font-weight: bold;
 }

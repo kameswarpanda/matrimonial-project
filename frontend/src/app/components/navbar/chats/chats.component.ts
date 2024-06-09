@@ -17,7 +17,7 @@ export class ChatsComponent implements OnInit{
   messages: Message[] = [];
   filteredMessages: Message[] = []; // Array to store filtered messages
   isDisabled = false;
-  buttonText = 'Confirm';
+  buttonText = 'Reply';
 
   constructor(private messagingService: MessagingService) {}
 
@@ -45,25 +45,7 @@ export class ChatsComponent implements OnInit{
       console.log(this.filteredMessages)
   }
   onClick() {
-    this.isDisabled = true;
-    this.buttonText = 'Confirmed';
-    //sweet alert
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      },
-    });
-    Toast.fire({
-      icon: 'success',
-      title: 'Confirmation sent to User',
-    });
-
-    //for Email notifictaion used(Email JS)
+    // this.isDisabled = true;
+    // this.buttonText = 'Replyed';
   }
 }
