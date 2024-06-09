@@ -6,6 +6,8 @@ import { MessagingService } from '../../../../services/message/message.service';
 import { Message } from '../../../../models/messages/messages';
 import { Registration } from '../../../../models/registration/registration';
 import { RegistrationService } from '../../../../services/registration/registration.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-chat-form',
@@ -57,7 +59,23 @@ export class ChatFormComponent implements OnInit{
         response => {
           console.log('Message saved successfully', response);
           // Navigate or give feedback to the user
-          this.router.navigate(['matches/brides']);
+          this.router.navigate(['/page']);
+          //alert
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "center-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Form submitted"
+          });
         },
         error => {
           console.error('Error saving message', error);

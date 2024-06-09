@@ -13,6 +13,10 @@ h5{
   margin-bottom: 30px;
 }
 
+h4{
+  font-weight: bold;
+}
+
 .btn-option {
   margin-right: 10px;
   margin-bottom: 10px;

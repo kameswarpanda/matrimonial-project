@@ -6,6 +6,9 @@
   font-weight: bold;
 }
 
+h4{
+  font-weight: bold;
+}
 .form-group input[type="text"],
 .form-group input[type="email"] {
   width: 100%;
