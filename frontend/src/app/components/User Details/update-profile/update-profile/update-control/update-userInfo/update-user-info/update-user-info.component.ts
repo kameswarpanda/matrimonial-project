@@ -51,7 +51,8 @@ export class UpdateUserInfoComponent implements OnInit {
           userName: this.registration.userName,
           email: this.registration.email
         });
-        this.loadUserInfo(); // Move this call inside the subscription to ensure registration is loaded before loading user info
+        this.loadUserInfo(); 
+        // Move this call inside the subscription to ensure registration is loaded before loading user info
       },
       (error) => {
         console.log('Error fetching registration details:', error);
@@ -91,11 +92,10 @@ export class UpdateUserInfoComponent implements OnInit {
         response => {
           Swal.fire({
             title: 'Success!',
-            text: 'User information updated successfully.',
+            text: 'User info updated successfully.',
             icon: 'success'
           });
-          // Redirect to user profile page
-          this.router.navigate(['/userinfo', this.loggedInUser]);
+          
         },
         error => {
           console.error('Update failed:', error);
