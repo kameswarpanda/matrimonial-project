@@ -97,6 +97,7 @@
 }
 
 .btn {
+  font-size: 20px;
   /* font-weight: bold; */
   /* background: linear-gradient(45deg, #2bc4a8, #009970); */
   border-radius: 2rem;
@@ -126,6 +127,7 @@
   padding: 100px 0;
   text-align: center;
   overflow: hidden;
+  background-image: url(../.././../../../assets/banner1.webp);
 }
 
 .video-background {
