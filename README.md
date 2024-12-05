@@ -55,6 +55,7 @@ Once both the frontend and API servers are running, you can access the applicati
 - Make sure that no other services are using ports `4200` and `8080`, as these ports are used by the frontend and API respectively.
 - You might need to configure CORS settings on the Spring API if the frontend and API are hosted on different domains in a production environment.
 - Ensure that your environment meets all the prerequisites mentioned above before attempting to run the applications.
+- For Admin dashboard direct login with user name 'Admin' and password 'Admin123'.
 
 ---
 Made with ❤️ during Infosys internship.
