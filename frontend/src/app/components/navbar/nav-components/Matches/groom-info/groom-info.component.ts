@@ -59,7 +59,7 @@ export class GroomInfoComponent implements OnInit{
 
     //Email verification
     const form = document.getElementById('interestForm') as HTMLFormElement;
-    emailjs.sendForm('service_hksa34h', 'template_4x9byr7', form, 'yoF2P1NACJyTjTxOS')
+    emailjs.sendForm('service_b33wh5w', 'template_rv04sb5', form, 'TiPMp9coe69l6TC0y')
       .then(
         () => {
           console.log('SUCCESS!');

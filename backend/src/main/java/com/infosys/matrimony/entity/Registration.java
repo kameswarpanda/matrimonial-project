@@ -13,16 +13,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Table(name = "registrations")
 public class Registration {
 
@@ -60,68 +54,6 @@ public class Registration {
     @OneToMany(mappedBy = "registration", cascade = CascadeType.ALL) // Bidirectional relationship
     private List<Message> messages;
 
-	public Long getRid() {
-		return rid;
-	}
-
-	public void setRid(Long rid) {
-		this.rid = rid;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public EducationCareer getEducationCareer() {
-		return educationCareer;
-	}
-
-	public void setEducationCareer(EducationCareer educationCareer) {
-		this.educationCareer = educationCareer;
-	}
-
-	public FamilyInfo getFamily() {
-		return family;
-	}
-
-	public void setFamily(FamilyInfo family) {
-		this.family = family;
-	}
-
-	public PersonalInfo getPersonalInfo() {
-		return personalInfo;
-	}
-
-	public void setPersonalInfo(PersonalInfo personalInfo) {
-		this.personalInfo = personalInfo;
-	}
+	
 
 }

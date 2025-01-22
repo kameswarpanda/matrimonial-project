@@ -8,16 +8,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
+@Data
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "education_career")
 public class EducationCareer {
     @Id
@@ -35,35 +29,4 @@ public class EducationCareer {
 	@JoinColumn(name="rid")
 	private Registration registration;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getEducationLevel() {
-		return educationLevel;
-	}
-
-	public void setEducationLevel(String educationLevel) {
-		this.educationLevel = educationLevel;
-	}
-
-	public String getEducationField() {
-		return educationField;
-	}
-
-	public void setEducationField(String educationField) {
-		this.educationField = educationField;
-	}
-
-	public Registration getRegistration() {
-		return registration;
-	}
-
-	public void setRegistration(Registration registration) {
-		this.registration = registration;
-	}
 }

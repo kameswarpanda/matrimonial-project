@@ -8,13 +8,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.*;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Table(name = "user_info")
 public class User {
     @Id
@@ -38,52 +35,5 @@ public class User {
 	@Column(name = "gender")
 	private String gender;
 
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-
-	public Registration getRegistration() {
-		return registration;
-	}
-
-	public void setRegistration(Registration registration) {
-		this.registration = registration;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public Integer getAge() {
-		return age;
-	}
-
-	public void setAge(Integer age) {
-		this.age = age;
-	}
 	
-	
-
-
-	// private String address;
-	// private int noOfGuests;
-	
-	// private String  dateOfFunction;
-	// private String mobileNum;
 }
